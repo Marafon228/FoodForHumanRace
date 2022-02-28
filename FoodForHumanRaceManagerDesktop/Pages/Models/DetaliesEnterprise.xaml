@@ -1,0 +1,56 @@
+﻿<Page x:Class="FoodForHumanRaceManagerDesktop.Pages.Models.DetaliesEnterprise"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FoodForHumanRaceManagerDesktop.Pages.Models"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DetaliesEnterprise"
+      Background="AliceBlue"
+      Name="DetaliesEnterpriseName">
+
+    <Grid DataContext="{Binding ElementName=DetaliesEnterpriseName, Path=.}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Text="{Binding MyEnterprise.Name}"></TextBlock>
+            <TextBlock Text="{Binding MyEnterprise.Address}"></TextBlock>
+            
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Product"></TextBlock>
+                <Button Content="Add" Margin="700 0 0 0"></Button>
+            </StackPanel>
+            <ListView x:Name="ListViewProducts" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Center">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <StackPanel>
+                                <Image Width="400" Stretch="Uniform" HorizontalAlignment="Center">
+                                    <Image.Source>
+                                        <Binding Path="Image">
+                                            <Binding.TargetNullValue>
+                                                <Image Source="/Properties/restaurant.png"/>
+                                            </Binding.TargetNullValue>
+                                        </Binding>
+                                    </Image.Source>
+                                </Image>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                                <TextBlock Text="{Binding Price}"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>
