@@ -25,24 +25,27 @@
             <TextBlock Text="Enterprise"></TextBlock>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Name"></TextBlock>
-                <TextBox Text="Input text"></TextBox>
+                <TextBox Text="{Binding CurrentEnterprise.Name}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Type"></TextBlock>
-                <ComboBox></ComboBox>
+                <ComboBox ItemsSource="{Binding TypeEnterprise, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="." DisplayMemberPath="Name"
+                          SelectedValue="{Binding CurrentTypeEnterprise}"
+                          SelectedItem="{Binding CurrentTypeEnterprise}"></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Address"></TextBlock>
-                <TextBox Text="Input text"></TextBox>
+                <TextBox Text="{Binding CurrentEnterprise.Address}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal"/>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Latiude"></TextBlock>
-                <TextBox Text="Input text"></TextBox>
+                <TextBox Text="{Binding CurrentEnterprise.Latitude}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Longitude"></TextBlock>
-                <TextBox Text="Input text"></TextBox>
+                <TextBox Text="{Binding CurrentEnterprise.Longitude}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal"/>
 
@@ -51,27 +54,40 @@
             <TextBlock Text="Menedger"></TextBlock>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Login:"></TextBlock>
-                <TextBox Text="Input text"></TextBox>
+                <TextBox Text="{Binding CurrentUser.Login, Mode=TwoWay}" ></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Password:"></TextBlock>
-                <TextBox Text="Input text"></TextBox>
+                <TextBox Text="{Binding CurrentUser.Password}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="First Name:"></TextBlock>
-                <TextBox Text="Input text"></TextBox>
+                <TextBox Text="{Binding CurrentUser.FirsName}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Middli Name:"></TextBlock>
-                <TextBox Text="Input text"></TextBox>
+                <TextBox Text="{Binding CurrentUser.MidleName}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Last Name:"></TextBlock>
-                <TextBox Text="Input text"></TextBox>
+                <TextBox Text="{Binding CurrentUser.LastName}"></TextBox>
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Address:"></TextBlock>
+                <TextBox Text="{Binding CurrentUser.Adress}"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Phone:"></TextBlock>
+                <TextBox Text="{Binding CurrentUser.Phone}"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Email:"></TextBlock>
+                <TextBox Text="{Binding CurrentUser.Email}"></TextBox>
+            </StackPanel>
+            
         </StackPanel>
         <StackPanel Grid.Row="3" Orientation="Horizontal">
-            <Button Content="SAVE"></Button>
+            <Button Content="SAVE" Click="Button_Click"></Button>
             <Button Content="CANCEL"></Button>
         </StackPanel>
     </Grid>

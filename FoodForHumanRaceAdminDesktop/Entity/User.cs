@@ -1,6 +1,6 @@
-namespace FoodForHumanRaceManagerDesktop.Entity
+namespace FoodForHumanRaceAdminDesktop.Entity
 {
-    using FoodForHumanRaceManagerDesktop.Helpers;
+    using FoodForHumanRaceAdminDesktop.Helpers;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -17,7 +17,6 @@ namespace FoodForHumanRaceManagerDesktop.Entity
             Order = new HashSet<Order>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Required]

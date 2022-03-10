@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace FoodForHumanRaceManagerDesktop.Entity
+namespace FoodForHumanRaceAdminDesktop.Entity
 {
     public partial class ADO : DbContext
     {
@@ -16,7 +16,6 @@ namespace FoodForHumanRaceManagerDesktop.Entity
         {
             get { return _instance ?? (_instance = new ADO()); }
         }
-
         public virtual DbSet<Enterprise> Enterprise { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Product> Product { get; set; }
@@ -25,6 +24,7 @@ namespace FoodForHumanRaceManagerDesktop.Entity
         public virtual DbSet<TypeOfEnterprise> TypeOfEnterprise { get; set; }
         public virtual DbSet<TypesOfProducts> TypesOfProducts { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Company> Company { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

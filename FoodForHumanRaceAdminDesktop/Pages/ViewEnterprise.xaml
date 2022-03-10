@@ -26,6 +26,6 @@
                 
             </DataGrid.Columns>
         </DataGrid>
-        <Button Grid.Row="2" Content="ADD"></Button>
+        <Button Grid.Row="2" Content="ADD" Click="Button_Click"></Button>
     </Grid>
 </Page>

@@ -5,11 +5,6 @@ VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodForHumanRaceAdminDesktop", "FoodForHumanRaceAdminDesktop\FoodForHumanRaceAdminDesktop.csproj", "{7181A577-F9C2-457A-B553-BB3E6EBE5285}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{EFE815D8-61A0-4F43-AF3B-6ACE5878FBDF}"
-	ProjectSection(SolutionItems) = preProject
-		ObservableObject.cs = ObservableObject.cs
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodForHumanRaceManagerDesktop", "FoodForHumanRaceManagerDesktop\FoodForHumanRaceManagerDesktop.csproj", "{9E953FF8-B8C3-4BDF-9973-0D24DD2A656A}"
 EndProject
 Global
