@@ -1,5 +1,7 @@
-﻿using System;
+﻿using FoodForHumanRaceAdminDesktop.Entity;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,44 @@ namespace FoodForHumanRaceAdminDesktop.Pages
     /// </summary>
     public partial class ViewEnterprise : Page
     {
-        public ViewEnterprise()
+
+        private Enterprise currentEnterprise;
+
+        public Enterprise CurrentEnterprise
         {
+            get { return currentEnterprise; }
+            set { currentEnterprise = value; }
+        }
+
+        private User currentUser;
+
+        public User CurrentUser
+        {
+            get { return currentUser; }
+            set { currentUser = value; }
+        }
+
+        public ViewEnterprise(Enterprise enterprise = null, User user = null)
+        {
+            if (enterprise != null && user != null)
+            {
+                CurrentUser = user;
+                CurrentEnterprise = enterprise;
+            }
+            else
+            {
+                CurrentEnterprise = new Enterprise();
+                CurrentUser = new User();
+            }
+
+            /*CurrentUser = new User();
+
+            CurrentEnterprise = new Enterprise();*/
+            
             InitializeComponent();
+
+            //DataGridViewEnterprise.ItemsSource = CurrentUser.Enterprise;
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

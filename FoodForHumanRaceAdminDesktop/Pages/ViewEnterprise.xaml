@@ -17,12 +17,13 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Enterprise" FontSize="30"></TextBlock>
-        <DataGrid Grid.Row="1" Margin="20">
+        <DataGrid Grid.Row="1" Margin="20" Name="DataGridViewEnterprise" ItemsSource="{Binding CurrentUser}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id"></DataGridTextColumn>
-                <DataGridTextColumn Header="Name"></DataGridTextColumn>
-                <DataGridTextColumn Header="Adress"></DataGridTextColumn>
-                <DataGridTextColumn Header="Menedger Name"></DataGridTextColumn>
+                <DataGridTextColumn Header="Id" Binding="{Binding Enterprise.Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding CurrentEnterprise.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Adress" Binding="{Binding CurrentEnterprise.Address}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Name Menedger" Binding="{Binding CurrentUser.FirsName}"></DataGridTextColumn>
+                
                 
             </DataGrid.Columns>
         </DataGrid>
