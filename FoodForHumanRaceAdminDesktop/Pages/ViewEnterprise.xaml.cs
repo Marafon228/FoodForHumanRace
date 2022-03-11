@@ -36,26 +36,39 @@ namespace FoodForHumanRaceAdminDesktop.Pages
         public User CurrentUser
         {
             get { return currentUser; }
-            set { currentUser = value; }
+            set { currentUser = value;CurrentUser.OnPropertyChanged(); }
+        }
+        private ObservableCollection<Enterprise> enterprises;
+
+        public ObservableCollection<Enterprise> Enterprises
+        {
+            get { return enterprises; }
+            set { enterprises = value; }
         }
 
-        public ViewEnterprise(Enterprise enterprise = null, User user = null)
+        public ViewEnterprise(/*Enterprise enterprise = null,*/ User user = null)
         {
-            if (enterprise != null && user != null)
+
+            Enterprises = new ObservableCollection<Enterprise>(ADO.Instance.Enterprise.ToList());
+            //CurrentEnterprise = ADO.Instance.Enterprise.FirstOrDefault();
+            //CurrentEnterprise = ADO.Instance.Enterprise.ToList().FirstOrDefault();
+            //CurrentUser = ADO.Instance.User.FirstOrDefault();
+            /*if (*//*enterprise != null &&*//* user != null)
             {
                 CurrentUser = user;
-                CurrentEnterprise = enterprise;
+                //CurrentEnterprise = enterprise;
             }
             else
             {
-                CurrentEnterprise = new Enterprise();
-                CurrentUser = new User();
-            }
+                // CurrentEnterprise = new Enterprise();
+                //CurrentUser = new List<User>(ADO.Instance.User.ToList());
+
+            }*/
 
             /*CurrentUser = new User();
 
             CurrentEnterprise = new Enterprise();*/
-            
+
             InitializeComponent();
 
             //DataGridViewEnterprise.ItemsSource = CurrentUser.Enterprise;
