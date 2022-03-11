@@ -2,6 +2,7 @@
 using FoodForHumanRaceManagerDesktop.Pages.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,9 +25,9 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
     {
         private ADO db = new ADO();
 
-        private List<Enterprise> myEnterprise;
+        private ObservableCollection<Enterprise> myEnterprise;
 
-        public List<Enterprise> MyEnterprise
+        public ObservableCollection<Enterprise> MyEnterprise
         {
             get { return myEnterprise; }
             set { myEnterprise = value; }
@@ -36,7 +37,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
         {
 
 
-            MyEnterprise = db.Enterprise.ToList();
+            MyEnterprise = new ObservableCollection<Enterprise>(ADO.Instance.Enterprise.ToList());
 
 
 

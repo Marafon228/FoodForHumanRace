@@ -94,6 +94,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Models\AddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Models\DetaliesEnterprise.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -106,10 +110,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\View\ViewStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Models\AddProduct.xaml.cs">
+      <DependentUpon>AddProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Models\DetaliesEnterprise.xaml.cs">
       <DependentUpon>DetaliesEnterprise.xaml</DependentUpon>
@@ -119,6 +130,9 @@
     </Compile>
     <Compile Include="Pages\View\ViewEnterprise.xaml.cs">
       <DependentUpon>ViewEnterprise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\View\ViewStaff.xaml.cs">
+      <DependentUpon>ViewStaff.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

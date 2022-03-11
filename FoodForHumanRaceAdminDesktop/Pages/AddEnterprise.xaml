@@ -31,8 +31,8 @@
                 <TextBlock Text="Type"></TextBlock>
                 <ComboBox ItemsSource="{Binding TypeEnterprise, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           SelectedValuePath="." DisplayMemberPath="Name"
-                          SelectedValue="{Binding CurrentTypeEnterprise}"
-                          SelectedItem="{Binding CurrentTypeEnterprise}"></ComboBox>
+                          SelectedValue="{Binding CurrentEnterprise.TypeOfEnterprise, Mode=TwoWay}"
+                          SelectedItem="{Binding CurrentEnterprise.TypeOfEnterprise, Mode=TwoWay}"></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Address"></TextBlock>

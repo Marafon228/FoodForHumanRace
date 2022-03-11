@@ -23,9 +23,10 @@
         <StackPanel Grid.Row="1">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Product"></TextBlock>
-                <Button Content="Add" Margin="700 0 0 0"></Button>
+                <Button Content="Add" Margin="700 0 0 0" Click="Btn_Add_Product"></Button>
             </StackPanel>
-            <ListView x:Name="ListViewProducts" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Center">
+            
+            <ListView x:Name="ListViewProducts" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Center" ItemsSource="{Binding MyProduct}">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"></WrapPanel>
@@ -37,15 +38,16 @@
                             <StackPanel>
                                 <Image Width="400" Stretch="Uniform" HorizontalAlignment="Center">
                                     <Image.Source>
-                                        <Binding Path="Image">
+                                        <Binding Path="ImagePreview">
                                             <Binding.TargetNullValue>
-                                                <Image Source="/Properties/restaurant.png"/>
+                                                <Image Source="/Resources/restaurant.png" />
                                             </Binding.TargetNullValue>
                                         </Binding>
                                     </Image.Source>
                                 </Image>
-                                <TextBlock Text="{Binding Name}"></TextBlock>
-                                <TextBlock Text="{Binding Price}"></TextBlock>
+                                <TextBlock Text="{Binding Path=Name}"></TextBlock>
+                                <TextBlock Text="{Binding Path=Price}"></TextBlock>
+                                <TextBlock Text="{Binding Path=Description}"></TextBlock>
                             </StackPanel>
                         </Grid>
                     </DataTemplate>

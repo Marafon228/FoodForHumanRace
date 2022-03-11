@@ -1,6 +1,7 @@
 ﻿using FoodForHumanRaceManagerDesktop.Entity;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,9 +31,9 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
             get { return myEnterprise; }
             set { myEnterprise = value; }
         }
-        private List<Product> myProduct;
+        private ObservableCollection<Product> myProduct;
 
-        public List<Product> MyProduct
+        public ObservableCollection<Product> MyProduct
         {
             get { return myProduct; }
             set { myProduct = value; }
@@ -41,6 +42,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
 
         public DetaliesEnterprise(Enterprise selectEnterprise)
         {
+            MyProduct = new ObservableCollection<Product>(ADO.Instance.Product.ToList());
             if (selectEnterprise != null)
             {
                 MyEnterprise = selectEnterprise;
@@ -54,9 +56,16 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
                                     .ToList();*/
 
             InitializeComponent();
-            var Product = db.Product
-                /*.Where(p => MyEnterprise.TypesOfProducts == p.TypesOfProducts)*/.ToList();
-            ListViewProducts.ItemsSource = Product;
+           /* var Product = db.Product
+                *//*.Where(p => MyEnterprise.TypesOfProducts == p.TypesOfProducts)*//*.ToList();
+            ListViewProducts.ItemsSource = Product;*/
+            //ListViewProducts.ItemsSource = MyProduct; 
+
+        }
+
+        private void Btn_Add_Product(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddProduct());
         }
     }
 }

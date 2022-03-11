@@ -46,7 +46,7 @@ namespace FoodForHumanRaceAdminDesktop.Pages
             set { enterprises = value; }
         }
 
-        public ViewEnterprise(/*Enterprise enterprise = null,*/ User user = null)
+        public ViewEnterprise(/*Enterprise enterprise = null,*/ /*User user = null*/)
         {
 
             Enterprises = new ObservableCollection<Enterprise>(ADO.Instance.Enterprise.ToList());

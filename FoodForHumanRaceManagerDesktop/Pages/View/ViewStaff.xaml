@@ -1,0 +1,27 @@
+﻿<Page x:Class="FoodForHumanRaceManagerDesktop.Pages.View.ViewStaff"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FoodForHumanRaceManagerDesktop.Pages.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ViewStaff"
+      Background="AliceBlue"
+      Name="ViewStaffName">
+
+    <Grid DataContext="{Binding ElementName=ViewStaffName, Path=.}">
+        <StackPanel Margin="15">
+            <TextBlock FontSize="30" Text="Staffs"></TextBlock>
+            <DataGrid Margin="0 10 0 0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding }"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Fuul Name"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Login"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Description"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Base Name"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>

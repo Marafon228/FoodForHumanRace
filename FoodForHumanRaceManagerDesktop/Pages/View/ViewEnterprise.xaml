@@ -17,12 +17,12 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Enterprise" FontSize="30"></TextBlock>
-        <DataGrid Grid.Row="1" x:Name="DGEnterprise" ItemsSource="{Binding MyEnterprise}">
+        <DataGrid Grid.Row="1" x:Name="DGEnterprise" ItemsSource="{Binding MyEnterprise}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Address" Binding="{Binding Address}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Location" Binding="{Binding Latitude}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Address" Binding="{Binding Path=Address}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Location" Binding="{Binding Path=Latitude}"></DataGridTextColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
