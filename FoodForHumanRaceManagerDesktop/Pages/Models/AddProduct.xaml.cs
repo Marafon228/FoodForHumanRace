@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoodForHumanRaceManagerDesktop.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,15 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
     /// </summary>
     public partial class AddProduct : Page
     {
+        private Product currentProduct;
+
+        public Product CurrentProduct
+        {
+            get { return currentProduct; }
+            set { currentProduct = value; }
+        }
+
+
         public AddProduct()
         {
             InitializeComponent();
