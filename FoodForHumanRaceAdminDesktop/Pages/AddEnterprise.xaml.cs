@@ -64,22 +64,28 @@ namespace FoodForHumanRaceAdminDesktop.Pages
             TypeEnterprise = new ObservableCollection<TypeOfEnterprise>(ADO.Instance.TypeOfEnterprise.ToList());
 
             CurrentUser = new User() { Role = ADO.Instance.Role.FirstOrDefault(r=> r.Name == "Предприниматель") };
-            CurrentEnterprise = new Enterprise(){  };
+            CurrentEnterprise = new Enterprise();
             //CurrentTypeEnterprise = ADO.Instance.TypeOfEnterprise.First();
-            CurrentEnterprise.User = CurrentUser;
+            /*CurrentUser.UsersAndEnterprise = CurrentEnterprise.UsersAndEnterprise;
+            CurrentEnterprise.UsersAndEnterprise = CurrentUser.UsersAndEnterprise;*/
+            //CurrentEnterprise.User = CurrentUser;
             
             //CurrentUser.Enterprise = (ICollection<Enterprise>)CurrentEnterprise;
             InitializeComponent();
-        }
 
+            
+
+        }
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
 
-                CurrentUser.Enterprise.Add(CurrentEnterprise);
-                   
-                ADO.Instance.User.Add(CurrentUser);
+                /*CurrentUser.Enterprise.Add(CurrentEnterprise);
+                CurrentUser.UsersAndEnterprise.Add(CurrentEnterprise);*/
+                ADO.Instance.UsersAndEnterprise.Add(new UsersAndEnterprise { Enterprise = CurrentEnterprise, User = CurrentUser });
+                //ADO.Instance.User.Add(CurrentUser);
                 ADO.Instance.SaveChanges();
                 
                 

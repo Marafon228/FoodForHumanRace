@@ -15,7 +15,6 @@ namespace FoodForHumanRaceManagerDesktop.Entity
             Enterprise = new HashSet<Enterprise>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Required]

@@ -6,21 +6,17 @@ namespace FoodForHumanRaceManagerDesktop.Entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Order")]
-    public partial class Order
+    [Table("UsersAndEnterprise")]
+    public partial class UsersAndEnterprise
     {
+        
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Name { get; set; }
-
-        [Column(TypeName = "text")]
-        public string Description { get; set; }
-
-        public DateTime Date { get; set; }
-
         public int IdUser { get; set; }
+
+        public int IdEnterprise { get; set; }
+
+        public virtual Enterprise Enterprise { get; set; }
 
         public virtual User User { get; set; }
     }

@@ -1,6 +1,5 @@
 namespace FoodForHumanRaceManagerDesktop.Entity
 {
-    using FoodForHumanRaceManagerDesktop.Helpers;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -8,16 +7,16 @@ namespace FoodForHumanRaceManagerDesktop.Entity
     using System.Data.Entity.Spatial;
 
     [Table("User")]
-    public partial class User : ObservableObject
-    {
+    public partial class User
+    {    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            Enterprise = new HashSet<Enterprise>();
             Order = new HashSet<Order>();
-        }
+            UsersAndEnterprise = new HashSet<UsersAndEnterprise>();
+        }       
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Required]
@@ -54,12 +53,15 @@ namespace FoodForHumanRaceManagerDesktop.Entity
 
         public int IdRole { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Enterprise> Enterprise { get; set; }
+        [NotMapped]
+        public string FullName => FirsName + " " + MidleName + " " + LastName;
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
 
         public virtual Role Role { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UsersAndEnterprise> UsersAndEnterprise { get; set; }
     }
 }

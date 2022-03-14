@@ -21,10 +21,12 @@ namespace FoodForHumanRaceManagerDesktop.Entity
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        
         public virtual DbSet<TypeOfEnterprise> TypeOfEnterprise { get; set; }
         public virtual DbSet<TypesOfProducts> TypesOfProducts { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UsersAndEnterprise> UsersAndEnterprise { get; set; }
+        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -38,6 +40,12 @@ namespace FoodForHumanRaceManagerDesktop.Entity
 
             modelBuilder.Entity<Enterprise>()
                 .HasMany(e => e.TypesOfProducts)
+                .WithRequired(e => e.Enterprise)
+                .HasForeignKey(e => e.IdEnterprise)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Enterprise>()
+                .HasMany(e => e.UsersAndEnterprise)
                 .WithRequired(e => e.Enterprise)
                 .HasForeignKey(e => e.IdEnterprise)
                 .WillCascadeOnDelete(false);
@@ -73,13 +81,13 @@ namespace FoodForHumanRaceManagerDesktop.Entity
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
-                .HasMany(e => e.Enterprise)
+                .HasMany(e => e.Order)
                 .WithRequired(e => e.User)
                 .HasForeignKey(e => e.IdUser)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
-                .HasMany(e => e.Order)
+                .HasMany(e => e.UsersAndEnterprise)
                 .WithRequired(e => e.User)
                 .HasForeignKey(e => e.IdUser)
                 .WillCascadeOnDelete(false);

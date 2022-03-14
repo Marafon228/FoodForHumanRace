@@ -27,7 +27,6 @@ namespace FoodForHumanRaceAdminDesktop.Entity
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
 
-        [StringLength(50)]
         public byte[] Image { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

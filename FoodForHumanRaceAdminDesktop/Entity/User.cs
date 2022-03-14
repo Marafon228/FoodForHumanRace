@@ -13,8 +13,8 @@ namespace FoodForHumanRaceAdminDesktop.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            Enterprise = new HashSet<Enterprise>();
             Order = new HashSet<Order>();
+            UsersAndEnterprise = new HashSet<UsersAndEnterprise>();
         }
 
         public int Id { get; set; }
@@ -54,11 +54,11 @@ namespace FoodForHumanRaceAdminDesktop.Entity
         public int IdRole { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Enterprise> Enterprise { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
 
         public virtual Role Role { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UsersAndEnterprise> UsersAndEnterprise { get; set; }
     }
 }

@@ -13,9 +13,9 @@ namespace FoodForHumanRaceManagerDesktop.Entity
         public Enterprise()
         {
             TypesOfProducts = new HashSet<TypesOfProducts>();
+            UsersAndEnterprise = new HashSet<UsersAndEnterprise>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Required]
@@ -28,17 +28,16 @@ namespace FoodForHumanRaceManagerDesktop.Entity
         [StringLength(50)]
         public string Address { get; set; }
 
-        public int IdUser { get; set; }
-
         public decimal Latitude { get; set; }
 
         public decimal Longitude { get; set; }
 
         public virtual TypeOfEnterprise TypeOfEnterprise { get; set; }
 
-        public virtual User User { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TypesOfProducts> TypesOfProducts { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UsersAndEnterprise> UsersAndEnterprise { get; set; }
     }
 }

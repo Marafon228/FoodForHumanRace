@@ -13,13 +13,12 @@
     <Grid DataContext="{Binding ElementName=ViewStaffName, Path=.}">
         <StackPanel Margin="15">
             <TextBlock FontSize="30" Text="Staffs"></TextBlock>
-            <DataGrid Margin="0 10 0 0">
+            <DataGrid Margin="0 10 0 0" ItemsSource="{Binding UserStaff}" AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding }"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Fuul Name"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Login"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Description"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Base Name"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Fuul Name" Binding="{Binding Path=FullName}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Login" Binding="{Binding Path=Login}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Base Name" Binding="{Binding Path=FirsName}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

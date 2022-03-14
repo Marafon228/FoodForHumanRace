@@ -81,10 +81,10 @@
     <Compile Include="Entity\Order.cs" />
     <Compile Include="Entity\Product.cs" />
     <Compile Include="Entity\Role.cs" />
-    <Compile Include="Entity\sysdiagrams.cs" />
     <Compile Include="Entity\TypeOfEnterprise.cs" />
     <Compile Include="Entity\TypesOfProducts.cs" />
     <Compile Include="Entity\User.cs" />
+    <Compile Include="Entity\UsersAndEnterprise.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -95,6 +95,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Models\AddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Models\AddStaff.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,6 +125,9 @@
     </Compile>
     <Compile Include="Pages\Models\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Models\AddStaff.xaml.cs">
+      <DependentUpon>AddStaff.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Models\DetaliesEnterprise.xaml.cs">
       <DependentUpon>DetaliesEnterprise.xaml</DependentUpon>

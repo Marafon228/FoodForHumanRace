@@ -1,6 +1,5 @@
 namespace FoodForHumanRaceManagerDesktop.Entity
 {
-    using FoodForHumanRaceManagerDesktop.Helpers;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -8,7 +7,7 @@ namespace FoodForHumanRaceManagerDesktop.Entity
     using System.Data.Entity.Spatial;
 
     [Table("Product")]
-    public partial class Product : ObservableObject
+    public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
@@ -16,7 +15,6 @@ namespace FoodForHumanRaceManagerDesktop.Entity
             TypesOfProducts = new HashSet<TypesOfProducts>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Required]
@@ -29,7 +27,6 @@ namespace FoodForHumanRaceManagerDesktop.Entity
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
 
-        [StringLength(50)]
         public byte[] Image { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

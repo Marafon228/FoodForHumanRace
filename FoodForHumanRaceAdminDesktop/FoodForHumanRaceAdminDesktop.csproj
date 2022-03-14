@@ -76,15 +76,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Entity\ADO.cs" />
-    <Compile Include="Entity\Company.cs" />
     <Compile Include="Entity\Enterprise.cs" />
     <Compile Include="Entity\Order.cs" />
     <Compile Include="Entity\Product.cs" />
     <Compile Include="Entity\Role.cs" />
-    <Compile Include="Entity\sysdiagrams.cs" />
     <Compile Include="Entity\TypeOfEnterprise.cs" />
     <Compile Include="Entity\TypesOfProducts.cs" />
     <Compile Include="Entity\User.cs" />
+    <Compile Include="Entity\UsersAndEnterprise.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -146,6 +145,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

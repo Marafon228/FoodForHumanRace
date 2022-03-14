@@ -27,7 +27,7 @@ namespace FoodForHumanRaceManagerDesktop
         {
             InitializeComponent();
             MainFrame.NavigationService.Navigate(new Authorization());
-            ImportFile();
+            //ImportFile();
         }
         private void ImportFile()
         {

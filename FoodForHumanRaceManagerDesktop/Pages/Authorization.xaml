@@ -7,18 +7,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Authorization"
-      Background="AliceBlue">
+      Background="AliceBlue"
+      Name="AutoName">
 
-    <Grid>
+    <Grid DataContext="{Binding ElementName=AutoName, Path=.}">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Authorization" FontSize="30"></TextBlock>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="LOGIN:" FontSize="20" Margin="0 0 56 0"></TextBlock>
-                <TextBox FontSize="20" Text="Input text"></TextBox>
+                <TextBox FontSize="20" Text="{Binding CurrentUser.Login}" Width="100"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="PASSWORD:" FontSize="20" Margin="0 0 10 0"></TextBlock>
-                <TextBox FontSize="20" Text="Input text"></TextBox>
+                <TextBox FontSize="20" Text="{Binding CurrentUser.Password}" Width="100"></TextBox>
             </StackPanel>
             <Button Content="LIGIN" Margin="10" Click="LogIn"></Button>
         </StackPanel>
