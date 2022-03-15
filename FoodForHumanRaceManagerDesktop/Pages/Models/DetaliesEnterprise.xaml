@@ -23,7 +23,7 @@
         <StackPanel Grid.Row="1">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Product"></TextBlock>
-                <Button Content="Add" Margin="700 0 0 0" Click="Btn_Add_Product"></Button>
+                <Button Content="Add" HorizontalAlignment="Right" Click="Btn_Add_Product"></Button>
             </StackPanel>
             
             <ListView x:Name="ListViewProducts" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Center" ItemsSource="{Binding MyProduct}">
@@ -38,16 +38,24 @@
                             <StackPanel>
                                 <Image Width="400" Stretch="Uniform" HorizontalAlignment="Center">
                                     <Image.Source>
-                                        <Binding Path="ImagePreview">
+                                        <Binding Path="Image">
                                             <Binding.TargetNullValue>
+                                                
                                                 <Image Source="/Resources/restaurant.png" />
                                             </Binding.TargetNullValue>
                                         </Binding>
                                     </Image.Source>
                                 </Image>
-                                <TextBlock Text="{Binding Path=Name}"></TextBlock>
-                                <TextBlock Text="{Binding Path=Price}"></TextBlock>
-                                <TextBlock Text="{Binding Path=Description}"></TextBlock>
+                                <TextBlock>
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{} {0}  {1} {2}">
+                                            <Binding Path="Name"></Binding>
+                                            <Binding Path="Price"></Binding>
+                                            <Binding Path="Description"></Binding>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                
                             </StackPanel>
                         </Grid>
                     </DataTemplate>

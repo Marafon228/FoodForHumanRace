@@ -48,5 +48,16 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
         {
             NavigationService.Navigate(new DetaliesEnterprise((sender as Button).DataContext as Enterprise));
         }
+
+        private void Edit_Enterprise(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new NewEditEnterprice((sender as Button).DataContext as Enterprise));
+        }
+
+        private void Btn_Add_Enterprise(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new NewEditEnterprice(null));
+
+        }
     }
 }
