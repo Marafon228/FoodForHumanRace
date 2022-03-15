@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FoodForHumanRaceManagerDesktop.Pages;
+using FoodForHumanRaceManagerDesktop.Pages.Models;
 
 namespace FoodForHumanRaceManagerDesktop.Pages.View
 {
@@ -23,6 +24,14 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
     /// </summary>
     public partial class ViewStaff : Page
     {
+        private User globalUser;
+
+        public User GlobalUser
+        {
+            get { return globalUser; }
+            set { globalUser = value; }
+        }
+
         private ObservableCollection<User> userStaff;
 
         public ObservableCollection<User> UserStaff
@@ -34,8 +43,13 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
         public ViewStaff()
         {
             
-            UserStaff = new ObservableCollection<User>(ADO.Instance.User);
+            UserStaff = new ObservableCollection<User>(ADO.Instance.User.Where(u=> u.Role.Name == "Сотрудник"));
             InitializeComponent();
+        }
+
+        private void Btn_Add_Staff(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddStaff());
         }
     }
 }

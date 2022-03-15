@@ -39,6 +39,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
         {
             try
             {
+
                 //CurrentUser.Enterprise = 
                 ADO.Instance.User.Add(CurrentUser);
                 ADO.Instance.SaveChanges();

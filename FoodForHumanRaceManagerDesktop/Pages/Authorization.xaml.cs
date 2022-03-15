@@ -62,7 +62,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages
                     GlobalUser = ADO.Instance.User.Where(c => c.Login == CurrentUser.Login && c.Password == CurrentUser.Password).FirstOrDefault();
                     if (GlobalUser != null)
                     {
-                        NavigationService.Navigate(new StartPage());
+                        NavigationService.Navigate(new StartPage(CurrentUser));
                     }
                     else
                     {
