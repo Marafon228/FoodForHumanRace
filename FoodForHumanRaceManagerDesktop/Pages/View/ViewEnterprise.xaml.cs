@@ -33,11 +33,11 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
             set { myEnterprise = value; }
         }
 
-        public ViewEnterprise()
+        public ViewEnterprise(User userEnterprise)
         {
 
 
-            MyEnterprise = new ObservableCollection<Enterprise>(ADO.Instance.Enterprise.ToList());
+            MyEnterprise = new ObservableCollection<Enterprise>(ADO.Instance.Enterprise/*.Where(eu=> eu.UsersAndEnterprise  == userEnterprise.UsersAndEnterprise) */.ToList());
 
 
 

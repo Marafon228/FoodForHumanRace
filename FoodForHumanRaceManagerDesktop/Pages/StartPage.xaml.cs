@@ -43,7 +43,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages
                 UserEnterprise = userEnterprise;
             }
             InitializeComponent();
-            StartFrame.Navigate(new ViewEnterprise());
+            StartFrame.Navigate(new ViewEnterprise(UserEnterprise));
         }
 
         private void Btn_View_Staff(object sender, RoutedEventArgs e)
