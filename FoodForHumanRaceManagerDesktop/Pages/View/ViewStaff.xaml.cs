@@ -40,16 +40,22 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
             set { userStaff = value; }
         }
 
-        public ViewStaff()
+        public ViewStaff(User userEnterprise)
         {
+            GlobalUser = userEnterprise;
             
-            UserStaff = new ObservableCollection<User>(ADO.Instance.User.Where(u=> u.Role.Name == "Сотрудник"));
+            UserStaff = new ObservableCollection<User>(ADO.Instance.User.Where(u=> u.Role.Name == "Сотрудник" /*&& u.UsersAndEnterprise == GlobalUser.UsersAndEnterprise*/));
             InitializeComponent();
         }
 
         private void Btn_Add_Staff(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddStaff());
+            NavigationService.Navigate(new AddStaff(GlobalUser));
+        }
+
+        private void Btn_Edit_Staff(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddStaff((sender as Button).DataContext as User));
         }
     }
 }

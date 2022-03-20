@@ -46,9 +46,17 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
             DependencyProperty.Register("CurrentProduct", typeof(Product), typeof(AddProduct));
 
 
-        public AddProduct()
+        public AddProduct(Product product)
         {
-            CurrentProduct = new Product();
+            if (product != null)
+            {
+                CurrentProduct = product;
+            }
+            else
+            {
+                CurrentProduct = new Product();
+            }
+            //CurrentProduct = new Product();
             InitializeComponent();
         }
 
@@ -62,21 +70,24 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
             "Portable Network Graphic (*.png)|*.png";   // Filter files by extension
 
             if (openImage.ShowDialog() == DialogResult.OK)
-            { 
+            {
                 CurrentProduct.Image = (byte[]) new ImageConverter().ConvertTo(new Bitmap(openImage.FileName), typeof(byte[]));
             }
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Btn_Save(object sender, RoutedEventArgs e)
         {
-            try
+            if (CurrentProduct.Id == 0)
             {
                 CurrentProduct.TypesOfProducts.Add(new TypesOfProducts() { Enterprise = ADO.Instance.Enterprise.FirstOrDefault(), Product = CurrentProduct });
-         
                 ADO.Instance.Product.Add(CurrentProduct);
+            }
+            try
+            {
                 ADO.Instance.SaveChanges();
                 System.Windows.MessageBox.Show("Успешно !");
+                NavigationService.GoBack();
             }
             catch (Exception ex)
             {

@@ -87,8 +87,8 @@
             
         </StackPanel>
         <StackPanel Grid.Row="3" Orientation="Horizontal">
-            <Button Content="SAVE" Click="Button_Click"></Button>
-            <Button Content="CANCEL"></Button>
+            <Button Content="SAVE" Click="Btn_Save"></Button>
+            <Button Content="CANCEL" Click="Btn_Cancel"></Button>
         </StackPanel>
     </Grid>
 </Page>

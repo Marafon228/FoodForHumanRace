@@ -36,11 +36,10 @@
                     <DataTemplate>
                         <Grid>
                             <StackPanel>
-                                <Image Width="400" Stretch="Uniform" HorizontalAlignment="Center">
+                                <Image Width="400" Height="400" Stretch="Uniform" HorizontalAlignment="Center">
                                     <Image.Source>
                                         <Binding Path="Image">
-                                            <Binding.TargetNullValue>
-                                                
+                                            <Binding.TargetNullValue>                                                
                                                 <Image Source="/Resources/restaurant.png" />
                                             </Binding.TargetNullValue>
                                         </Binding>
@@ -55,9 +54,15 @@
                                         </MultiBinding>
                                     </TextBlock.Text>
                                 </TextBlock>
-                                
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Edit" Click="Btn_Edit_Product"></Button>
+                                    <Button Content="Delete" Click="Btn_Delete_Product"></Button>
+                                </StackPanel>
+
                             </StackPanel>
+                            
                         </Grid>
+                        
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

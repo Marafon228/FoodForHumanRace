@@ -19,5 +19,9 @@ namespace FoodForHumanRaceAdminDesktop.Entity
         public virtual Enterprise Enterprise { get; set; }
 
         public virtual User User { get; set; }
+
+       
+
+
     }
 }

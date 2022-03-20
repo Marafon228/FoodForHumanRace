@@ -176,7 +176,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\restaurant.png" />
+    <Resource Include="Resources\restaurant.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Properties\restaurant.png" />

@@ -11,21 +11,33 @@
       Name="ViewStaffName">
 
     <Grid DataContext="{Binding ElementName=ViewStaffName, Path=.}">
-        <StackPanel Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        
             <TextBlock FontSize="30" Text="Staffs"></TextBlock>
-            <DataGrid Margin="0 10 0 0" ItemsSource="{Binding UserStaff}" AutoGenerateColumns="False" IsReadOnly="True" Height="350">
+            <DataGrid Grid.Row="1" Margin="0 10 0 0" ItemsSource="{Binding UserStaff}" AutoGenerateColumns="False" IsReadOnly="True" Height="350">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Fuul Name" Binding="{Binding Path=FullName}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Login" Binding="{Binding Path=Login}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Base Name" Binding="{Binding Path=FirsName}"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Edit" Click="Btn_Edit_Staff"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" Grid.Row="2">
                 <Button Content="Add" Click="Btn_Add_Staff"></Button>
                 <Button Content="Delete"></Button>
             </StackPanel>
-        </StackPanel>
+        
         
     </Grid>
 </Page>

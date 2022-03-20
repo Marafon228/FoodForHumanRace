@@ -30,7 +30,7 @@
         </StackPanel>
         <StackPanel Margin="10" VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Button Content="SAVE" Margin="10" Width="80" Height="30" Click="Button_Click_1"></Button>
+                <Button Content="SAVE" Margin="10" Width="80" Height="30" Click="Btn_Save"></Button>
                 <Button Content="CANCEL" Margin="10" Width="80" Height="30" Click="Btn_Cancel"></Button>
             </StackPanel>
         </StackPanel>

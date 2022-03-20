@@ -77,7 +77,7 @@ namespace FoodForHumanRaceAdminDesktop.Pages
 
         }
         
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Btn_Save(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -95,6 +95,11 @@ namespace FoodForHumanRaceAdminDesktop.Pages
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Btn_Cancel(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

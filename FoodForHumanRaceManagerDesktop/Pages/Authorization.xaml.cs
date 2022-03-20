@@ -25,7 +25,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages
     public partial class Authorization : Page
     {
         
-        public static object GlobalUser { get; set; }
+        public User GlobalUser { get; set; }
         private User currentUser;
 
         public User CurrentUser
@@ -62,7 +62,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages
                     GlobalUser = ADO.Instance.User.Where(c => c.Login == CurrentUser.Login && c.Password == CurrentUser.Password).FirstOrDefault();
                     if (GlobalUser != null)
                     {
-                        NavigationService.Navigate(new StartPage(CurrentUser));
+                        NavigationService.Navigate(new StartPage(GlobalUser));
                     }
                     else
                     {

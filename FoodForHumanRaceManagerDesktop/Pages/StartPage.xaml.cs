@@ -48,11 +48,17 @@ namespace FoodForHumanRaceManagerDesktop.Pages
 
         private void Btn_View_Staff(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ViewStaff());
+            StartFrame.Navigate(new ViewStaff(UserEnterprise));
         }
 
         private void LogOut(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void Btn_View_Enterprise(object sender, RoutedEventArgs e)
+        {
+            StartFrame.Navigate(new ViewEnterprise(UserEnterprise));
 
         }
     }

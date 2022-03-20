@@ -39,5 +39,17 @@ namespace FoodForHumanRaceAdminDesktop.Entity
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UsersAndEnterprise> UsersAndEnterprise { get; set; }
+
+        
+        [NotMapped]
+        public string UserLogin
+        {
+            get
+            {
+                
+                var Login = "Login menedger" /*ADO.Instance.UsersAndEnterprise.Find().User.Login*/;
+                return Login;
+            }
+        }
     }
 }

@@ -31,6 +31,11 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
             get { return myEnterprise; }
             set { myEnterprise = value; }
         }
+
+
+       
+
+
         private ObservableCollection<Product> myProduct;
 
         public ObservableCollection<Product> MyProduct
@@ -47,8 +52,14 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
             {
                 MyEnterprise = selectEnterprise;
             }
+            else
+            {
+                MyEnterprise = new Enterprise();
+                MyEnterprise.UsersAndEnterprise = new List<UsersAndEnterprise>(ADO.Instance.User.ToList().Select(u => new UsersAndEnterprise() { User = u, Enterprise = MyEnterprise }));
+            }
 
             MyEnterprise = db.Enterprise.FirstOrDefault();
+
             /*.Select(e=> new Enterprise { Name = e.Name, Address = e.Address, Latitude = e.Latitude})*/
             /*.ToList();*/
 
@@ -65,7 +76,40 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
 
         private void Btn_Add_Product(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddProduct());
+            NavigationService.Navigate(new AddProduct(null));
+        }
+
+        private void Btn_Edit_Product(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddProduct((sender as Button).DataContext as Product));
+        }
+
+        private void Btn_Delete_Product(object sender, RoutedEventArgs e)
+        {            
+            //var Productremove = ListViewProducts.SelectedItems.Cast<Product>().ToList();
+            var PrdoductRemoving = (sender as Button).DataContext as Product;
+            //TypesOfProducts TypesProduct = new TypesOfProducts() { Enterprise = MyEnterprise, Product = PrdoductRemoving };
+
+            var TypesOfProductremove = ADO.Instance.TypesOfProducts.Where(pr=> pr.Product == PrdoductRemoving && pr.Enterprise == MyEnterprise).FirstOrDefault();
+
+            if (MessageBox.Show($"Вы точно хотите удалить {PrdoductRemoving}?", "Внимание", MessageBoxButton.YesNo , MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    ADO.Instance.TypesOfProducts.Remove(TypesOfProductremove);
+                    ADO.Instance.SaveChanges();
+                    ADO.Instance.Product.Remove(PrdoductRemoving);
+                    ADO.Instance.SaveChanges();
+                    MessageBox.Show("Продукт удалён");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            {
+
+            }
         }
     }
 }

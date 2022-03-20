@@ -50,6 +50,8 @@ namespace FoodForHumanRaceAdminDesktop.Pages
         {
 
             Enterprises = new ObservableCollection<Enterprise>(ADO.Instance.Enterprise.ToList());
+
+            
             //CurrentEnterprise = ADO.Instance.Enterprise.FirstOrDefault();
             //CurrentEnterprise = ADO.Instance.Enterprise.ToList().FirstOrDefault();
             //CurrentUser = ADO.Instance.User.FirstOrDefault();

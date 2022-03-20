@@ -23,7 +23,7 @@
                 <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Adress" Binding="{Binding Path=Address}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Type Of Enterprise" Binding="{Binding Path=TypeOfEnterprise.Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Name Menedger" Binding="{Binding Path=UsersAndEnterprise}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Login Menedger" Binding="{Binding Path=UserLogin}"></DataGridTextColumn>
                 
                 
             </DataGrid.Columns>

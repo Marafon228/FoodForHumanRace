@@ -27,21 +27,30 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
 
         private ObservableCollection<Enterprise> myEnterprise;
 
-        public ObservableCollection<Enterprise> MyEnterprise
+        public ObservableCollection<Enterprise> MyEnterprise 
         {
             get { return myEnterprise; }
             set { myEnterprise = value; }
         }
+        private User currentUser;
 
+        public User CurrentUser
+        {
+            get { return currentUser; }
+            set { currentUser = value; }
+        }
+
+        
         public ViewEnterprise(User userEnterprise)
         {
+            CurrentUser = userEnterprise;
 
+            MyEnterprise = new ObservableCollection<Enterprise>(ADO.Instance.Enterprise/*.Where(ue=> ue.Id == userEnterprise.UsersAndEnterprise)*//*.Where(eu => eu.UsersAndEnterprise == CurrentUser.UsersAndEnterprise)*/.ToList());
 
-            MyEnterprise = new ObservableCollection<Enterprise>(ADO.Instance.Enterprise/*.Where(eu=> eu.UsersAndEnterprise  == userEnterprise.UsersAndEnterprise) */.ToList());
-
-
+            //MyEnterprise.Where(e=> e.UsersAndEnterprise.FirstOrDefault().Id == userEnterprise.UsersAndEnterprise.FirstOrDefault().Id);
 
             InitializeComponent();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

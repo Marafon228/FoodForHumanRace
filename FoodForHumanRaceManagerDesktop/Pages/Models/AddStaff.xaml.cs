@@ -21,6 +21,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
     /// </summary>
     public partial class AddStaff : Page
     {
+
         private User currentUser;
 
         public User CurrentUser
@@ -28,10 +29,35 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
             get { return currentUser; }
             set { currentUser = value; }
         }
+        private User globalUser;
 
-        public AddStaff()
+        public User GlobalUser
         {
-            CurrentUser.Role = ADO.Instance.Role.FirstOrDefault(r => r.Name == "Сотрудник");
+            get { return globalUser; }
+            set { globalUser = value; }
+        }
+
+
+        public AddStaff(User userEnterprise)
+        {
+            if (userEnterprise.Role.Name == "Предприниматель")
+            {
+                GlobalUser = userEnterprise;
+            }
+            else
+            {
+                CurrentUser = userEnterprise;
+            }
+
+            /*if (userEnterprise != null)
+            {
+                CurrentUser = userEnterprise;
+            }
+            else
+            {
+                CurrentUser = new User();
+                CurrentUser.Role = ADO.Instance.Role.FirstOrDefault(r => r.Name == "Сотрудник");
+            }*/
             InitializeComponent();
         }
 
@@ -40,9 +66,10 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
             try
             {
 
-                //CurrentUser.Enterprise = 
+                //CurrentUser.UsersAndEnterprise = GlobalUser.UsersAndEnterprise;
                 ADO.Instance.User.Add(CurrentUser);
                 ADO.Instance.SaveChanges();
+                MessageBox.Show("Сохранено");
             }
             catch (Exception ex)
             {

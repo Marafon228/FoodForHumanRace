@@ -1,5 +1,6 @@
 namespace FoodForHumanRaceManagerDesktop.Entity
 {
+    using FoodForHumanRaceManagerDesktop.Helpers;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,7 @@ namespace FoodForHumanRaceManagerDesktop.Entity
     using System.Data.Entity.Spatial;
 
     [Table("TypeOfEnterprise")]
-    public partial class TypeOfEnterprise
+    public partial class TypeOfEnterprise : ObservableObject
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TypeOfEnterprise()

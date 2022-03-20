@@ -19,10 +19,7 @@
             <RowDefinition Height="13*"/>
             <RowDefinition Height="137*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" VerticalAlignment="Center">
-            <Button Content="Companies" Margin="10 10 0 10"></Button>
-            <Button Content="Enterprise" Margin="10 10 0 10"></Button>
-        </StackPanel>
+        
         <Frame Grid.Row="1" Grid.Column="1" x:Name="StartPageFrame"></Frame>
         <TextBlock Grid.Column="1" Text="Food For Human Rase" FontSize="30"></TextBlock>
     </Grid>
