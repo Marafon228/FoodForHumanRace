@@ -40,14 +40,22 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
 
         public AddStaff(User userEnterprise)
         {
-            if (userEnterprise.Role.Name == "Предприниматель")
+            GlobalUser = userEnterprise;
+
+            CurrentUser = new User();
+            CurrentUser.Role = ADO.Instance.Role.FirstOrDefault(r => r.Name == "Сотрудник");
+
+
+
+
+            /*if (userEnterprise.Role.Name == "Предприниматель")
             {
                 GlobalUser = userEnterprise;
             }
             else
             {
                 CurrentUser = userEnterprise;
-            }
+            }*/
 
             /*if (userEnterprise != null)
             {
@@ -65,11 +73,13 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
         {
             try
             {
+                //CurrentUser.UsersAndEnterprise.FirstOrDefault().Enterprise = GlobalUser.UsersAndEnterprise.FirstOrDefault().Enterprise;
 
                 //CurrentUser.UsersAndEnterprise = GlobalUser.UsersAndEnterprise;
                 ADO.Instance.User.Add(CurrentUser);
                 ADO.Instance.SaveChanges();
                 MessageBox.Show("Сохранено");
+                NavigationService.GoBack();
             }
             catch (Exception ex)
             {

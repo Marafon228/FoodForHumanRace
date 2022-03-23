@@ -55,7 +55,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
 
         private void Btn_Edit_Staff(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddStaff((sender as Button).DataContext as User));
+            NavigationService.Navigate(new EditStaff((sender as Button).DataContext as User));
         }
     }
 }
