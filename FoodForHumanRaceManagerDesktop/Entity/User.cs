@@ -9,14 +9,13 @@ namespace FoodForHumanRaceManagerDesktop.Entity
 
     [Table("User")]
     public partial class User : ObservableObject
-    {    
-
+    {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
             Order = new HashSet<Order>();
             UsersAndEnterprise = new HashSet<UsersAndEnterprise>();
-        }       
+        }
 
         public int Id { get; set; }
 

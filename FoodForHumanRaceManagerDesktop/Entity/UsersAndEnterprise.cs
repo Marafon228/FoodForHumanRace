@@ -10,7 +10,6 @@ namespace FoodForHumanRaceManagerDesktop.Entity
     [Table("UsersAndEnterprise")]
     public partial class UsersAndEnterprise : ObservableObject
     {
-        
         public int Id { get; set; }
 
         public int IdUser { get; set; }

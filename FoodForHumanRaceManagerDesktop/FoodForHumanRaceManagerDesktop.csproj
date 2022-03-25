@@ -80,8 +80,10 @@
     <Compile Include="Entity\ADO.cs" />
     <Compile Include="Entity\Enterprise.cs" />
     <Compile Include="Entity\Order.cs" />
+    <Compile Include="Entity\OrderAndProduct.cs" />
     <Compile Include="Entity\Product.cs" />
     <Compile Include="Entity\Role.cs" />
+    <Compile Include="Entity\Status.cs" />
     <Compile Include="Entity\TypeOfEnterprise.cs" />
     <Compile Include="Entity\TypesOfProducts.cs" />
     <Compile Include="Entity\User.cs" />

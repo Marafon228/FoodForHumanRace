@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodForHumanRaceAdminDeskto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodForHumanRaceManagerDesktop", "FoodForHumanRaceManagerDesktop\FoodForHumanRaceManagerDesktop.csproj", "{9E953FF8-B8C3-4BDF-9973-0D24DD2A656A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodForHumanRaceClientAndStaff.Android", "FoodForHumanRaceClientAndStaff\FoodForHumanRaceClientAndStaff.Android\FoodForHumanRaceClientAndStaff.Android.csproj", "{95D4155D-E34C-4E93-9910-B7D9470A5162}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationFoodForHumanRace", "WebApplicationFoodForHumanRace\WebApplicationFoodForHumanRace.csproj", "{DA419DBB-6A10-462E-8DAA-E1A58C266867}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodForHumanRaceClientAndStaff", "FoodForHumanRaceClientAndStaff\FoodForHumanRaceClientAndStaff\FoodForHumanRaceClientAndStaff.csproj", "{237B5D9E-7B1A-4FCA-976F-A84808169934}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientAndStaff.Android", "ClientAndStaff\ClientAndStaff.Android\ClientAndStaff.Android.csproj", "{2267A9D2-2CBA-4014-9593-8A5388A80249}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientAndStaff", "ClientAndStaff\ClientAndStaff\ClientAndStaff.csproj", "{EA1535A7-3D7D-480E-946A-C90A9B8BB4EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,16 +27,20 @@ Global
 		{9E953FF8-B8C3-4BDF-9973-0D24DD2A656A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E953FF8-B8C3-4BDF-9973-0D24DD2A656A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E953FF8-B8C3-4BDF-9973-0D24DD2A656A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{95D4155D-E34C-4E93-9910-B7D9470A5162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{95D4155D-E34C-4E93-9910-B7D9470A5162}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{95D4155D-E34C-4E93-9910-B7D9470A5162}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{95D4155D-E34C-4E93-9910-B7D9470A5162}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{95D4155D-E34C-4E93-9910-B7D9470A5162}.Release|Any CPU.Build.0 = Release|Any CPU
-		{95D4155D-E34C-4E93-9910-B7D9470A5162}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{237B5D9E-7B1A-4FCA-976F-A84808169934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{237B5D9E-7B1A-4FCA-976F-A84808169934}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{237B5D9E-7B1A-4FCA-976F-A84808169934}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{237B5D9E-7B1A-4FCA-976F-A84808169934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA419DBB-6A10-462E-8DAA-E1A58C266867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA419DBB-6A10-462E-8DAA-E1A58C266867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA419DBB-6A10-462E-8DAA-E1A58C266867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA419DBB-6A10-462E-8DAA-E1A58C266867}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2267A9D2-2CBA-4014-9593-8A5388A80249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2267A9D2-2CBA-4014-9593-8A5388A80249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2267A9D2-2CBA-4014-9593-8A5388A80249}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2267A9D2-2CBA-4014-9593-8A5388A80249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2267A9D2-2CBA-4014-9593-8A5388A80249}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2267A9D2-2CBA-4014-9593-8A5388A80249}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EA1535A7-3D7D-480E-946A-C90A9B8BB4EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA1535A7-3D7D-480E-946A-C90A9B8BB4EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA1535A7-3D7D-480E-946A-C90A9B8BB4EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA1535A7-3D7D-480E-946A-C90A9B8BB4EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

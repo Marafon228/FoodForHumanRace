@@ -1,5 +1,6 @@
 namespace FoodForHumanRaceAdminDesktop.Entity
 {
+    using FoodForHumanRaceAdminDesktop.Helpers;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -7,9 +8,8 @@ namespace FoodForHumanRaceAdminDesktop.Entity
     using System.Data.Entity.Spatial;
 
     [Table("UsersAndEnterprise")]
-    public partial class UsersAndEnterprise
+    public partial class UsersAndEnterprise : ObservableObject
     {
-        
         public int Id { get; set; }
 
         public int IdUser { get; set; }
@@ -19,9 +19,5 @@ namespace FoodForHumanRaceAdminDesktop.Entity
         public virtual Enterprise Enterprise { get; set; }
 
         public virtual User User { get; set; }
-
-       
-
-
     }
 }

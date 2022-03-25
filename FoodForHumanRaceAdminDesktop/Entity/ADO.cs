@@ -11,7 +11,6 @@ namespace FoodForHumanRaceAdminDesktop.Entity
             : base("name=ADO")
         {
         }
-
         private static ADO _instance;
 
         public static ADO Instance
@@ -21,8 +20,10 @@ namespace FoodForHumanRaceAdminDesktop.Entity
 
         public virtual DbSet<Enterprise> Enterprise { get; set; }
         public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderAndProduct> OrderAndProduct { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<TypeOfEnterprise> TypeOfEnterprise { get; set; }
         public virtual DbSet<TypesOfProducts> TypesOfProducts { get; set; }
         public virtual DbSet<User> User { get; set; }
@@ -54,6 +55,12 @@ namespace FoodForHumanRaceAdminDesktop.Entity
                 .Property(e => e.Description)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Order>()
+                .HasMany(e => e.OrderAndProduct)
+                .WithRequired(e => e.Order)
+                .HasForeignKey(e => e.IdOrder)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Product>()
                 .Property(e => e.Description)
                 .IsUnicode(false);
@@ -61,6 +68,12 @@ namespace FoodForHumanRaceAdminDesktop.Entity
             modelBuilder.Entity<Product>()
                 .Property(e => e.Price)
                 .HasPrecision(19, 4);
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.OrderAndProduct)
+                .WithRequired(e => e.Product)
+                .HasForeignKey(e => e.IdProduct)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.TypesOfProducts)
@@ -73,6 +86,11 @@ namespace FoodForHumanRaceAdminDesktop.Entity
                 .WithRequired(e => e.Role)
                 .HasForeignKey(e => e.IdRole)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Status>()
+                .HasMany(e => e.Order)
+                .WithOptional(e => e.Status)
+                .HasForeignKey(e => e.IdStatus);
 
             modelBuilder.Entity<TypeOfEnterprise>()
                 .HasMany(e => e.Enterprise)
