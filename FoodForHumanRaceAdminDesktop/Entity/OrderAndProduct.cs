@@ -10,7 +10,7 @@ namespace FoodForHumanRaceAdminDesktop.Entity
     [Table("OrderAndProduct")]
     public partial class OrderAndProduct : ObservableObject
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        
         public int Id { get; set; }
 
         public int IdOrder { get; set; }

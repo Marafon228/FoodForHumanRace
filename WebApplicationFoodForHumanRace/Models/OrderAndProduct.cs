@@ -9,7 +9,7 @@ namespace WebApplicationFoodForHumanRace.Models
     [Table("OrderAndProduct")]
     public partial class OrderAndProduct
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        
         public int Id { get; set; }
 
         public int IdOrder { get; set; }

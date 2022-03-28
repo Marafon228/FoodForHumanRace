@@ -5,9 +5,8 @@ using System.Web;
 
 namespace WebApplicationFoodForHumanRace.Models.Json
 {
-    public class AuthSignInResponse
+    public class RegisterUser
     {
-        public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public string FirsName { get; set; }
@@ -16,6 +15,6 @@ namespace WebApplicationFoodForHumanRace.Models.Json
         public string Adress { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public string Role { get; set; }
+
     }
 }

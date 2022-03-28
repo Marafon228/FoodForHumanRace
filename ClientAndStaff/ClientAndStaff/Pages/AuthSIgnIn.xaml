@@ -1,28 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ClientAndStaff.MainPage"
+             x:Class="ClientAndStaff.Pages.AuthSIgnIn"
              >
-
-
     <ContentPage.Content>
-        <Grid>
+        <Grid BindingContext="{x:Binding Source=AuthSignInName, Path=.}">
             <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Login"></Label>
-                    <Entry WidthRequest="120" Text="{Binding CurrentUser.Login}"></Entry>
+                    <Entry Width="120" Text="{Binding CurrentUser.Login}"></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Password"></Label>
-                    <Entry WidthRequest="120" IsPassword="True" Text="{Binding CurrentUser.Password}"></Entry>
+                    <Entry Width="120" Text="{Binding CurrentUser.Password}"></Entry>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Button Text="Sign In" Clicked="Btn_SignIn"></Button>
-                    <Button Text="Registration" Clicked="Btn_Reg"></Button>
-                </StackLayout>
-                
+                <Button Text="Sign In" Clicked="Button_Clicked"></Button>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
-
 </ContentPage>

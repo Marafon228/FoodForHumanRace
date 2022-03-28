@@ -30,6 +30,11 @@ namespace WebApplicationFoodForHumanRace.Models
 
         public int? IdStatus { get; set; }
 
+        [Column(TypeName = "money")]
+        public decimal OverPrice { get; set; }
+
+        public int Count { get; set; }
+
         public virtual Status Status { get; set; }
 
         public virtual User User { get; set; }

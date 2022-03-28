@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
+             x:Class="ClientAndStaff.Pages.StartPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="ListViewProducts"  HasUnevenRows="True">
+                <ListView.Behaviors>
+                    <behaviors:EventHandlerBehavior EventName="ItemTapped">
+                        
+                    </behaviors:EventHandlerBehavior>
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Margin="5" FontSize="30" HorizontalOptions="Center" Text="{Binding Name}"></Label>
+                                <Image HeightRequest="250" Source="{Binding Photo}" HorizontalOptions="FillAndExpand"></Image>
+                                <Button Text="Order" WidthRequest="50" HeightRequest="15" Clicked="Button_Clicked_Order"></Button>
+                            </StackLayout>
+                        </ViewCell>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

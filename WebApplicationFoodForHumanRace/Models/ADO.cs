@@ -11,6 +11,11 @@ namespace WebApplicationFoodForHumanRace.Models
             : base("name=ADO")
         {
         }
+        private static ADO _instance;
+        public static ADO Instance
+        {
+            get { return _instance ?? (_instance = new ADO()); }
+        }
 
         public virtual DbSet<Enterprise> Enterprise { get; set; }
         public virtual DbSet<Order> Order { get; set; }

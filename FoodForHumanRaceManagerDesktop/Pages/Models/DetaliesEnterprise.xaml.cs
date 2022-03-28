@@ -90,10 +90,10 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
             var PrdoductRemoving = (sender as Button).DataContext as Product;
             //TypesOfProducts TypesProduct = new TypesOfProducts() { Enterprise = MyEnterprise, Product = PrdoductRemoving };
 
-            var TypesOfProductremove = ADO.Instance.TypesOfProducts.Where(pr=> pr.Product == PrdoductRemoving && pr.Enterprise == MyEnterprise).FirstOrDefault();
 
-            if (MessageBox.Show($"Вы точно хотите удалить {PrdoductRemoving}?", "Внимание", MessageBoxButton.YesNo , MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show($"Вы точно хотите удалить {PrdoductRemoving.Name}?", "Внимание", MessageBoxButton.YesNo , MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
+                var TypesOfProductremove = ADO.Instance.TypesOfProducts.Where(pr=> pr.Product == PrdoductRemoving && pr.Enterprise == MyEnterprise).FirstOrDefault();
                 try
                 {
                     ADO.Instance.TypesOfProducts.Remove(TypesOfProductremove);

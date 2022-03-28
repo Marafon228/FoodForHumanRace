@@ -173,10 +173,15 @@
     </Compile>
     <Compile Include="Models\ADO.cs" />
     <Compile Include="Models\Enterprise.cs" />
+    <Compile Include="Models\Json\AddOrder.cs" />
     <Compile Include="Models\Json\AuthSignIn.cs" />
     <Compile Include="Models\Json\AuthSignInResponse.cs" />
+    <Compile Include="Models\Json\GetOrder.cs" />
     <Compile Include="Models\Json\GetProductResponse.cs" />
+    <Compile Include="Models\Json\OrderResponse.cs" />
     <Compile Include="Models\Json\ProductResponse.cs" />
+    <Compile Include="Models\Json\RegisterUser.cs" />
+    <Compile Include="Models\Json\RegisterUserResponse.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderAndProduct.cs" />
     <Compile Include="Models\Product.cs" />
@@ -289,7 +294,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55237</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:55237/</IISUrl>
+          <IISUrl>http://192.168.0.101:3245/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://192.168.0.101:3245/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

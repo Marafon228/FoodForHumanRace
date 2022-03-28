@@ -5,14 +5,14 @@ using System.Web;
 
 namespace WebApplicationFoodForHumanRace.Models.Json
 {
-    public class ProductResponse
-    {    
-
+    public class GetOrder
+    {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public decimal Price { get; set; }
-        public byte[] Image { get; set; }
+        public DateTime Date { get; set; }
+        public decimal OverPrice { get; set; }
+        public int Count { get; set; }
 
     }
 }

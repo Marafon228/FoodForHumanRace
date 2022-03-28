@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClientAndStaff.Pages.StartPageStaff">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="ListViewOrder"  HasUnevenRows="True">                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Margin="5" FontSize="30" HorizontalOptions="Center" Text="{Binding Name}"></Label>
+                                <Label Margin="5" FontSize="30" HorizontalOptions="Center" Text="{Binding Date}"></Label>
+                                <Label Margin="5" FontSize="30" HorizontalOptions="Center" Text="{Binding OverPrice}"></Label>
+                                <Label Margin="5" FontSize="30" HorizontalOptions="Center" Text="{Binding Count}"></Label>
+                                
+                                <Button Text="Accept" WidthRequest="50" HeightRequest="15" Clicked="Button_Clicked"></Button>
+                            </StackLayout>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

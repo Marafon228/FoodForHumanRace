@@ -1,0 +1,42 @@
+﻿<Page x:Class="FoodForHumanRaceManagerDesktop.Pages.View.ViewReporting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FoodForHumanRaceManagerDesktop.Pages.View"
+      xmlns:chars="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ViewReporting"
+      Background="AliceBlue"
+      Name="ViewReportingName">
+
+    <Grid DataContext="{Binding ElementName=ViewReportingName, Path=.}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Пользователь: " Width="125" Margin="5" VerticalAlignment="Center" TextAlignment="Right"></TextBlock>
+                <ComboBox Name="ListUser" DisplayMemberPath="Login" Width="175" Margin="5" SelectionChanged="Update_Chart"></ComboBox>
+                <TextBlock Text="Тип диаграммы: " Width="125" Margin="5" VerticalAlignment="Center" TextAlignment="Right"></TextBlock>
+                <ComboBox Name="ComboTypeChars" SelectedIndex="0" Width="175" Margin="5" SelectionChanged="Update_Chart"></ComboBox>
+                </StackPanel>
+        
+        <StackPanel Orientation="Horizontal">
+                <Button Content="Экспорт в Excel" Width="175" Margin="5" Height="20" Name="BtnExportExel" Click="BtnExportExel_Click"></Button>
+                <Button Content="Экспор в Word" VerticalAlignment="Center" Width="175" Name="BtnExportWord" Click="BtnExportWord_Click"></Button>
+        </StackPanel>
+        </StackPanel>
+        <WindowsFormsHost Grid.Row="1" Margin="5">
+            <chars:Chart x:Name="ChartOrders">
+                <chars:Chart.Legends>
+                    <chars:Legend>
+                        
+                    </chars:Legend>
+                </chars:Chart.Legends>
+            </chars:Chart>
+        </WindowsFormsHost>
+    </Grid>
+</Page>

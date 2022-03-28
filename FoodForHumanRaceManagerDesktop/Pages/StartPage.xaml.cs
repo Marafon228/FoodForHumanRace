@@ -61,5 +61,10 @@ namespace FoodForHumanRaceManagerDesktop.Pages
             StartFrame.Navigate(new ViewEnterprise(UserEnterprise));
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            StartFrame.Navigate(new ViewReporting());
+        }
     }
 }
