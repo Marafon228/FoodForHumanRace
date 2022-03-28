@@ -24,7 +24,7 @@ namespace ClientAndStaff.Pages
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new StartPage());
+            //Navigation.PushAsync(new StartPage());
 
             /*var client = new WebClient();
             client.Headers.Add(HttpRequestHeader.ContentType, "application/json");

@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddEnterprise"
-      Background="AliceBlue"
+      Background="#e2c499"
       Name="AddEnterpriseName">
 
     <Grid DataContext="{Binding ElementName=AddEnterpriseName, Path=.}">
@@ -38,7 +38,7 @@
                 <TextBlock Text="Address"></TextBlock>
                 <TextBox Text="{Binding CurrentEnterprise.Address}"></TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal"/>
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Latiude"></TextBlock>
                 <TextBox Text="{Binding CurrentEnterprise.Latitude}"></TextBox>
@@ -51,6 +51,7 @@
 
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
+            
             <TextBlock Text="Menedger"></TextBlock>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Login:"></TextBlock>
@@ -87,8 +88,35 @@
             
         </StackPanel>
         <StackPanel Grid.Row="3" Orientation="Horizontal">
-            <Button Content="SAVE" Click="Btn_Save"></Button>
-            <Button Content="CANCEL" Click="Btn_Cancel"></Button>
+            <Border CornerRadius="10" Padding="2">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Button Content="SAVE" Click="Btn_Save">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Border>
+            <Border CornerRadius="10" Padding="2">
+                <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    
+                </LinearGradientBrush>
+                </Border.Background>
+                <Button Content="CANCEL" Click="Btn_Cancel">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+            </Border>
         </StackPanel>
     </Grid>
 </Page>

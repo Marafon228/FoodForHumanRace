@@ -20,7 +20,7 @@ namespace ClientAndStaff.Pages
         /// <summary>
         /// <behaviors:InvokeCommandAction Command="{Binding ItemTappedCommand}"/>
         /// </summary>
-        public StartPage()
+        public StartPage(User currentUser)
         {
             InitializeComponent();
 

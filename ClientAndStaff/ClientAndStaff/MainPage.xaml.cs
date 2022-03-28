@@ -33,8 +33,22 @@ namespace ClientAndStaff
             var result = client.UploadString("http://192.168.0.101:3245/api/Users/SignIn", JsonConvert.SerializeObject(CurrentUser));
             if (result != null)
             {
+                var roleUser = JsonConvert.DeserializeObject<User>(result);
+                if (roleUser.Role == "Клиент")
+                {
+                    await DisplayAlert("Message", "Registration was successful", "OK");
+                    await Navigation.PushAsync(new StartPage(roleUser), true);
+                }
+                else
+                {
+                    await DisplayAlert("Message", "Registration was successful", "OK");
+                    await Navigation.PushAsync(new StartPageStaff(), true);
+                }
 
-                await Navigation.PushAsync(new StartPage(), true);
+            }
+            else
+            {
+                await DisplayAlert("Message", "Registration invalid", "OK");
 
             }
         }

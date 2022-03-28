@@ -14,7 +14,7 @@
                                 <Label Margin="5" FontSize="30" HorizontalOptions="Center" Text="{Binding OverPrice}"></Label>
                                 <Label Margin="5" FontSize="30" HorizontalOptions="Center" Text="{Binding Count}"></Label>
                                 
-                                <Button Text="Accept" WidthRequest="50" HeightRequest="15" Clicked="Button_Clicked"></Button>
+                                <Button Text="Accept" WidthRequest="50" HeightRequest="40" Clicked="Button_Clicked"></Button>
                             </StackLayout>
                         </ViewCell>
 

@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="StartPage"
-      Background="AliceBlue"
+      Background="#e2c499"
       Name="StartPageName">
 
     <Grid DataContext="{Binding ElementName=StartPageName, Path=.}">
