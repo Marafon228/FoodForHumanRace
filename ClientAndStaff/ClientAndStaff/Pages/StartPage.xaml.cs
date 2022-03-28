@@ -36,13 +36,15 @@ namespace ClientAndStaff.Pages
         {
             /*Button btn = (Button)sender;
             Product product = (Product)btn.CommandParameter;*/
-            Product product = ListViewProducts.SelectedItem as Product;
+            /*Product products = ListViewProducts.SelectedItem as Product;*/
+
+            ManuProduct[] product = ListViewProducts.SelectedItem as ManuProduct[];
 
 
 
             CurrentOrder.Description = null;
             CurrentOrder.LoginUser = 43.ToString();
-            //CurrentOrder.ManuProduct = product;
+            CurrentOrder.ManuProduct = product;
 
             var client = new WebClient();
             client.Headers.Add(HttpRequestHeader.ContentType, "application/json");

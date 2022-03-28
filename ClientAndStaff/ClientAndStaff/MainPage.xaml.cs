@@ -34,7 +34,7 @@ namespace ClientAndStaff
             if (result != null)
             {
 
-                await Navigation.PushAsync(new StartPageStaff(), true);
+                await Navigation.PushAsync(new StartPage(), true);
 
             }
         }

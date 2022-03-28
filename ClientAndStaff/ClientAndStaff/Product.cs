@@ -6,6 +6,7 @@ using Xamarin.Forms;
 
 namespace ClientAndStaff
 {
+    
     class Product
     {
         public int Id { get; set; }
