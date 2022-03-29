@@ -47,7 +47,10 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
 
         public DetaliesEnterprise(Enterprise selectEnterprise)
         {
-            MyProduct = new ObservableCollection<Product>(ADO.Instance.Product.ToList());
+
+            MyProduct = new ObservableCollection<Product>(selectEnterprise.TypesOfProducts.Select(t => t.Product));
+
+
             if (selectEnterprise != null)
             {
                 MyEnterprise = selectEnterprise;

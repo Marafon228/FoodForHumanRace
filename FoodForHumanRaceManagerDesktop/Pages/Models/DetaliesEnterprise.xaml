@@ -10,10 +10,10 @@
       Background="AliceBlue"
       Name="DetaliesEnterpriseName">
 
-    <Grid DataContext="{Binding ElementName=DetaliesEnterpriseName, Path=.}">
+    <Grid DataContext="{Binding ElementName=DetaliesEnterpriseName, Path=.}" RowDefinition.Height="7*">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
         <StackPanel>
             <TextBlock Text="{Binding MyEnterprise.Name}"></TextBlock>
@@ -21,12 +21,16 @@
             
         </StackPanel>
         <StackPanel Grid.Row="1">
+            
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Product"></TextBlock>
                 <Button Content="Add" HorizontalAlignment="Right" Click="Btn_Add_Product"></Button>
             </StackPanel>
-            
-            <ListView x:Name="ListViewProducts" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Center" ItemsSource="{Binding MyProduct}">
+
+
+            <ListView x:Name="ListViewProducts" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" HorizontalAlignment="Center" ItemsSource="{Binding MyProduct}"
+                      >
+
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"></WrapPanel>
@@ -35,12 +39,15 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
+                            
                             <StackPanel>
                                 <Image Width="400" Height="400" Stretch="Uniform" HorizontalAlignment="Center">
                                     <Image.Source>
                                         <Binding Path="Image">
-                                            <Binding.TargetNullValue>                                                
-                                                <Image Source="/Resources/restaurant.png" />
+                                            <Binding.TargetNullValue>
+
+                                                <ImageSource>/Resources/BlankImage.png</ImageSource>
+
                                             </Binding.TargetNullValue>
                                         </Binding>
                                     </Image.Source>
@@ -66,6 +73,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+           
         </StackPanel>
     </Grid>
 </Page>

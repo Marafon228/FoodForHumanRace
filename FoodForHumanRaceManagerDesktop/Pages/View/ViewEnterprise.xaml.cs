@@ -45,10 +45,9 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
         {
             CurrentUser = userEnterprise;
 
-            MyEnterprise = new ObservableCollection<Enterprise>(ADO.Instance.Enterprise/*.Where(ue=> ue.Id == userEnterprise.UsersAndEnterprise)*//*.Where(eu => eu.UsersAndEnterprise == CurrentUser.UsersAndEnterprise)*/.ToList());
+            MyEnterprise = new ObservableCollection<Enterprise>(CurrentUser.UsersAndEnterprise.Select(u => u.Enterprise));
 
-            //MyEnterprise.Where(e=> e.UsersAndEnterprise.FirstOrDefault().Id == userEnterprise.UsersAndEnterprise.FirstOrDefault().Id);
-
+        
             InitializeComponent();
             
         }

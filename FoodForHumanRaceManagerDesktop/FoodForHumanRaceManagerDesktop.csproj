@@ -195,9 +195,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\restaurant.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Properties\restaurant.png" />
   </ItemGroup>
   <ItemGroup>
@@ -237,6 +234,17 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pages\Models\restaurant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pages\Models\BlankImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BlankImage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
