@@ -98,8 +98,14 @@ namespace WebApplicationFoodForHumanRace.Controllers
             //var users = new User() {Id = user.Id, Login = user.Login, Password = user.Password, FirsName = user.FirsName , Adress = user.Adress, Email = user.Email, LastName = user.LastName, MidleName = user.MidleName, Phone = user.Phone  };
 
             //user = ADO.Instance.User.FirstOrDefault();
-            
-            return Ok(new AuthSignInResponse() { Id = userNew.Id, Login = userNew.Login, Password = userNew.Password, FirsName = userNew.FirsName, MidleName = userNew.MidleName, LastName = userNew.LastName, Role = userNew.Role.Name, Adress = userNew.Adress, Email = userNew.Email, Phone = userNew.Phone });
+            if (userNew == null)
+            {
+                return null;
+            }
+            else
+            {
+                return Ok(new AuthSignInResponse() { Id = userNew.Id, Login = userNew.Login, Password = userNew.Password, FirsName = userNew.FirsName, MidleName = userNew.MidleName, LastName = userNew.LastName, Role = userNew.Role.Name, Adress = userNew.Adress, Email = userNew.Email, Phone = userNew.Phone });
+            }
 
 
 

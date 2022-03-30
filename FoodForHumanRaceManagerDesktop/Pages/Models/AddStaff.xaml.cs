@@ -43,7 +43,11 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
             GlobalUser = userEnterprise;
 
             CurrentUser = new User();
+            
+
+            
             CurrentUser.Role = ADO.Instance.Role.FirstOrDefault(r => r.Name == "Сотрудник");
+            //CurrentUser.UsersAndEnterprise = new UsersAndEnterprise(GlobalUser.UsersAndEnterprise.Select(u=> u.Enterprise));
 
 
 
@@ -73,10 +77,13 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
         {
             try
             {
+                var enterprise = GlobalUser.UsersAndEnterprise.FirstOrDefault().Enterprise;
                 //CurrentUser.UsersAndEnterprise.FirstOrDefault().Enterprise = GlobalUser.UsersAndEnterprise.FirstOrDefault().Enterprise;
 
                 //CurrentUser.UsersAndEnterprise = GlobalUser.UsersAndEnterprise;
                 ADO.Instance.User.Add(CurrentUser);
+                ADO.Instance.SaveChanges();
+                ADO.Instance.UsersAndEnterprise.Add(new UsersAndEnterprise() { User = CurrentUser , Enterprise = enterprise });
                 ADO.Instance.SaveChanges();
                 MessageBox.Show("Сохранено");
                 NavigationService.GoBack();

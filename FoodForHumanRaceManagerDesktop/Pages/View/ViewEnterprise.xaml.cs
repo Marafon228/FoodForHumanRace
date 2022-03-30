@@ -67,5 +67,25 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
             NavigationService.Navigate(new NewEditEnterprice(null));
 
         }
+
+        private void Btn_Delete(object sender, RoutedEventArgs e)
+        {
+            var enterprisRemove = DGEnterprise.SelectedItems.Cast<Enterprise>().ToList();
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {enterprisRemove.Count()} 'элементов ?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    //????????
+                    ADO.Instance.UsersAndEnterprise.RemoveRange(enterprisRemove.FirstOrDefault().UsersAndEnterprise);
+                    ADO.Instance.SaveChanges();
+                    MessageBox.Show("Данные удалены");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    
+                }
+            }
+        }
     }
 }

@@ -11,7 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationFoodForHumanR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientAndStaff.Android", "ClientAndStaff\ClientAndStaff.Android\ClientAndStaff.Android.csproj", "{2267A9D2-2CBA-4014-9593-8A5388A80249}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientAndStaff", "ClientAndStaff\ClientAndStaff\ClientAndStaff.csproj", "{EA1535A7-3D7D-480E-946A-C90A9B8BB4EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientAndStaff", "ClientAndStaff\ClientAndStaff\ClientAndStaff.csproj", "{EA1535A7-3D7D-480E-946A-C90A9B8BB4EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodForHumanRaceManagerDesktopTests", "FoodForHumanRaceManagerDesktopTests\FoodForHumanRaceManagerDesktopTests.csproj", "{7F0A5DBF-4E85-4F8C-8382-CAB3488064B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{EA1535A7-3D7D-480E-946A-C90A9B8BB4EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA1535A7-3D7D-480E-946A-C90A9B8BB4EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA1535A7-3D7D-480E-946A-C90A9B8BB4EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F0A5DBF-4E85-4F8C-8382-CAB3488064B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F0A5DBF-4E85-4F8C-8382-CAB3488064B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F0A5DBF-4E85-4F8C-8382-CAB3488064B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F0A5DBF-4E85-4F8C-8382-CAB3488064B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -41,7 +41,7 @@
         </DataGrid>
         <StackPanel Orientation="Horizontal" Grid.Row="2">
             <Button Grid.Row="2" Content="Add" Click="Btn_Add_Enterprise"></Button>
-            <Button Grid.Row="2" Content="Delete"></Button>
+            <Button Grid.Row="2" Content="Delete" Click="Btn_Delete"></Button>
         </StackPanel>
     </Grid>
 </Page>

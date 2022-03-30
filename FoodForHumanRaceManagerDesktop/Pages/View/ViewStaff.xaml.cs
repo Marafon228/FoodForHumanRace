@@ -44,7 +44,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
         {
             GlobalUser = userEnterprise;
             
-            UserStaff = new ObservableCollection<User>(ADO.Instance.User.Where(u=> u.Role.Name == "Сотрудник" /*&& u.UsersAndEnterprise == GlobalUser.UsersAndEnterprise*/));
+            UserStaff = new ObservableCollection<User>(userEnterprise.UsersAndEnterprise.ToList().Select(u=> u.User).Where(u=> u.Role.Name == "Сотрудник") /*ADO.Instance.User.Where(u=> u.Role.Name == "Сотрудник"*/ /*&& u.UsersAndEnterprise == GlobalUser.UsersAndEnterprise*//*)*/);
             InitializeComponent();
         }
 
@@ -56,6 +56,26 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
         private void Btn_Edit_Staff(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new EditStaff((sender as Button).DataContext as User));
+        }
+
+        private void Btn_Delete(object sender, RoutedEventArgs e)
+        {
+            var staffRemove = DGStaff.SelectedItems.Cast<User>().ToList();
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {staffRemove.Count()} 'элементов ?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    //????????
+                    ADO.Instance.UsersAndEnterprise.RemoveRange(staffRemove.FirstOrDefault().UsersAndEnterprise);
+                    ADO.Instance.SaveChanges();
+                    MessageBox.Show("Данные удалены");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+
+                }
+            }
         }
     }
 }

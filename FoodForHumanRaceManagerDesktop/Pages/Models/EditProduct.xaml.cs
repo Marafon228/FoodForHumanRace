@@ -1,9 +1,7 @@
 ﻿using FoodForHumanRaceManagerDesktop.Entity;
-
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,27 +19,10 @@ using System.Windows.Shapes;
 namespace FoodForHumanRaceManagerDesktop.Pages.Models
 {
     /// <summary>
-    /// Логика взаимодействия для AddProduct.xaml
+    /// Interaction logic for EditProduct.xaml
     /// </summary>
-    public partial class AddProduct : Page
+    public partial class EditProduct : Page
     {
-        /*private Product currentProduct;
-
-        public Product CurrentProduct
-        {
-            get { return currentProduct; }
-            set { currentProduct = value; }
-        }*/
-
-        private Enterprise globalEnterprise;
-
-        public Enterprise GlobalEnterprise
-        {
-            get { return globalEnterprise; }
-            set { globalEnterprise = value; }
-        }
-
-
         public Product CurrentProduct
         {
             get { return (Product)GetValue(CurrentProductProperty); }
@@ -53,13 +34,16 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
             DependencyProperty.Register("CurrentProduct", typeof(Product), typeof(AddProduct));
 
 
-        public AddProduct(Enterprise enterprise)
+        public EditProduct(Product product)
         {
-            GlobalEnterprise = enterprise;
-
-
-            CurrentProduct = new Product();
-            
+            if (product != null)
+            {
+                CurrentProduct = product;
+            }
+            else
+            {
+                CurrentProduct = new Product();
+            }
             //CurrentProduct = new Product();
             InitializeComponent();
         }
@@ -75,24 +59,22 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
 
             if (openImage.ShowDialog() == DialogResult.OK)
             {
-                CurrentProduct.Image = (byte[]) new ImageConverter().ConvertTo(new Bitmap(openImage.FileName), typeof(byte[]));
+                CurrentProduct.Image = (byte[])new ImageConverter().ConvertTo(new Bitmap(openImage.FileName), typeof(byte[]));
             }
 
         }
 
         private void Btn_Save(object sender, RoutedEventArgs e)
         {
+            if (CurrentProduct.Id == 0)
+            {
+                CurrentProduct.TypesOfProducts.Add(new TypesOfProducts() { Enterprise = ADO.Instance.Enterprise.FirstOrDefault(), Product = CurrentProduct });
+                ADO.Instance.Product.Add(CurrentProduct);
+            }
             try
             {
-                
-                //CurrentUser.UsersAndEnterprise.FirstOrDefault().Enterprise = GlobalUser.UsersAndEnterprise.FirstOrDefault().Enterprise;
-
-                //CurrentUser.UsersAndEnterprise = GlobalUser.UsersAndEnterprise;
-                ADO.Instance.Product.Add(CurrentProduct);
                 ADO.Instance.SaveChanges();
-                ADO.Instance.TypesOfProducts.Add(new TypesOfProducts() { Product = CurrentProduct, Enterprise = GlobalEnterprise });
-                ADO.Instance.SaveChanges();
-                System.Windows.MessageBox.Show("Сохранено");
+                System.Windows.MessageBox.Show("Успешно !");
                 NavigationService.GoBack();
             }
             catch (Exception ex)
@@ -106,5 +88,6 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
         {
             NavigationService.GoBack();
         }
+        
     }
 }

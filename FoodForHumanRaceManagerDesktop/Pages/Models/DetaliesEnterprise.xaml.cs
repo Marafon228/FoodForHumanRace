@@ -70,21 +70,21 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
                                     .ToList();*/
 
             InitializeComponent();
-           /* var Product = db.Product
-                *//*.Where(p => MyEnterprise.TypesOfProducts == p.TypesOfProducts)*//*.ToList();
-            ListViewProducts.ItemsSource = Product;*/
+            /* var Product = db.Product
+                 *//*.Where(p => MyEnterprise.TypesOfProducts == p.TypesOfProducts)*//*.ToList();
+             ListViewProducts.ItemsSource = Product;*/
             //ListViewProducts.ItemsSource = MyProduct; 
 
         }
 
         private void Btn_Add_Product(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddProduct(null));
+            NavigationService.Navigate(new AddProduct(MyEnterprise));
         }
 
         private void Btn_Edit_Product(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddProduct((sender as Button).DataContext as Product));
+            NavigationService.Navigate(new EditProduct((sender as Button).DataContext as Product));
         }
 
         private void Btn_Delete_Product(object sender, RoutedEventArgs e)
@@ -96,12 +96,34 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
 
             if (MessageBox.Show($"Вы точно хотите удалить {PrdoductRemoving.Name}?", "Внимание", MessageBoxButton.YesNo , MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                var TypesOfProductremove = ADO.Instance.TypesOfProducts.Where(pr=> pr.Product == PrdoductRemoving && pr.Enterprise == MyEnterprise).FirstOrDefault();
+               // var TypesOfProductremove = ADO.Instance.TypesOfProducts.ToList().Select(tp=> tp.Product == PrdoductRemoving && tp.Enterprise == MyEnterprise)/*Where(pr=> pr.Product == PrdoductRemoving && pr.Enterprise == MyEnterprise).FirstOrDefault()*/;
                 try
                 {
-                    ADO.Instance.TypesOfProducts.Remove(TypesOfProductremove);
+
+                    /*TypesOfProducts CurrentType = new TypesOfProducts() { Enterprise = MyEnterprise, Product = PrdoductRemoving };
+                    //ADO.Instance.TypesOfProducts.Remove(ADO.Instance.TypesOfProducts.Where(tp=> tp.Product == PrdoductRemoving && tp.Enterprise == MyEnterprise).FirstOrDefault());
+                    ADO.Instance.TypesOfProducts.Remove(CurrentType);
+                    ADO.Instance.SaveChanges()   */
+                    /*while (PrdoductRemoving != null)
+                    {
+                        foreach (var itemType in PrdoductRemoving.TypesOfProducts)
+                        {
+                            ADO.Instance.TypesOfProducts.Remove(itemType);
+                        }
+                        foreach (var itemOrder in PrdoductRemoving.OrderAndProduct)
+                        {
+                            ADO.Instance.OrderAndProduct.Remove(itemOrder);
+                        }
+                        ADO.Instance.Product.Remove(PrdoductRemoving);*/
+                    //ADO.Instance.OrderAndProduct.Remove(PrdoductRemoving.OrderAndProduct.FirstOrDefault());
+
+                    /*}*/
+                    /*ADO.Instance.SaveChanges();
+                    ADO.Instance.TypesOfProducts.Remove(PrdoductRemoving.TypesOfProducts.FirstOrDefault());
                     ADO.Instance.SaveChanges();
-                    ADO.Instance.Product.Remove(PrdoductRemoving);
+                    
+                    ADO.Instance.Product.Remove(PrdoductRemoving);*/
+                    ADO.Instance.TypesOfProducts.Remove(PrdoductRemoving.TypesOfProducts.FirstOrDefault());
                     ADO.Instance.SaveChanges();
                     MessageBox.Show("Продукт удалён");
                 }

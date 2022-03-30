@@ -72,6 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Validate\PasswordChecker.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -112,6 +113,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Models\EditProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Models\EditStaff.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,6 +154,9 @@
     </Compile>
     <Compile Include="Pages\Models\DetaliesEnterprise.xaml.cs">
       <DependentUpon>DetaliesEnterprise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Models\EditProduct.xaml.cs">
+      <DependentUpon>EditProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Models\EditStaff.xaml.cs">
       <DependentUpon>EditStaff.xaml</DependentUpon>

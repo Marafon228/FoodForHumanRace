@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
         
             <TextBlock FontSize="30" Text="Staffs"></TextBlock>
-            <DataGrid Grid.Row="1" Margin="0 10 0 0" ItemsSource="{Binding UserStaff}" AutoGenerateColumns="False" IsReadOnly="True" Height="350">
+            <DataGrid Grid.Row="1" Margin="0 10 0 0" Name="DGStaff" ItemsSource="{Binding UserStaff}" AutoGenerateColumns="False" IsReadOnly="True" Height="350">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Fuul Name" Binding="{Binding Path=FullName}"></DataGridTextColumn>
@@ -35,7 +35,7 @@
             </DataGrid>
             <StackPanel Orientation="Horizontal" Grid.Row="2">
                 <Button Content="Add" Click="Btn_Add_Staff"></Button>
-                <Button Content="Delete"></Button>
+            <Button Content="Delete" Click="Btn_Delete"></Button>
             </StackPanel>
         
         
