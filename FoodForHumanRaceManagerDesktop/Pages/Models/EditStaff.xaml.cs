@@ -50,11 +50,17 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
             {
                 ADO.Instance.SaveChanges();
                 System.Windows.Forms.MessageBox.Show("Save");
+                NavigationService.GoBack();
             }
             catch (Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Btn_Back(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

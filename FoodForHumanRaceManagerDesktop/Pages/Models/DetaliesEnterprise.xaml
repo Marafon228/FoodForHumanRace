@@ -7,13 +7,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DetaliesEnterprise"
-      Background="AliceBlue"
+      Background="#e2c499"
       Name="DetaliesEnterpriseName">
 
     <Grid DataContext="{Binding ElementName=DetaliesEnterpriseName, Path=.}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="7*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
         <StackPanel>
             <TextBlock Text="{Binding MyEnterprise.Name}"></TextBlock>
@@ -23,8 +23,14 @@
         <StackPanel Grid.Row="1">
             
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Product"></TextBlock>
-                <Button Content="Add" HorizontalAlignment="Right" Click="Btn_Add_Product"></Button>
+                <TextBlock Text="Product" FontSize="25"></TextBlock>
+                <Button Content="Add" HorizontalAlignment="Right" Click="Btn_Add_Product" Margin="20 0 0 0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="3"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
             </StackPanel>
 
 

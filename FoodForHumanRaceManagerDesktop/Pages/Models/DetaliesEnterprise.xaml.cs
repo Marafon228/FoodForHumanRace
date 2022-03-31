@@ -61,7 +61,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
                 MyEnterprise.UsersAndEnterprise = new List<UsersAndEnterprise>(ADO.Instance.User.ToList().Select(u => new UsersAndEnterprise() { User = u, Enterprise = MyEnterprise }));
             }
 
-            MyEnterprise = ADO.Instance.Enterprise.FirstOrDefault();
+            //MyEnterprise = ADO.Instance.Enterprise.FirstOrDefault();
 
             /*.Select(e=> new Enterprise { Name = e.Name, Address = e.Address, Latitude = e.Latitude})*/
             /*.ToList();*/

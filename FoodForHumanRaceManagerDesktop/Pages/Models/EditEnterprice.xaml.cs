@@ -18,12 +18,10 @@ using System.Windows.Shapes;
 namespace FoodForHumanRaceManagerDesktop.Pages.Models
 {
     /// <summary>
-    /// Логика взаимодействия для NewEditEnterprice.xaml
+    /// Interaction logic for EditEnterprice.xaml
     /// </summary>
-    public partial class NewEditEnterprice : Page
+    public partial class EditEnterprice : Page
     {
-        
-
         private ObservableCollection<TypeOfEnterprise> typeEnterprise;
 
         public ObservableCollection<TypeOfEnterprise> TypeEnterprise
@@ -43,31 +41,32 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
         public static readonly DependencyProperty CurrentEnterpriseProperty =
             DependencyProperty.Register("CurrentEnterprise", typeof(Enterprise), typeof(NewEditEnterprice));
 
-
-
-        public NewEditEnterprice(User userEnter)
+        public EditEnterprice(Enterprise enterprise )
         {
-            TypeEnterprise = new ObservableCollection<TypeOfEnterprise>(ADO.Instance.TypeOfEnterprise);
-            
-            
-            
-            GlobalUser = userEnter;
 
-            CurrentEnterprise = new Enterprise();
-                
-            
+            if (enterprise != null)
+            {
+                CurrentEnterprise = enterprise;
+            }
+            else
+            {
+                CurrentEnterprise = new Enterprise();
+            }
+
+            TypeEnterprise = new ObservableCollection<TypeOfEnterprise>(ADO.Instance.TypeOfEnterprise);
+
+
             InitializeComponent();
         }
 
         private void Btn_Save(object sender, RoutedEventArgs e)
         {
+            if (CurrentEnterprise.Id == 0)
+            {
 
+            }
             try
             {
-                //var globalUser = new List<User>(GlobalEnterprise.UsersAndEnterprise.Select(u => u.User));
-                ADO.Instance.Enterprise.Add(CurrentEnterprise);
-                ADO.Instance.SaveChanges();
-                ADO.Instance.UsersAndEnterprise.Add(new UsersAndEnterprise() { Enterprise = CurrentEnterprise, User = GlobalUser });
                 ADO.Instance.SaveChanges();
                 MessageBox.Show("OK");
                 NavigationService.GoBack();
@@ -76,11 +75,6 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
             {
                 MessageBox.Show(ex.Message);
             }
-            
-                
-
-            
-            
         }
 
         private void Btn_Back(object sender, RoutedEventArgs e)

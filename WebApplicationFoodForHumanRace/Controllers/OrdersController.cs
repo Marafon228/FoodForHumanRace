@@ -85,6 +85,54 @@ namespace WebApplicationFoodForHumanRace.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
         //POST
+        [ActionName("AddsProductAdds")]
+        [ResponseType(typeof(AddOrder))]
+        public IHttpActionResult ProductResponses(AddOrder order)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            /*products = new List<Product>()
+            {
+                db.Product.FirstOrDefault(p=> p.Id == 1),
+                db.Product.FirstOrDefault(p=> p.Id == 2),
+                db.Product.FirstOrDefault(p=> p.Id == 3),
+            };*/
+            var count = order.ManuProducts;
+            User user = new User();
+            user = db.User.FirstOrDefault(u => u.Login == order.LoginUser);
+            var NewOrder = new Order()
+            {
+                Name = user.Login + "Count" + order.ManuProducts.Count(),
+                Description = order.Description,
+                Date = DateTime.Now,
+                Status = db.Status.FirstOrDefault(s => s.Name == "Новый"),
+                User = user,
+                Count = order.ManuProducts.Count(),
+                OverPrice = order.ManuProducts.Sum(o => o.Price)
+            };
+            db.Order.Add(NewOrder);
+            db.SaveChanges();
+            var products = order.ManuProducts;
+            foreach (var item in products)
+            {
+                var product = db.Product.FirstOrDefault(p => p.Name == item.Name);
+                if (product != null)
+                {
+                    db.OrderAndProduct.Add(new OrderAndProduct() { Order = NewOrder, Product = product });
+                }
+            }
+            db.SaveChanges();
+
+            return Ok();
+
+
+        }
+
+
+        //POST
         [ActionName("AddsProduct")]
         [ResponseType(typeof(AddOrder))]
         public IHttpActionResult ProductResponse(AddOrder order)
@@ -104,7 +152,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
             User user = new User();
             user = db.User.FirstOrDefault(u => u.Login == order.LoginUser);
             var NewOrder = new Order() { Name = user.Login + "Count" + order.ManuProducts.Count(),
-                Description = order.Description,
+                Description = user.Adress,
                 Date = DateTime.Now, Status = db.Status.FirstOrDefault(s => s.Name == "Новый"),
                 User = user, Count = order.ManuProducts.Count(), OverPrice = order.ManuProducts.Sum(o=> o.Price) };
             db.Order.Add(NewOrder);

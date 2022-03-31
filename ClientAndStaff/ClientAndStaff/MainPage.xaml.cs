@@ -39,18 +39,18 @@ namespace ClientAndStaff
                     await DisplayAlert("Message", "Registration was successful", "OK");
                     await Navigation.PushAsync(new StartPage(roleUser), true);
                 }
-                else
+                else if (roleUser.Role == "Сотрудник" || roleUser.Role == "Предприниматель" || roleUser.Role == "Менеджер")
                 {
                     await DisplayAlert("Message", "Registration was successful", "OK");
                     await Navigation.PushAsync(new StartPageStaff(), true);
                 }
+                else
+                {
+                    await DisplayAlert("Message", "Registration invalid", "OK");
 
+                }
             }
-            else
-            {
-                await DisplayAlert("Message", "Registration invalid", "OK");
-
-            }
+            
         }
 
         private async void Btn_Reg(object sender, EventArgs e)

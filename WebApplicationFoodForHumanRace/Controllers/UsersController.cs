@@ -100,7 +100,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
             //user = ADO.Instance.User.FirstOrDefault();
             if (userNew == null)
             {
-                return null;
+                return Ok(new AuthSignInResponse());
             }
             else
             {

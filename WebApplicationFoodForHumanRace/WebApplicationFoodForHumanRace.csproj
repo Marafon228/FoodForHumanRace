@@ -175,6 +175,7 @@
     <Compile Include="Models\ADO.cs" />
     <Compile Include="Models\Enterprise.cs" />
     <Compile Include="Models\Json\AddOrder.cs" />
+    <Compile Include="Models\Json\AdOrder.cs" />
     <Compile Include="Models\Json\AuthSignIn.cs" />
     <Compile Include="Models\Json\AuthSignInResponse.cs" />
     <Compile Include="Models\Json\GetOrder.cs" />

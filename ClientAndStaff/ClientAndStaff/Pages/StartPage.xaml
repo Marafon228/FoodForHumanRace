@@ -17,6 +17,7 @@
                             <StackLayout>
                                 <Label Margin="5" FontSize="30" HorizontalOptions="Center" Text="{Binding Name}"></Label>
                                 <Image HeightRequest="250" Source="{Binding Photo}" HorizontalOptions="FillAndExpand"></Image>
+                                <Label Margin="5" FontSize="30" HorizontalOptions="Center" Text="{Binding Price}"></Label>
                                 <Button Text="Order" WidthRequest="50" HeightRequest="40" Clicked="Button_Clicked_Order"></Button>
                             </StackLayout>
                         </ViewCell>

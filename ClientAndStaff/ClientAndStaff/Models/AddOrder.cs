@@ -6,9 +6,9 @@ namespace ClientAndStaff.Models
 {
     public class AddOrder
     {
-        public string Description { get; set; }
         public string LoginUser { get; set; }
-        public ManuProduct[] ManuProduct { get; set; }
+        public string Description { get; set; }
+        public ManuProduct[] ManuProducts { get; set; }
     }
 
     public class ManuProduct
@@ -17,7 +17,7 @@ namespace ClientAndStaff.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
 
     }
 }

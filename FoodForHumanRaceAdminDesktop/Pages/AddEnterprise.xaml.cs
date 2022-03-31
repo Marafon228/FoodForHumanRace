@@ -90,6 +90,8 @@ namespace FoodForHumanRaceAdminDesktop.Pages
                 
                 
                 MessageBox.Show("OK");
+
+                NavigationService.GoBack();
             }
             catch (Exception ex)
             {

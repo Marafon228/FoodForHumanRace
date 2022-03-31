@@ -23,7 +23,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
     /// </summary>
     public partial class EditProduct : Page
     {
-        public Product CurrentProduct
+        /*public Product CurrentProduct
         {
             get { return (Product)GetValue(CurrentProductProperty); }
             set { SetValue(CurrentProductProperty, value); }
@@ -31,8 +31,9 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
 
         // Using a DependencyProperty as the backing store for CurrentProduct.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CurrentProductProperty =
-            DependencyProperty.Register("CurrentProduct", typeof(Product), typeof(AddProduct));
+            DependencyProperty.Register("CurrentProduct", typeof(Product), typeof(AddProduct));*/
 
+        public Product CurrentProduct { get; set; }
 
         public EditProduct(Product product)
         {

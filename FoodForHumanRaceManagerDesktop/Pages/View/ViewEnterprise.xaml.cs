@@ -59,12 +59,12 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
 
         private void Edit_Enterprise(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new NewEditEnterprice((sender as Button).DataContext as Enterprise));
+            NavigationService.Navigate(new EditEnterprice((sender as Button).DataContext as Enterprise));
         }
 
         private void Btn_Add_Enterprise(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new NewEditEnterprice(null));
+            NavigationService.Navigate(new NewEditEnterprice(CurrentUser));
 
         }
 

@@ -23,9 +23,9 @@ namespace ClientAndStaff.Pages
             ListViewOrder.ItemsSource = JsonConvert.DeserializeObject<List<Order>>(response);
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-
+            await DisplayAlert("Message", "Order was new status successful", "OK");
         }
     }
 }

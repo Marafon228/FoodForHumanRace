@@ -43,8 +43,10 @@ namespace FoodForHumanRaceManagerDesktop.Pages.View
         public ViewStaff(User userEnterprise)
         {
             GlobalUser = userEnterprise;
-            
-            UserStaff = new ObservableCollection<User>(userEnterprise.UsersAndEnterprise.ToList().Select(u=> u.User).Where(u=> u.Role.Name == "Сотрудник") /*ADO.Instance.User.Where(u=> u.Role.Name == "Сотрудник"*/ /*&& u.UsersAndEnterprise == GlobalUser.UsersAndEnterprise*//*)*/);
+            var enterpriseUS = new List<Enterprise>(userEnterprise.UsersAndEnterprise.Select(e=> e.Enterprise));
+            UserStaff = new ObservableCollection<User>(enterpriseUS.FirstOrDefault().UsersAndEnterprise.Select(u=> u.User).Where(u=> u.Role.Name == "Сотрудник"));
+            //UserStaff = new ObservableCollection<User>(ADO.Instance.User.Where(u=>u.Role.Name == "Сотрудник"));
+            //UserStaff = new ObservableCollection<User>(/*userEnterprise.UsersAndEnterprise.ToList().Select(u=> u.User)*//*.Where(u=> u.Role.Name == "Сотрудник") *//*ADO.Instance.User.Where(u=> u.Role.Name == "Сотрудник"*/ /*&& u.UsersAndEnterprise == GlobalUser.UsersAndEnterprise*//*)*/);
             InitializeComponent();
         }
 

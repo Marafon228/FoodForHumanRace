@@ -45,12 +45,13 @@ namespace FoodForHumanRaceAdminDesktop.Entity
         [NotMapped]
         public string UserLogin
         {
-            get
-            {
+            get; set;
+            /*{
 
-                var Login = "Login menedger" /*ADO.Instance.UsersAndEnterprise.Find().User.Login*/;
-                return Login;
-            }
+                *//*var Login = "Login menedger" *//*ADO.Instance.UsersAndEnterprise.Find().User.Login*//*;
+                return Login;*//*
+            }*/
+
         }
     }
 }

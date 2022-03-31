@@ -46,11 +46,11 @@ namespace FoodForHumanRaceAdminDesktop.Pages
             set { enterprises = value; }
         }
 
-        public ViewEnterprise(/*Enterprise enterprise = null,*/ /*User user = null*/)
+        public ViewEnterprise(/*Enterprise enterprise *//*User user = null*/)
         {
-
+            //var userss = new ObservableCollection<User>(enterprise.UsersAndEnterprise.Select(e => e.User).Where(e=> e.Role.Name == "Предприниматель"));
+            //Enterprises = new ObservableCollection<Enterprise>(/*ADO.Instance.Enterprise.ToList()*/enterprises.FirstOrDefault().UsersAndEnterprise.Select(e=> e.Enterprise).Where(e=>e.UserLogin == userss.FirstOrDefault().Login ));
             Enterprises = new ObservableCollection<Enterprise>(ADO.Instance.Enterprise.ToList());
-
             
             //CurrentEnterprise = ADO.Instance.Enterprise.FirstOrDefault();
             //CurrentEnterprise = ADO.Instance.Enterprise.ToList().FirstOrDefault();

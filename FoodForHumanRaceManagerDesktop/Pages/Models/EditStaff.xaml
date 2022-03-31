@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EditStaff"
-      Background="AliceBlue"
+      Background="#e2c499"
       Name="EditStaffName">
 
     <Grid DataContext="{Binding ElementName=EditStaffName, Path=.}">
@@ -47,8 +47,20 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="20">
-            <Button Content="SAVE" Margin="10 0 10 0" Click="Btn_Save_Staff"></Button>
-            <Button Content="CANCELE" Margin="10 0 10 0"></Button>
+            <Button Content="SAVE" Margin="10 0 10 0" Click="Btn_Save_Staff">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="CANCELE" Margin="10 0 10 0" Click="Btn_Back">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

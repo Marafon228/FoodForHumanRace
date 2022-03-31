@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ViewStaff"
-      Background="AliceBlue"
+      Background="#e2c499"
       Name="ViewStaffName">
 
     <Grid DataContext="{Binding ElementName=ViewStaffName, Path=.}">
@@ -34,8 +34,20 @@
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel Orientation="Horizontal" Grid.Row="2">
-                <Button Content="Add" Click="Btn_Add_Staff"></Button>
-            <Button Content="Delete" Click="Btn_Delete"></Button>
+                <Button Content="Add" Click="Btn_Add_Staff">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="Delete" Click="Btn_Delete">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
             </StackPanel>
         
         

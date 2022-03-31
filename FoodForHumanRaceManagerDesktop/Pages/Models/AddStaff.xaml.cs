@@ -93,5 +93,10 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void Btn_Back(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

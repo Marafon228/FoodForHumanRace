@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddProduct"
-      Background="AliceBlue"
+      Background="#e2c499"
       Name="AddProductName">
 
     <Grid DataContext="{Binding ElementName=AddProductName}">
@@ -23,15 +23,33 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Product image:" FontSize="15"></TextBlock>
-                <Button Content="Загрузить фото" Click="Button_Click"></Button>
+                <Button Content="Загрузить фото" Click="Button_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
             </StackPanel>
             <Image x:Name="FirstImage" Width="200" Height="200" Source="{Binding CurrentProduct.Image}"></Image>
            
         </StackPanel>
         <StackPanel Margin="10" VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Button Content="SAVE" Margin="10" Width="80" Height="30" Click="Btn_Save"></Button>
-                <Button Content="CANCEL" Margin="10" Width="80" Height="30" Click="Btn_Cancel"></Button>
+                <Button Content="SAVE" Margin="10" Width="80" Height="30" Click="Btn_Save">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="CANCEL" Margin="10" Width="80" Height="30" Click="Btn_Cancel">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
             </StackPanel>
         </StackPanel>
         

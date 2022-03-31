@@ -97,7 +97,7 @@
                 <Button Content="SAVE" Click="Btn_Save">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="3"/>
                         </Style>
                     </Button.Resources>
                 </Button>
@@ -111,7 +111,7 @@
                 <Button Content="CANCEL" Click="Btn_Cancel">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="3"/>
                         </Style>
                     </Button.Resources>
                 </Button>

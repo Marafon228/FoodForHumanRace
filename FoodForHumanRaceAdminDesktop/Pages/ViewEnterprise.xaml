@@ -23,7 +23,8 @@
                 <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Adress" Binding="{Binding Path=Address}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Type Of Enterprise" Binding="{Binding Path=TypeOfEnterprise.Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Login Menedger" Binding="{Binding Path=UserLogin}"></DataGridTextColumn>
+                
+                
                 
                 
             </DataGrid.Columns>
@@ -34,10 +35,10 @@
                     
                 </LinearGradientBrush>
             </Border.Background>
-            <Button Content="ADD" Click="Button_Click">
+            <Button Width="300" Content="ADD" Click="Button_Click" Margin="0 0 0 10 ">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="15"/>
+                        <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </Button.Resources>
             </Button>

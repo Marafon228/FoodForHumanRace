@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ViewReporting"
-      Background="AliceBlue"
+      Background="#e2c499"
       Name="ViewReportingName">
 
     <Grid DataContext="{Binding ElementName=ViewReportingName, Path=.}">
@@ -25,8 +25,20 @@
                 </StackPanel>
         
         <StackPanel Orientation="Horizontal">
-                <Button Content="Экспорт в Excel" Width="175" Margin="5" Height="20" Name="BtnExportExel" Click="BtnExportExel_Click"></Button>
-                <Button Content="Экспор в Word" VerticalAlignment="Center" Width="175" Name="BtnExportWord" Click="BtnExportWord_Click"></Button>
+                <Button Content="Экспорт в Excel" FontSize="13" Width="175" Margin="5"  Name="BtnExportExel" Click="BtnExportExel_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="Экспор в Word" VerticalAlignment="Center" Width="175" Name="BtnExportWord" Click="BtnExportWord_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
         </StackPanel>
         </StackPanel>
         <WindowsFormsHost Grid.Row="1" Margin="5">

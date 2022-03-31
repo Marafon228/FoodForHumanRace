@@ -53,7 +53,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages
 
         private void LogOut(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Authorization());
         }
 
         private void Btn_View_Enterprise(object sender, RoutedEventArgs e)
