@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -36,6 +38,11 @@ namespace WebApplicationFoodForHumanRace.Controllers
             //return Ok(db.Product.ToList().ConvertAll(p => new ProductResponse(p)));
 
             var product = db.Product.ToList<Product>().Select(p => new GetProductResponse { Id = p.Id, Description = p.Description, Name = p.Name, Price = p.Price, Image = p.Image });
+
+           /* MemoryStream ms = new MemoryStream(product.FirstOrDefault().Image);
+            var imag = Image.FromStream(ms);*/
+
+            
 
             return Ok(product.ToArray());
         }
