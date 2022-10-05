@@ -188,6 +188,29 @@ namespace WebApplicationFoodForHumanRace.Controllers
 
         }
 
+        //POST WEB
+
+        [ActionName("AddProductWeb")]
+        [ResponseType(typeof(ProductResponse))]
+        public IHttpActionResult AddProductWeb(ProductResponse products)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var NewProduct = new Product() { Name = products.Name, Description = products.Description, Price = products.Price, Image = products.Image };
+
+            db.Product.Add(NewProduct);
+            db.SaveChanges();
+            
+            return Ok();
+
+
+
+
+        }
+
         // POST: api/Products
         [ResponseType(typeof(Product))]
         public IHttpActionResult PostProduct(Product product)
