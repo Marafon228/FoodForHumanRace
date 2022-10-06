@@ -204,6 +204,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
             db.Product.Add(NewProduct);
             db.SaveChanges();
             
+
             return Ok();
 
 
