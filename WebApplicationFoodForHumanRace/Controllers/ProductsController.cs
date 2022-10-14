@@ -51,14 +51,32 @@ namespace WebApplicationFoodForHumanRace.Controllers
         [ResponseType(typeof(Product))]
         public IHttpActionResult GetProduct(int id)
         {
-            Product product = db.Product.Find(id);
+
+            /*Product product = db.Product.Find(id);
             if (product == null)
             {
                 return NotFound();
-            }
+            }*/
 
-            return Ok(product);
+
+            var product = db.Product.ToList<Product>().Select(p => new GetProductResponse { Id = p.Id, Description = p.Description, Name = p.Name, Price = p.Price, Image = p.Image });
+
+            
+
+            return Ok(product.Where(p=> p.Id == id));
         }
+
+        [HttpPut]
+        public void EditProduct(int id, [FromBody] Product product)
+        {
+            if (id == product.Id)
+            {
+                db.Entry(product).State = EntityState.Modified;
+
+                db.SaveChanges();
+            }
+        }
+
 
         // PUT: api/Products/5
         [ResponseType(typeof(void))]
