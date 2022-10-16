@@ -21,14 +21,30 @@ namespace WebApplicationFoodForHumanRace.Controllers
     {
         private ADO db = new ADO();
 
+
+        // GET: api/TodoItems/5
+        [HttpGet]
+        public IHttpActionResult GetProductFromId(int id)
+        {
+            var product = db.Product.Find(id);
+            return Ok(new GetProductResponse { Id = product.Id,Name = product.Name ,Description = product.Description, Price = product.Price, Image = product.Image });
+        }
+
         // GET: api/Products
         public IQueryable<Product> GetProduct()
         {
+            
             return db.Product;
         }
+        /*// GET product
+        public  IQueryable<Product> GetProductFromId11(int id)
+        {
+            var product = db.Product.Find(id);
+            return (IQueryable<Product>)Ok(product);
+        }*/
 
         //Get
-        
+
         [ActionName("GetProducts")]
         [ResponseType(typeof(List<Product>))]
         public IHttpActionResult GetProducts()
