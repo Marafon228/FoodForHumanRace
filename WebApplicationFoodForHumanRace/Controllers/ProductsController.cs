@@ -31,6 +31,16 @@ namespace WebApplicationFoodForHumanRace.Controllers
             return Ok(new GetProductResponse { Id = product.Id,Name = product.Name ,Description = product.Description, Price = product.Price, Image = product.Image });
         }
 
+        // GET: api/TodoItems/5
+        [HttpGet]
+        public IHttpActionResult GetProductFromEnterpriseId(int id)
+        {
+            var product = db.Product.ToList<Product>()
+                .Select(p=> p.TypesOfProducts.Where(e=> e.IdEnterprise == id));
+            return Ok(product.ToArray());
+        }
+
+
         // GET: api/Products
         public IQueryable<Product> GetProduct()
         {
