@@ -34,7 +34,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
 
             var enterprise = db.Enterprise.ToList<Enterprise>().Select(e => new GetEnterpriseResponse { Id = e.Id, Name = e.Name, IdType = e.IdType, Address = e.Address, Latitude = e.Latitude, Longitude = e.Longitude });
 
-            return Ok(enterprise.ToArray());
+            return Ok(enterprise.ToArray());    
         }
 
         // GET: api/Enterprises/5

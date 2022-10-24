@@ -19,6 +19,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductsController : ApiController
     {
+        private ADO Olddb = new ADO();
         private ADO db = new ADO();
 
 
@@ -85,10 +86,16 @@ namespace WebApplicationFoodForHumanRace.Controllers
         [HttpPut]
         public void EditProduct(int id, [FromBody] Product product)
         {
+            var oldImage = Olddb.Product.FirstOrDefault(p => p.Id == id).Image;
+
+
             if (id == product.Id)
             {
                 db.Entry(product).State = EntityState.Modified;
-
+                if (product.Image == null)
+                {   
+                    product.Image = oldImage;
+                }
                 db.SaveChanges();
             }
         }
