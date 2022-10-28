@@ -405,6 +405,7 @@
     <Compile Include="Models\Json\GetEnterpriseResponse.cs" />
     <Compile Include="Models\Json\GetOrder.cs" />
     <Compile Include="Models\Json\GetProductResponse.cs" />
+    <Compile Include="Models\Json\GetTypesOfProductsResponse.cs" />
     <Compile Include="Models\Json\OrderResponse.cs" />
     <Compile Include="Models\Json\ProductResponse.cs" />
     <Compile Include="Models\Json\RegisterUser.cs" />
@@ -533,9 +534,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55237</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://192.168.100.123:3310</IISUrl>
+          <IISUrl>http://192.168.0.101:3310</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://192.168.100.123:3310</IISAppRootUrl>
+          <IISAppRootUrl>http://192.168.0.101:3310</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

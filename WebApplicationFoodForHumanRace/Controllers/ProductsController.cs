@@ -35,9 +35,19 @@ namespace WebApplicationFoodForHumanRace.Controllers
         [HttpGet]
         public IHttpActionResult GetProductFromEnterpriseId(int id)
         {
+
+            var product = db.Product.Select(p => p.TypesOfProducts.Where(t => t.IdEnterprise == id)).ToArray();
+           /* var product = new Product();
+            product.TypesOfProducts = new List<TypesOfProducts>(db.Product.ToList().Select(p=> new TypesOfProducts() {  Enterprise = db.Enterprise.Where(e=> e.Id == id), Product = db.Product.Where(p=> p.TypesOfProducts == db.TypesOfProducts.)}))
+*/
+            /*var currentTypesOfProducts = db.TypesOfProducts.ToList<TypesOfProducts>().Where(e=> e.IdEnterprise == id);
+            
             var product = db.Product.ToList<Product>()
-                .Select(p=> p.TypesOfProducts.Where(e=> e.IdEnterprise == id));
-            return Ok(product.ToArray());
+                .Where(p=> p.TypesOfProducts == currentTypesOfProducts)
+                .Select(p=> new ProductResponse { Id = p.Id , Description = p.Description , Image = p.Image, Name = p.Name , Price = p.Price});*/
+                /*.Select(p=> p.TypesOfProducts
+                .Where(e=> e.IdEnterprise == id));*/
+            return Ok(product);
         }
 
 
@@ -291,7 +301,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
             db.Product.Remove(product);
             db.SaveChanges();
 
-            return Ok(product);
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)
