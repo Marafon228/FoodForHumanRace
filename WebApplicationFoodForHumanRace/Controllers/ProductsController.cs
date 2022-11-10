@@ -35,19 +35,34 @@ namespace WebApplicationFoodForHumanRace.Controllers
         [HttpGet]
         public IHttpActionResult GetProductFromEnterpriseId(int id)
         {
+            //var EntrerpriseIncludeProduct = db.Enterprise.Include(enterpr => enterpr.);
+            var tp = db.TypesOfProducts.ToList<TypesOfProducts>().Where(e => e.IdEnterprise == id).ToArray();
+            var newProduct = new List<Product>();
+            var product = db.Product.ToList<Product>();
+            foreach (var pr in product)
+            {
+                for (int i = 0; i < tp.Length; i++)
+                {
+                    if (pr.TypesOfProducts.FirstOrDefault().IdProduct == tp[i].IdProduct)
+                    {
+                        newProduct.Add(pr);
+                    }
+                }
+                
+            }
+            //var product = db.Product.Select(p => p.TypesOfProducts.Where(t => t.IdEnterprise == id)).ToArray();
 
-            var product = db.Product.Select(p => p.TypesOfProducts.Where(t => t.IdEnterprise == id)).ToArray();
-           /* var product = new Product();
-            product.TypesOfProducts = new List<TypesOfProducts>(db.Product.ToList().Select(p=> new TypesOfProducts() {  Enterprise = db.Enterprise.Where(e=> e.Id == id), Product = db.Product.Where(p=> p.TypesOfProducts == db.TypesOfProducts.)}))
-*/
+            /* var product = new Product();
+             product.TypesOfProducts = new List<TypesOfProducts>(db.Product.ToList().Select(p=> new TypesOfProducts() {  Enterprise = db.Enterprise.Where(e=> e.Id == id), Product = db.Product.Where(p=> p.TypesOfProducts == db.TypesOfProducts.)}))
+ */
             /*var currentTypesOfProducts = db.TypesOfProducts.ToList<TypesOfProducts>().Where(e=> e.IdEnterprise == id);
             
             var product = db.Product.ToList<Product>()
                 .Where(p=> p.TypesOfProducts == currentTypesOfProducts)
                 .Select(p=> new ProductResponse { Id = p.Id , Description = p.Description , Image = p.Image, Name = p.Name , Price = p.Price});*/
-                /*.Select(p=> p.TypesOfProducts
-                .Where(e=> e.IdEnterprise == id));*/
-            return Ok(product);
+            /*.Select(p=> p.TypesOfProducts
+            .Where(e=> e.IdEnterprise == id));*/
+            return Ok(newProduct.Select(p=>new ProductResponse { Id = p.Id, Name = p.Name, Description = p.Description, Price = p.Price, Image = p.Image}));
         }
 
 
