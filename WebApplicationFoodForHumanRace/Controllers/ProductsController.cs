@@ -43,9 +43,16 @@ namespace WebApplicationFoodForHumanRace.Controllers
             {
                 for (int i = 0; i < tp.Length; i++)
                 {
-                    if (pr.TypesOfProducts.FirstOrDefault().IdProduct == tp[i].IdProduct)
+                    if (pr.TypesOfProducts.FirstOrDefault() == null)
                     {
-                        newProduct.Add(pr);
+                        break;
+                    }
+                    else
+                    {                           
+                        if (pr.TypesOfProducts.FirstOrDefault().IdProduct == tp[i].IdProduct)
+                        {
+                            newProduct.Add(pr);
+                        }
                     }
                 }
                 

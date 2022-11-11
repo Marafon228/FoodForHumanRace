@@ -98,9 +98,11 @@ namespace WebApplicationFoodForHumanRace.Controllers
             //var users = new User() {Id = user.Id, Login = user.Login, Password = user.Password, FirsName = user.FirsName , Adress = user.Adress, Email = user.Email, LastName = user.LastName, MidleName = user.MidleName, Phone = user.Phone  };
 
             //user = ADO.Instance.User.FirstOrDefault();
+
+
             if (userNew == null)
             {
-                return Ok(new AuthSignInResponse());
+                return Unauthorized();//403 не авторизован
             }
             else
             {
