@@ -7,12 +7,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using WebApplicationFoodForHumanRace.Models;
 using WebApplicationFoodForHumanRace.Models.Json;
 
 namespace WebApplicationFoodForHumanRace.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UsersController : ApiController
     {
         private ADO db = new ADO();
