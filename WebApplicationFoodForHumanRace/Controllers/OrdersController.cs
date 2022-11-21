@@ -7,12 +7,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using WebApplicationFoodForHumanRace.Models;
 using WebApplicationFoodForHumanRace.Models.Json;
 
 namespace WebApplicationFoodForHumanRace.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class OrdersController : ApiController
     {
         private ADO db = new ADO();
@@ -151,10 +153,13 @@ namespace WebApplicationFoodForHumanRace.Controllers
             var count = order.ManuProducts;
             User user = new User();
             user = db.User.FirstOrDefault(u => u.Login == order.LoginUser);
-            var NewOrder = new Order() { Name = user.Login + "Count" + order.ManuProducts.Count(),
-                Description = user.Adress,
+            var NewOrder = new Order() { Name = "User Login:" + user.Login + " " + "Count:" + order.ManuProducts.Count(),
+                Description = "Описание " + order.Description + " Адрес " + user.Adress,
                 Date = DateTime.Now, Status = db.Status.FirstOrDefault(s => s.Name == "Новый"),
-                User = user, Count = order.ManuProducts.Count(), OverPrice = order.ManuProducts.Sum(o=> o.Price) };
+                User = user, 
+                Count = order.ManuProducts.Count(),
+                OverPrice = order.ManuProducts.Sum(o=> o.Price) 
+            };
             db.Order.Add(NewOrder);
             db.SaveChanges();
             var products = order.ManuProducts;
