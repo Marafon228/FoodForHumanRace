@@ -402,7 +402,11 @@
     <Compile Include="Models\Json\AdOrder.cs" />
     <Compile Include="Models\Json\AuthSignIn.cs" />
     <Compile Include="Models\Json\AuthSignInResponse.cs" />
+    <Compile Include="Models\Json\EnterpriseIdResponse.cs" />
+    <Compile Include="Models\Json\GetAllUserResponse.cs" />
     <Compile Include="Models\Json\GetEnterpriseResponse.cs" />
+    <Compile Include="Models\Json\GetOrderAllRowResponse.cs" />
+    <Compile Include="Models\Json\GetOrderResponse.cs" />
     <Compile Include="Models\Json\GetOrder.cs" />
     <Compile Include="Models\Json\GetProductResponse.cs" />
     <Compile Include="Models\Json\GetTypesOfProductsResponse.cs" />

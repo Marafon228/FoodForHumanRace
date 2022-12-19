@@ -19,6 +19,16 @@ namespace WebApplicationFoodForHumanRace.Controllers
     {
         private ADO db = new ADO();
 
+
+
+        // GET: api/TodoItems/5
+        [HttpGet]
+        public IHttpActionResult GetOrderFromId(int id)
+        {
+            var order = db.Order.Find(id);
+            return Ok(new GetOrderAllRowResponse { Id = order.Id, Name = order.Name, Description = order.Description, Date = order.Date, IdUser = order.IdUser, IdStatus = order.IdStatus, OverPrice = order.OverPrice, Count = order.Count });
+        }
+
         // GET: api/Orders
         public IQueryable<Order> GetOrder()
         {
@@ -38,6 +48,39 @@ namespace WebApplicationFoodForHumanRace.Controllers
             return Ok(order.ToArray());
         }
 
+        //Get
+        [ActionName("GetOrdersFromUserId")]
+        [ResponseType(typeof(List<Order>))]
+        public IHttpActionResult GetOrdersFromUserId(int id)
+        {
+            User user = db.User.FirstOrDefault(u => u.Id == id);
+
+            //return Ok(db.Product.ToList().ConvertAll(p => new ProductResponse(p)));
+
+            var order = db.Order.ToList<Order>().
+                                                  Where(o=> o.IdUser == user.Id).
+                                                  Select(p => new GetOrderResponse { Id = p.Id, Description = p.Description, Name = p.Name, Count = p.Count, Date = p.Date, OverPrice = p.OverPrice, Status = p.Status.Name });
+
+            return Ok(order.ToArray());
+        }
+
+
+        //Get
+        [ActionName("GetOrdersFromUserIdForEmployee")]
+        [ResponseType(typeof(List<Order>))]
+        public IHttpActionResult GetOrdersFromUserIdForEmployee()
+        {
+            //User user = db.User.FirstOrDefault(u => u.Id == id);
+
+            //return Ok(db.Product.ToList().ConvertAll(p => new ProductResponse(p)));
+
+            var order = db.Order.ToList<Order>().
+                                                  Where(o => o.IdStatus == 1).
+                                                  Select(p => new GetOrderResponse { Id = p.Id, Description = p.Description, Name = p.Name, Count = p.Count, Date = p.Date, OverPrice = p.OverPrice, Status = p.Status.Name });
+
+            return Ok(order.ToArray());
+        }
+
 
         // GET: api/Orders/5
         [ResponseType(typeof(Order))]
@@ -51,6 +94,22 @@ namespace WebApplicationFoodForHumanRace.Controllers
 
             return Ok(order);
         }
+
+
+
+        [HttpPut]
+        public void EditOrder(int id, [FromBody] Order order)
+        {
+
+            //var oldorder = db.Order.FirstOrDefault();
+
+            if (id == order.Id)
+            {
+                db.Entry(order).State = EntityState.Modified;              
+                db.SaveChanges();
+            }
+        }
+
 
         // PUT: api/Orders/5
         [ResponseType(typeof(void))]

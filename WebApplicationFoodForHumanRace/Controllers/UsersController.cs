@@ -39,6 +39,64 @@ namespace WebApplicationFoodForHumanRace.Controllers
             return Ok(user);
         }
 
+        // GET: api/Users/5
+        [ActionName("GetAllUser")]
+        [ResponseType(typeof(User))]
+        public IHttpActionResult GetAllUser()
+        {
+            var user = db.User.ToList<User>().Select(u => new GetAllUserResponse { Id = u.Id, Login = u.Login, FirsName = u.FirsName, MiddleName = u.MidleName, 
+            LastName = u.LastName, Adress = u.Adress, Email = u.Email, Password = u.Password, Phone = u.Phone, IdRole = u.IdRole });
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user.ToArray());
+        }
+
+        // GET: api/TodoItems/5
+        [HttpGet]
+        public IHttpActionResult GetEnterpriseFromUserId(int id)
+        {
+
+            var UserEnter = db.UsersAndEnterprise.ToList<UsersAndEnterprise>().Where(u => u.IdUser == id).ToArray();
+
+
+            //var EntrerpriseIncludeProduct = db.Enterprise.Include(enterpr => enterpr.);
+            /*var tp = db.TypesOfProducts.ToList<TypesOfProducts>().Where(e => e.IdEnterprise == id).ToArray();
+            var newProduct = new List<Product>();
+            var product = db.Product.ToList<Product>();
+            foreach (var pr in product)
+            {
+                for (int i = 0; i < tp.Length; i++)
+                {
+                    if (pr.TypesOfProducts.FirstOrDefault() == null)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        if (pr.TypesOfProducts.FirstOrDefault().IdProduct == tp[i].IdProduct)
+                        {
+                            newProduct.Add(pr);
+                        }
+                    }
+                }
+
+            }*/
+            var IdEnterArray = new List<EnterpriseIdResponse>();
+
+            foreach (var en in UserEnter)
+            {
+                IdEnterArray.Add(new EnterpriseIdResponse() { IdEnterprise = en.IdEnterprise, NameEnterprise = en.Enterprise.Name});           
+            }
+            
+            
+            
+           
+            return Ok(IdEnterArray);
+        }
+
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutUser(int id, User user)

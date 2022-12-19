@@ -286,6 +286,10 @@ namespace WebApplicationFoodForHumanRace.Controllers
 
             db.Product.Add(NewProduct);
             db.SaveChanges();
+
+            var ProductInEnterprise = new TypesOfProducts() { IdEnterprise = products.IdEnterprise, IdProduct = NewProduct.Id };
+            db.TypesOfProducts.Add(ProductInEnterprise);
+            db.SaveChanges();
             
 
             return Ok();
