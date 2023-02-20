@@ -19,13 +19,18 @@ namespace ClientAndStaff.Pages
         {
             InitializeComponent();
             var client = new WebClient();
-            var response = client.DownloadString("http://192.168.0.101:3245/api/Orders/GetOrders");
+            var response = client.DownloadString("http://192.168.0.101:3310/api/Orders/GetOrders");
             ListViewOrder.ItemsSource = JsonConvert.DeserializeObject<List<Order>>(response);
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
             await DisplayAlert("Message", "Order was new status successful", "OK");
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Geo());
         }
     }
 }

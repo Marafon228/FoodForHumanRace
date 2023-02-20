@@ -56,19 +56,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
                     }
                 }
                 
-            }
-            //var product = db.Product.Select(p => p.TypesOfProducts.Where(t => t.IdEnterprise == id)).ToArray();
-
-            /* var product = new Product();
-             product.TypesOfProducts = new List<TypesOfProducts>(db.Product.ToList().Select(p=> new TypesOfProducts() {  Enterprise = db.Enterprise.Where(e=> e.Id == id), Product = db.Product.Where(p=> p.TypesOfProducts == db.TypesOfProducts.)}))
- */
-            /*var currentTypesOfProducts = db.TypesOfProducts.ToList<TypesOfProducts>().Where(e=> e.IdEnterprise == id);
-            
-            var product = db.Product.ToList<Product>()
-                .Where(p=> p.TypesOfProducts == currentTypesOfProducts)
-                .Select(p=> new ProductResponse { Id = p.Id , Description = p.Description , Image = p.Image, Name = p.Name , Price = p.Price});*/
-            /*.Select(p=> p.TypesOfProducts
-            .Where(e=> e.IdEnterprise == id));*/
+            }          
             return Ok(newProduct.Select(p=>new ProductResponse { Id = p.Id, Name = p.Name, Description = p.Description, Price = p.Price, Image = p.Image}));
         }
 
@@ -92,14 +80,10 @@ namespace WebApplicationFoodForHumanRace.Controllers
         [ResponseType(typeof(List<Product>))]
         public IHttpActionResult GetProducts()
         {
-            User user = db.User.FirstOrDefault(u=> u.Id == 1);
-
-            //return Ok(db.Product.ToList().ConvertAll(p => new ProductResponse(p)));
+            
 
             var product = db.Product.ToList<Product>().Select(p => new GetProductResponse { Id = p.Id, Description = p.Description, Name = p.Name, Price = p.Price, Image = p.Image });
 
-           /* MemoryStream ms = new MemoryStream(product.FirstOrDefault().Image);
-            var imag = Image.FromStream(ms);*/
 
             
 
@@ -111,16 +95,9 @@ namespace WebApplicationFoodForHumanRace.Controllers
         public IHttpActionResult GetProduct(int id)
         {
 
-            /*Product product = db.Product.Find(id);
-            if (product == null)
-            {
-                return NotFound();
-            }*/
-
 
             var product = db.Product.ToList<Product>().Select(p => new GetProductResponse { Id = p.Id, Description = p.Description, Name = p.Name, Price = p.Price, Image = p.Image });
 
-            
 
             return Ok(product.Where(p=> p.Id == id));
         }

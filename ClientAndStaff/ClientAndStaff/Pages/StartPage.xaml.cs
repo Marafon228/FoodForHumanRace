@@ -27,7 +27,7 @@ namespace ClientAndStaff.Pages
             InitializeComponent();
             CurrentUser = currentUser;
             var client = new WebClient();
-            var response = client.DownloadString("http://192.168.0.101:3245/api/Products/GetProducts");
+            var response = client.DownloadString("http://192.168.0.101:3310/api/Products/GetProducts");
             ListViewProducts.ItemsSource = JsonConvert.DeserializeObject<List<Product>>(response);
             
 
@@ -59,7 +59,7 @@ namespace ClientAndStaff.Pages
 
             var client = new WebClient();
             client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-            var result = client.UploadString("http://192.168.0.101:3245/api/Orders/AddsProduct", JsonConvert.SerializeObject(CurrentOrder));
+            var result = client.UploadString("http://192.168.0.101:3310/api/Orders/AddsProduct", JsonConvert.SerializeObject(CurrentOrder));
 
 
 

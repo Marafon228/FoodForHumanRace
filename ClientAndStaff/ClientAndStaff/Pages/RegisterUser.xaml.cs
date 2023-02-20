@@ -15,6 +15,8 @@ namespace ClientAndStaff.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegisterUser : ContentPage
     {
+
+
         public User CurrentUser { get; set; }
         public RegisterUser()
         {
@@ -28,7 +30,7 @@ namespace ClientAndStaff.Pages
         {
             var client = new WebClient();
             client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-            var result = client.UploadString("http://192.168.0.101:3245/api/Users/RegisterUser", JsonConvert.SerializeObject(CurrentUser));
+            var result = client.UploadString(Global.GlobalVar + "api/Users/RegisterUser", JsonConvert.SerializeObject(CurrentUser));
             if (result != null)
             {
                 await Navigation.PushAsync(new MainPage());

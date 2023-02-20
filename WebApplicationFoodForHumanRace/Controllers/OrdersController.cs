@@ -70,9 +70,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
         [ResponseType(typeof(List<Order>))]
         public IHttpActionResult GetOrdersFromUserIdForEmployee()
         {
-            //User user = db.User.FirstOrDefault(u => u.Id == id);
-
-            //return Ok(db.Product.ToList().ConvertAll(p => new ProductResponse(p)));
+            
 
             var order = db.Order.ToList<Order>().
                                                   Where(o => o.IdStatus == 1).
@@ -101,7 +99,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
         public void EditOrder(int id, [FromBody] Order order)
         {
 
-            //var oldorder = db.Order.FirstOrDefault();
+            
 
             if (id == order.Id)
             {
@@ -202,13 +200,6 @@ namespace WebApplicationFoodForHumanRace.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            /*products = new List<Product>()
-            {
-                db.Product.FirstOrDefault(p=> p.Id == 1),
-                db.Product.FirstOrDefault(p=> p.Id == 2),
-                db.Product.FirstOrDefault(p=> p.Id == 3),
-            };*/
             var count = order.ManuProducts;
             User user = new User();
             user = db.User.FirstOrDefault(u => u.Login == order.LoginUser);

@@ -38,6 +38,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Text="Килк" Clicked="Button_Clicked_1"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

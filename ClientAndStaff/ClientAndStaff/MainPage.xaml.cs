@@ -30,7 +30,7 @@ namespace ClientAndStaff
 
             var client = new WebClient();
             client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-            var result = client.UploadString("http://192.168.0.101:3245/api/Users/SignIn", JsonConvert.SerializeObject(CurrentUser));
+            var result = client.UploadString(Global.GlobalVar + "api/Users/SignIn", JsonConvert.SerializeObject(CurrentUser));
             if (result != null)
             {
                 var roleUser = JsonConvert.DeserializeObject<User>(result);
