@@ -25,23 +25,24 @@
             <TextBlock Text="Enterprise"></TextBlock>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Name"></TextBlock>
-                <TextBox Text="{Binding CurrentEnterprise.Name}"></TextBox>
+                <TextBox Margin="30,0,0,0" Text="{Binding CurrentEnterprise.Name}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Type"></TextBlock>
                 <ComboBox ItemsSource="{Binding TypeEnterprise, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           SelectedValuePath="." DisplayMemberPath="Name"
                           SelectedValue="{Binding CurrentEnterprise.TypeOfEnterprise, Mode=TwoWay}"
-                          SelectedItem="{Binding CurrentEnterprise.TypeOfEnterprise, Mode=TwoWay}"></ComboBox>
+                          SelectedItem="{Binding CurrentEnterprise.TypeOfEnterprise, Mode=TwoWay}"
+                          Margin="37,0,0,0"></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Address"></TextBlock>
-                <TextBox Text="{Binding CurrentEnterprise.Address}"></TextBox>
+                <TextBox Text="{Binding CurrentEnterprise.Address}" Margin="20,0,0,0"></TextBox>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Latiude"></TextBlock>
-                <TextBox Text="{Binding CurrentEnterprise.Latitude}"></TextBox>
+                <TextBox Text="{Binding CurrentEnterprise.Latitude}" Margin="24,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Longitude"></TextBlock>
@@ -55,15 +56,15 @@
             <TextBlock Text="Menedger"></TextBlock>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Login:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.Login, Mode=TwoWay}" ></TextBox>
+                <TextBox Text="{Binding CurrentUser.Login, Mode=TwoWay}" Margin="50,0,0,0" ></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Password:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.Password}"></TextBox>
+                <TextBox Text="{Binding CurrentUser.Password}" Margin="30,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="First Name:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.FirsName}"></TextBox>
+                <TextBox Text="{Binding CurrentUser.FirsName}" Margin="23,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Middli Name:"></TextBlock>
@@ -71,19 +72,19 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Last Name:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.LastName}"></TextBox>
+                <TextBox Text="{Binding CurrentUser.LastName}" Margin="23,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Address:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.Adress}"></TextBox>
+                <TextBox Text="{Binding CurrentUser.Adress}" Margin="38,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Phone:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.Phone}"></TextBox>
+                <TextBox Text="{Binding CurrentUser.Phone}" Margin="45,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Email:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.Email}"></TextBox>
+                <TextBox Text="{Binding CurrentUser.Email}" Margin="50,0,0,0"></TextBox>
             </StackPanel>
             
         </StackPanel>

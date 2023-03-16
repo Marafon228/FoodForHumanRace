@@ -16,14 +16,16 @@
             <TextBlock Text="Enterprise"></TextBlock>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Name"></TextBlock>
-                <TextBox Text="{Binding CurrentEnterprise.Name}"></TextBox>
+                <TextBox Text="{Binding CurrentEnterprise.Name}" Margin="20,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Type"></TextBlock>
                 <ComboBox ItemsSource="{Binding TypeEnterprise, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           SelectedValuePath="." DisplayMemberPath="Name"
                           SelectedValue="{Binding CurrentEnterprise.TypeOfEnterprise, Mode=TwoWay}"
-                          SelectedItem="{Binding CurrentEnterprise.TypeOfEnterprise, Mode=TwoWay}"></ComboBox>
+                          SelectedItem="{Binding CurrentEnterprise.TypeOfEnterprise, Mode=TwoWay}"
+                          Margin="27,0,0,0"
+                          ></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Address"></TextBlock>
@@ -32,11 +34,11 @@
             <StackPanel Orientation="Horizontal"/>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Latiude"></TextBlock>
-                <TextBox Text="{Binding CurrentEnterprise.Latitude}"></TextBox>
+                <TextBox Text="{Binding CurrentEnterprise.Latitude}" Margin="15,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Longitude"></TextBlock>
-                <TextBox Text="{Binding CurrentEnterprise.Longitude}"></TextBox>
+                <TextBox Text="{Binding CurrentEnterprise.Longitude}" Margin="2,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button Content="SAVE" Click="Btn_Save">

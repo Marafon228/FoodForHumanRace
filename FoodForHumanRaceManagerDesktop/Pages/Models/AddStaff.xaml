@@ -15,35 +15,35 @@
             <TextBlock Text="Add Staff" FontSize="30"></TextBlock>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Login:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.Login}"></TextBox>
+                <TextBox Text="{Binding CurrentUser.Login}" Margin="40,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Passsword:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.Password}"></TextBox>
+                <TextBox Text="{Binding CurrentUser.Password}" Margin="15,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="FirsName:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.FirsName}"></TextBox>
+                <TextBox Text="{Binding CurrentUser.FirsName}" Margin="20,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="MidleName:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.MidleName}"></TextBox>
+                <TextBox Text="{Binding CurrentUser.MidleName}" Margin="9,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="LastName:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.LastName}"></TextBox>
+                <TextBox Text="{Binding CurrentUser.LastName}" Margin="18,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Adress:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.Adress}"></TextBox>
+                <TextBox Text="{Binding CurrentUser.Adress}" Margin="35,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Phone:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.Phone}"></TextBox>
+                <TextBox Text="{Binding CurrentUser.Phone}" Margin="38,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Email:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.Email}"></TextBox>
+                <TextBox Text="{Binding CurrentUser.Email}" Margin="40,0,0,0"></TextBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="20">
