@@ -12,7 +12,7 @@
 
     <Grid DataContext="{Binding ElementName=EditProductName, Path=.}">
         <StackPanel Margin="20">
-            <TextBlock FontSize="30" Text="Add Product"></TextBlock>
+            <TextBlock FontSize="30" Text="Edit Product"></TextBlock>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Product name:" FontSize="15"></TextBlock>
                 <TextBox Text="{Binding CurrentProduct.Name}" FontSize="15"></TextBox>
@@ -20,6 +20,10 @@
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Product price:" FontSize="15"></TextBlock>
                 <TextBox Text="{Binding CurrentProduct.Price}" FontSize="15" Margin="15,0,0,0"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Product quantity:" FontSize="15"></TextBlock>
+                <TextBox Text="{Binding CurrentProduct.Quantity}" FontSize="15" Margin="15,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Product image:" FontSize="15"></TextBlock>

@@ -35,6 +35,8 @@ namespace WebApplicationFoodForHumanRace.Models
 
         public int Count { get; set; }
 
+        public int? Staff { get; set; }
+
         public virtual Status Status { get; set; }
 
         public virtual User User { get; set; }

@@ -6,15 +6,48 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.InteropServices;
 using System.Web.Http;
 using System.Web.Http.Description;
 using WebApplicationFoodForHumanRace.Models;
+using WebApplicationFoodForHumanRace.Models.Json;
 
 namespace WebApplicationFoodForHumanRace.Controllers
 {
     public class OrderAndProductsController : ApiController
     {
         private ADO db = new ADO();
+
+
+        //Get
+        [ActionName("GetProductsOrderFromOrderId")]
+        [ResponseType(typeof(List<Product>))]
+        public IHttpActionResult GetProductsOrderFromOrderId(int id)
+        {
+            Order order = db.Order.FirstOrDefault(o=> o.Id == id);
+
+            var productsOrder = db.OrderAndProduct.ToList<OrderAndProduct>().Where(o=> o.IdOrder == order.Id);
+            var products = new List<GetProductResponse>();
+            foreach (var item in productsOrder)
+            {
+                var product = db.Product.FirstOrDefault(o => o.Id == item.IdProduct);
+
+                var productResponse = new GetProductResponse
+                {
+                    Id = product.Id,
+                    Name = product.Name,
+                    Description = product.Description,
+                    Price = product.Price,
+                    Image = product.Image,
+                    Quantity = item.Quantity
+                };
+
+                products.Add(productResponse);
+            }
+
+
+            return Ok(products.ToArray());
+        }
 
         // GET: api/OrderAndProducts
         public IQueryable<OrderAndProduct> GetOrderAndProduct()

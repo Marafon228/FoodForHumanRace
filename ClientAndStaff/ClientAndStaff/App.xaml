@@ -3,6 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ClientAndStaff.App">
     <Application.Resources>
+        <ControlTemplate x:Key="NavigationTemplate">
+            <Grid >
+                <!-- Here you can define the content of the page -->
+                <ContentPresenter Margin="0, 0, 0, 50" />
 
+                <!-- Navigation buttons -->
+                <Grid VerticalOptions="End" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Text="Home" Grid.Column="0" x:Name="Home" Clicked="Home_Clicked"/>
+                    <Button Text="Cart" Grid.Column="1" x:Name="Cart" Clicked="Cart_Clicked" />
+                    <Button Text="Order" Grid.Column="2" x:Name="Order" Clicked="Order_Clicked"/>
+                    <Button Text="Profile" Grid.Column="3" x:Name="Profile" Clicked="Profile_Clicked"/>
+                </Grid>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="NavigationTemplateStaff">
+            <Grid >
+                <!-- Here you can define the content of the page -->
+                <ContentPresenter Margin="0, 0, 0, 50" />
+
+                <!-- Navigation buttons -->
+                <Grid VerticalOptions="End" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Home" Grid.Column="0" x:Name="HomeStaff" Clicked="HomeStaff_Clicked"/>
+                    <Button Text="Orders" Grid.Column="2" x:Name="OrderStaff" Clicked="OrderStaff_Clicked"/>
+                    <Button Text="Maps" Grid.Column="1" x:Name="MapsStaff" Clicked="MapsStaff_Clicked" />                    
+                    <Button Text="Profile" Grid.Column="3" x:Name="Profile" Clicked="Profile_Clicked"/>
+                </Grid>
+            </Grid>
+        </ControlTemplate>
     </Application.Resources>
 </Application>

@@ -22,6 +22,10 @@
                 <TextBox Text="{Binding CurrentProduct.Price}" FontSize="15" Margin="15,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Product quantity:" FontSize="15"></TextBlock>
+                <TextBox Text="{Binding CurrentProduct.Quantity}" FontSize="15" Margin="15,0,0,0"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Product image:" FontSize="15"></TextBlock>
                 <Button Content="Загрузить фото" Click="Button_Click">
                     <Button.Resources>

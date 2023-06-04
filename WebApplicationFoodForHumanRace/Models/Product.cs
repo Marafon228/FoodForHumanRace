@@ -31,6 +31,8 @@ namespace WebApplicationFoodForHumanRace.Models
         [Column(TypeName = "image")]
         public byte[] Image { get; set; }
 
+        public int Quantity { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderAndProduct> OrderAndProduct { get; set; }
 

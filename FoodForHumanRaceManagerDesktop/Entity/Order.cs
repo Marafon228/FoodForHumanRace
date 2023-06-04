@@ -36,6 +36,7 @@ namespace FoodForHumanRaceManagerDesktop.Entity
 
         public int Count { get; set; }
 
+        public int? Staff { get; set; }
 
         public virtual Status Status { get; set; }
 

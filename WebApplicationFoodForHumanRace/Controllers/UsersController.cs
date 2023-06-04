@@ -97,6 +97,19 @@ namespace WebApplicationFoodForHumanRace.Controllers
             return Ok(IdEnterArray);
         }
 
+
+        [HttpPut]
+        public void UpdateUser(int id, [FromBody] User user)
+        {
+
+            if (id == user.Id)
+            {
+                db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
+                Ok();
+            }
+        }
+
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutUser(int id, User user)

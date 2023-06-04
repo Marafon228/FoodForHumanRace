@@ -39,7 +39,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
 
         // Using a DependencyProperty as the backing store for CurrentEnterprise.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CurrentEnterpriseProperty =
-            DependencyProperty.Register("CurrentEnterprise", typeof(Enterprise), typeof(NewEditEnterprice));
+            DependencyProperty.Register("CurrentEnterprise", typeof(Enterprise), typeof(EditEnterprice));
 
         public EditEnterprice(Enterprise enterprise )
         {

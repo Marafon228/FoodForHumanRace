@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ClientAndStaff.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace ClientAndStaff.Pages
         {
             InitializeComponent();
             var client = new WebClient();
-            var response = client.DownloadString("http://192.168.0.101:3310/api/Orders/GetOrders");
+            var response = client.DownloadString(Global.GlobalVar + "api/Orders/GetOrders");
             ListViewOrder.ItemsSource = JsonConvert.DeserializeObject<List<Order>>(response);
         }
 

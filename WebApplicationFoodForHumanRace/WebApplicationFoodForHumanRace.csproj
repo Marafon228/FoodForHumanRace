@@ -538,9 +538,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55237</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://192.168.104.27:3310</IISUrl>
+          <IISUrl>http://192.168.0.14:3310</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://192.168.104.27:3310</IISAppRootUrl>
+          <IISAppRootUrl>http://192.168.0.14:3310</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

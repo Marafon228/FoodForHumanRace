@@ -82,7 +82,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
         {
             
 
-            var product = db.Product.ToList<Product>().Select(p => new GetProductResponse { Id = p.Id, Description = p.Description, Name = p.Name, Price = p.Price, Image = p.Image });
+            var product = db.Product.ToList<Product>().Select(p => new GetProductResponse { Id = p.Id, Description = p.Description, Name = p.Name, Price = p.Price, Image = p.Image, Quantity = p.Quantity });
 
 
             

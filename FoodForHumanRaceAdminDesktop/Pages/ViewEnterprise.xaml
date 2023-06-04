@@ -17,7 +17,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Enterprise" FontSize="30"></TextBlock>
-        <DataGrid Grid.Row="1" Margin="20" Name="DataGridViewEnterprise" ItemsSource="{Binding Enterprises}" AutoGenerateColumns="False">
+        <DataGrid Grid.Row="1" Margin="20" Name="DataGridViewEnterprise" ItemsSource="{Binding Enterprises}" AutoGenerateColumns="False" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"></DataGridTextColumn>

@@ -11,8 +11,14 @@
       Name="AutoName">
 
     <Grid DataContext="{Binding ElementName=AutoName, Path=.}">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Background="#cccccc">
-            <TextBlock Text="Authorization" FontSize="30"></TextBlock>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/backgrounf.png" Stretch="UniformToFill"></ImageBrush>
+        </Grid.Background>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel.Background>
+                <SolidColorBrush Color="#cccccc" Opacity="0.8"/>
+            </StackPanel.Background>
+            <TextBlock Text="Authorization" FontSize="30" HorizontalAlignment="Center"></TextBlock>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="LOGIN:" FontSize="20" Margin="0 0 56 0"></TextBlock>
                 <TextBox FontSize="20" Text="{Binding CurrentUser.Login}" Width="100"></TextBox>

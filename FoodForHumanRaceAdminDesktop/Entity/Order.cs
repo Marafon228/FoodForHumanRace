@@ -31,6 +31,13 @@ namespace FoodForHumanRaceAdminDesktop.Entity
 
         public int? IdStatus { get; set; }
 
+        [Column(TypeName = "money")]
+        public decimal OverPrice { get; set; }
+
+        public int Count { get; set; }
+
+        public int? Staff { get; set; }
+
         public virtual Status Status { get; set; }
 
         public virtual User User { get; set; }

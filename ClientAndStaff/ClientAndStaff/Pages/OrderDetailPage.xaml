@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClientAndStaff.Pages.OrderDetailPage"
+             >
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Order Name:" FontAttributes="Bold" />
+            <Label Text="{Binding CurrentOrder.Name}" />
+            <Label Text="Order Description:" FontAttributes="Bold" />
+            <Label Text="{Binding CurrentOrder.Description}" />
+            <Label Text="Order Date:" FontAttributes="Bold" />
+            <Label Text="{Binding CurrentOrder.Date}" />
+            <Label Text="Order Status:" FontAttributes="Bold" />
+            <Label Text="{Binding CurrentOrder.Status}" />
+            <Label Text="Products:" FontAttributes="Bold" />
+            <ListView x:Name="OrdersList" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" FontAttributes="Bold" />
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding Description}" />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Price}" TextColor="Green" FontAttributes="Bold" />
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Quantity}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Track Order" Command="{Binding TrackOrderCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

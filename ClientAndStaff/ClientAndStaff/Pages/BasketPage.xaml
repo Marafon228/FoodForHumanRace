@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:ClientAndStaff.Helpers"
+             x:Class="ClientAndStaff.Pages.BasketPage"
+             ControlTemplate="{StaticResource NavigationTemplate}">
+    <ContentPage.Resources>
+        <local:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+        <Label Text="Корзина"/>
+            <ListView x:Name="BasketList" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Image, Converter={StaticResource ByteArrayToImageSourceConverter}}" WidthRequest="120" HeightRequest="120" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.RowSpan="3"/>
+                            <StackLayout Grid.Column="1" Spacing="2">
+                                <Label Text="{Binding Name}" FontAttributes="Bold"/>
+                                <Label Text="{Binding Price}" TextColor="Green"/>
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Label Text="Quantity: "/>
+                                    <Label Text="{Binding Quantity}" FontAttributes="Bold"/>
+                                </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Button Text="-" FontSize="20" WidthRequest="40" HeightRequest="40" CornerRadius="20" BorderColor="Gray" BorderWidth="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="OnMinusButton" Clicked="OnMinusButton_Clicked" CommandParameter="{Binding .}"/>
+                                        <Button Text="+" FontSize="20" WidthRequest="40" HeightRequest="40" CornerRadius="20" BorderColor="Gray" BorderWidth="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="OnPlusButton" Clicked="OnPlusButton_Clicked" CommandParameter="{Binding .}"/>
+                                    </StackLayout>
+                            </StackLayout>
+                                <StackLayout Grid.Column="2" Spacing="2">
+                                    
+                                    <Button Text="Remove" FontSize="12" WidthRequest="80" HeightRequest="35" CornerRadius="10" BorderColor="Gray" BorderWidth="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="OnRemoveButton" Clicked="OnRemoveButton_Clicked" CommandParameter="{Binding .}" Grid.Row="2" Grid.Column="2"/>
+                                </StackLayout>
+                            </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            <Button Text="Оформить заказ" x:Name="OnOrder" Clicked="OnOrder_Clicked"/>
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

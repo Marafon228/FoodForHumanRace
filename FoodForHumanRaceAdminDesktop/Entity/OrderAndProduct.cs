@@ -10,12 +10,14 @@ namespace FoodForHumanRaceAdminDesktop.Entity
     [Table("OrderAndProduct")]
     public partial class OrderAndProduct : ObservableObject
     {
-        
+
         public int Id { get; set; }
 
         public int IdOrder { get; set; }
 
         public int IdProduct { get; set; }
+
+        public int Quantity { get; set; }
 
         public virtual Order Order { get; set; }
 

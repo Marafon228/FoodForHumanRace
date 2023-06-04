@@ -13,49 +13,11 @@ using Xamarin.Forms;
 
 namespace ClientAndStaff
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : TabbedPage
     {
-        public UserAuth CurrentUser { get; set; }
         public MainPage()
         {
-            CurrentUser = new UserAuth();
-
             InitializeComponent();
-
-            BindingContext = this;
-        }
-
-        private async void Btn_SignIn(object sender, EventArgs e)
-        {
-
-            var client = new WebClient();
-            client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-            var result = client.UploadString(Global.GlobalVar + "api/Users/SignIn", JsonConvert.SerializeObject(CurrentUser));
-            if (result != null)
-            {
-                var roleUser = JsonConvert.DeserializeObject<User>(result);
-                if (roleUser.Role == "Клиент")
-                {
-                    await DisplayAlert("Message", "Registration was successful", "OK");
-                    await Navigation.PushAsync(new StartPage(roleUser), true);
-                }
-                else if (roleUser.Role == "Сотрудник" || roleUser.Role == "Предприниматель" || roleUser.Role == "Менеджер")
-                {
-                    await DisplayAlert("Message", "Registration was successful", "OK");
-                    await Navigation.PushAsync(new StartPageStaff(), true);
-                }
-                else
-                {
-                    await DisplayAlert("Message", "Registration invalid", "OK");
-
-                }
-            }
-            
-        }
-
-        private async void Btn_Reg(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new RegisterUser(), true);
         }
     }
 }

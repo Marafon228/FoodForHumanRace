@@ -17,20 +17,47 @@ namespace ClientAndStaff.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StartPage : ContentPage
     {
-        public User CurrentUser { get; set; }
+        
         public AddOrder CurrentOrder { get; set; }
         /// <summary>
         /// <behaviors:InvokeCommandAction Command="{Binding ItemTappedCommand}"/>
         /// </summary>
-        public StartPage(User currentUser)
+        public StartPage()
         {
             InitializeComponent();
-            CurrentUser = currentUser;
-            var client = new WebClient();
-            var response = client.DownloadString("http://192.168.0.101:3310/api/Products/GetProducts");
-            ListViewProducts.ItemsSource = JsonConvert.DeserializeObject<List<Product>>(response);
             
+            var client = new WebClient();
+            var response = client.DownloadString(Global.GlobalVar + "api/Products/GetProducts");
+            ListViewProducts.ItemsSource = JsonConvert.DeserializeObject<List<Product>>(response);
+        }
 
+        void Btn_add_Basket(object sender, EventArgs e)
+        {
+
+            Product produc = ListViewProducts.SelectedItem as Product;
+
+            // Check if the product already exists in the basket
+            ManuProduct existingProduct = Global.MyBasket.FirstOrDefault(p => p.Id == produc.Id);
+
+            if (existingProduct == null)
+            {
+                // If the product doesn't exist, add a new item with quantity 1
+                ManuProduct newManuProduct = new ManuProduct
+                {
+                    Name = produc.Name,
+                    Id = produc.Id,
+                    Description = produc.Description,
+                    Price = produc.Price,
+                    Image = produc.Image,
+                    Quantity = 1
+                };
+                Global.MyBasket.Add(newManuProduct);
+            }
+            else
+            {
+                // If the product already exists, increment the quantity
+                existingProduct.Quantity++;
+            }
 
         }
 
@@ -41,25 +68,28 @@ namespace ClientAndStaff.Pages
             Product product = (Product)btn.CommandParameter;*/
             /*Product products = ListViewProducts.SelectedItem as Product;*/
 
-            CurrentOrder = new AddOrder();
+            //CurrentOrder = new AddOrder();
 
-            Product produc = ListViewProducts.SelectedItem as Product;
+            /*Product produc = ListViewProducts.SelectedItem as Product;
 
             ManuProduct[] manuProducts =
             {
                 new ManuProduct(){ Name = produc.Name, Id = produc.Id, Description = produc.Description, Price = produc.Price, Image = produc.Image }
-            };
-            CurrentOrder.ManuProducts = manuProducts;
-            
+            };*/
+            /*CurrentOrder.ManuProducts = Global.MyBasket.ToArray();
+
             CurrentOrder.LoginUser = CurrentUser.Login;
-            
-            CurrentOrder.Description = null;
+
+            CurrentOrder.Description = null;*/
+
+
+
             
 
 
             var client = new WebClient();
             client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-            var result = client.UploadString("http://192.168.0.101:3310/api/Orders/AddsProduct", JsonConvert.SerializeObject(CurrentOrder));
+            var result = client.UploadString(Global.GlobalVar + "api/Orders/AddsProduct", JsonConvert.SerializeObject(CurrentOrder));
 
 
 

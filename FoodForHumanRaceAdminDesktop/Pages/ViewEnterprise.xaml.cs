@@ -22,6 +22,7 @@ namespace FoodForHumanRaceAdminDesktop.Pages
     /// </summary>
     public partial class ViewEnterprise : Page
     {
+        private System.Windows.Threading.DispatcherTimer timer;
 
         private Enterprise currentEnterprise;
 
@@ -48,6 +49,7 @@ namespace FoodForHumanRaceAdminDesktop.Pages
 
         public ViewEnterprise(/*Enterprise enterprise *//*User user = null*/)
         {
+            CurrentUser = ADO.Instance.User.Where(u => u.Id == 2).FirstOrDefault();
             //var userss = new ObservableCollection<User>(enterprise.UsersAndEnterprise.Select(e => e.User).Where(e=> e.Role.Name == "Предприниматель"));
             //Enterprises = new ObservableCollection<Enterprise>(/*ADO.Instance.Enterprise.ToList()*/enterprises.FirstOrDefault().UsersAndEnterprise.Select(e=> e.Enterprise).Where(e=>e.UserLogin == userss.FirstOrDefault().Login ));
             Enterprises = new ObservableCollection<Enterprise>(ADO.Instance.Enterprise.ToList());
@@ -74,7 +76,32 @@ namespace FoodForHumanRaceAdminDesktop.Pages
             InitializeComponent();
 
             //DataGridViewEnterprise.ItemsSource = CurrentUser.Enterprise;
-            
+
+            // Initialize the timer
+            timer = new System.Windows.Threading.DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(2);
+
+            // Attach the tick event handler
+            timer.Tick += Timer_Tick;
+
+            // Start the timer
+            timer.Start();
+
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Update the data in the DataGrid
+            UpdateDataGrid();
+        }
+
+        private void UpdateDataGrid()
+        {
+            // Fetch the updated data from your data source
+            Enterprises = new ObservableCollection<Enterprise>(ADO.Instance.Enterprise.ToList());
+
+            // Assign the data to the DataGrid's ItemsSource property
+            DataGridViewEnterprise.ItemsSource = Enterprises;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

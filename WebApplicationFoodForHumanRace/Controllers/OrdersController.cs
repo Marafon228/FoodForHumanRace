@@ -43,7 +43,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
 
             //return Ok(db.Product.ToList().ConvertAll(p => new ProductResponse(p)));
 
-            var order = db.Order.ToList<Order>().Select(p => new GetOrder { Id = p.Id, Description = p.Description, Name = p.Name, Count = p.Count, Date = p.Date, OverPrice = p.OverPrice });
+            var order = db.Order.ToList<Order>().Where(o=> o.Status.Name == "Новый").Select(p => new GetOrder { Id = p.Id, Description = p.Description, Name = p.Name, Count = p.Count, Date = p.Date, OverPrice = p.OverPrice, Staff = p.Staff, IdStatus = p.IdStatus, IdUser = p.IdUser });
 
             return Ok(order.ToArray());
         }
@@ -62,6 +62,31 @@ namespace WebApplicationFoodForHumanRace.Controllers
                                                   Select(p => new GetOrderResponse { Id = p.Id, Description = p.Description, Name = p.Name, Count = p.Count, Date = p.Date, OverPrice = p.OverPrice, Status = p.Status.Name });
 
             return Ok(order.ToArray());
+        }
+
+        //Get
+        [ActionName("GetOrdersFromStaffId")]
+        [ResponseType(typeof(List<Order>))]
+        public IHttpActionResult GetOrdersFromStaffId(int id)
+        {
+            try
+            {
+                User user = db.User.FirstOrDefault(u => u.Id == id);
+
+                //return Ok(db.Product.ToList().ConvertAll(p => new ProductResponse(p)));
+
+                var order = db.Order.ToList<Order>().
+                                                      Where(o => o.Staff == user.Id).
+                                                      Select(p => new GetOrderResponse { Id = p.Id, Description = p.Description, Name = p.Name, Count = p.Count, Date = p.Date, OverPrice = p.OverPrice, Status = p.Status.Name });
+
+                return Ok(order.ToArray());
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+                throw;
+            }           
+            
         }
 
 
@@ -91,6 +116,17 @@ namespace WebApplicationFoodForHumanRace.Controllers
             }
 
             return Ok(order);
+        }
+
+        [HttpPut]
+        public void EditOrderForStatus(int id, [FromBody] Order order)
+        {
+            
+            if (id == order.Id)
+            {
+                db.Entry(order).State = EntityState.Modified;
+                db.SaveChanges();
+            }
         }
 
 
@@ -143,7 +179,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-        //POST
+        //POST Не работает используй нижний 
         [ActionName("AddsProductAdds")]
         [ResponseType(typeof(AddOrder))]
         public IHttpActionResult ProductResponses(AddOrder order)
@@ -180,7 +216,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
                 var product = db.Product.FirstOrDefault(p => p.Name == item.Name);
                 if (product != null)
                 {
-                    db.OrderAndProduct.Add(new OrderAndProduct() { Order = NewOrder, Product = product });
+                    db.OrderAndProduct.Add(new OrderAndProduct() { Order = NewOrder, Product = product, Quantity = item.Quantity });
                 }
             }
             db.SaveChanges();
@@ -206,9 +242,10 @@ namespace WebApplicationFoodForHumanRace.Controllers
             var NewOrder = new Order() { Name = "User Login:" + user.Login + " " + "Count:" + order.ManuProducts.Count(),
                 Description = "Описание " + order.Description + " Адрес " + user.Adress,
                 Date = DateTime.Now, Status = db.Status.FirstOrDefault(s => s.Name == "Новый"),
-                User = user, 
+                User = user,
                 Count = order.ManuProducts.Count(),
-                OverPrice = order.ManuProducts.Sum(o=> o.Price) 
+                OverPrice = order.ManuProducts.Sum(o => o.Price),
+                Staff = 0
             };
             db.Order.Add(NewOrder);
             db.SaveChanges();
@@ -218,7 +255,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
                 var product = db.Product.FirstOrDefault(p => p.Name == item.Name);
                 if (product != null)
                 {
-                    db.OrderAndProduct.Add(new OrderAndProduct() { Order = NewOrder, Product = product });
+                    db.OrderAndProduct.Add(new OrderAndProduct() { Order = NewOrder, Product = product, Quantity = item.Quantity });
                 }
             }
             db.SaveChanges();

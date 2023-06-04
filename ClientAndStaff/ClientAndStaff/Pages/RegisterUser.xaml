@@ -46,7 +46,7 @@
                     <Button Text="Sign In" Clicked="Btn_Save"></Button>
                     <Button Text="Cancel" Clicked="Btn_Back"></Button>
                 </StackLayout>
-                
+
             </StackLayout>
         </Grid>
     </ContentPage.Content>

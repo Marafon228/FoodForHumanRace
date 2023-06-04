@@ -4,10 +4,8 @@
              x:Class="ClientAndStaff.Pages.Geo">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="eqweqw" Clicked="Button_Clicked"></Button>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Get Location" Clicked="Button_Clicked"></Button>
+            <Label x:Name="LabelLacation" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
