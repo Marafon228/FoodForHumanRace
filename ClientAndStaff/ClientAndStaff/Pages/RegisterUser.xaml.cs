@@ -33,7 +33,8 @@ namespace ClientAndStaff.Pages
             var result = client.UploadString(Global.GlobalVar + "api/Users/RegisterUser", JsonConvert.SerializeObject(CurrentUser));
             if (result != null)
             {
-                await Navigation.PushAsync(new MainPage());
+                await DisplayAlert("Message", "Registration was successful", "OK");
+                await Navigation.PushAsync(new SignInUser());
             }
             else
             {
@@ -46,7 +47,7 @@ namespace ClientAndStaff.Pages
 
         private async void Btn_Back(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new SignInUser(), true);
         }
     }
 }

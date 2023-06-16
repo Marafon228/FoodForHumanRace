@@ -7,7 +7,7 @@ namespace ClientAndStaff
 {
     public static class Global
     {
-        private static string _globalVar = "http://192.168.0.14:3310/";
+        private static string _globalVar = "http://192.168.101.124:3310/";
 
         public static string GlobalVar
         {

@@ -5,83 +5,92 @@
              ControlTemplate="{StaticResource NavigationTemplateStaff}">
     <ContentPage.Content>
         <StackLayout>
-            <!-- Header with logo and title -->
-            <StackLayout Orientation="Horizontal">
-                <Image Source="logo.png" WidthRequest="30" HeightRequest="30" Margin="10"/>
-                <Label Text="MyApp" FontSize="Large" FontAttributes="Bold" Margin="10"/>
-            </StackLayout>
+            
 
             <!-- Main content -->
             <ScrollView>
                 <StackLayout Padding="10">
-                    <!-- List of available orders -->
-                    <Label Text="Available Orders" FontAttributes="Bold" FontSize="Medium"/>
-                    <ListView x:Name="OrdersListView" SeparatorVisibility="Default" Margin="0,10,0,10">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout Padding="10">
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label FontSize="20"  Text="Name client: "></Label>
-                                            <Label FontSize="20" Text="{Binding Name}"></Label>
+                    <Grid VerticalOptions = "FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="350" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0" Grid.Row="0">
+                            <!-- List of available orders -->
+                            <Label Text="Доступные заказы" FontAttributes="Bold" FontSize="Medium"/>
+                            <ListView x:Name="OrdersListView" HasUnevenRows="True" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Padding="10">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label FontSize="20"  Text="Имя клиента: "></Label>
+                                                    <Label FontSize="20" Text="{Binding Name}"></Label>
 
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label FontSize="20" Text="Date of create: "></Label>
-                                            <Label FontSize="20" Text="{Binding Date}"></Label>
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label FontSize="20" Text="Overprice: "></Label>
-                                            <Label FontSize="20" Text="{Binding OverPrice}"></Label>
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label FontSize="20"  Text="Count: "></Label>
-                                            <Label FontSize="20"  Text="{Binding Count}"></Label>
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label FontSize="20"  Text="Address: "></Label>
-                                            <Label FontSize="20"  Text="{Binding Description}"></Label>
-                                        </StackLayout>
-                                        <Button Text="Accept" x:Name="OnAccept" Clicked="OnAccept_Clicked"/>
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-
-                    <!-- List of ongoing orders -->
-                    <Label Text="Ongoing Orders" FontAttributes="Bold" FontSize="Medium" Margin="0,10,0,0"/>
-                    <ListView x:Name="OngoingOrdersListView" SeparatorVisibility="Default">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout Padding="10">
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label FontSize="20"  Text="Name client: "></Label>
-                                            <Label FontSize="20" Text="{Binding Name}"></Label>
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label FontSize="20" Text="Date of create: "></Label>
-                                            <Label FontSize="20" Text="{Binding Date}"></Label>
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label FontSize="20" Text="Overprice: "></Label>
-                                            <Label FontSize="20" Text="{Binding OverPrice}"></Label>
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label FontSize="20"  Text="Count: "></Label>
-                                            <Label FontSize="20"  Text="{Binding Count}"></Label>
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label FontSize="20"  Text="Address: "></Label>
-                                            <Label FontSize="20"  Text="{Binding Description}"></Label>
-                                        </StackLayout>
-                                        <Button Text="Deliver" x:Name="OnDeliver" Clicked="OnDeliver_Clicked"/>
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label FontSize="20" Text="Дата создания: "></Label>
+                                                    <Label FontSize="20" Text="{Binding Date}"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label FontSize="20" Text="Финальная цена: "></Label>
+                                                    <Label FontSize="20" Text="{Binding OverPrice}"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label FontSize="20"  Text="Количество: "></Label>
+                                                    <Label FontSize="20"  Text="{Binding Count}"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label FontSize="20"  Text="Адрес: "></Label>
+                                                    <Label FontSize="20"  Text="{Binding Description}"></Label>
+                                                </StackLayout>
+                                                <Button Text="Принять" x:Name="OnAccept" Clicked="OnAccept_Clicked"/>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                        <StackLayout Grid.Column="0" Grid.Row="1">
+                            <!-- List of ongoing orders -->
+                            <Label Text="Активные принятые заказы" FontAttributes="Bold" FontSize="Medium" Margin="0,10,0,0"/>
+                            <ListView x:Name="OngoingOrdersListView" HasUnevenRows="True">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Padding="10">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label FontSize="20"  Text="Имя клиента: "></Label>
+                                                    <Label FontSize="20" Text="{Binding Name}"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label FontSize="20" Text="Дата создания: "></Label>
+                                                    <Label FontSize="20" Text="{Binding Date}"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label FontSize="20" Text="Финальная цена: "></Label>
+                                                    <Label FontSize="20" Text="{Binding OverPrice}"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label FontSize="20"  Text="Количество: "></Label>
+                                                    <Label FontSize="20"  Text="{Binding Count}"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label FontSize="20"  Text="Адрес: "></Label>
+                                                    <Label FontSize="20"  Text="{Binding Description}"></Label>
+                                                </StackLayout>
+                                                <Button Text="Доставить" x:Name="OnDeliver" Clicked="OnDeliver_Clicked"/>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </Grid>
+                    
                 </StackLayout>
             </ScrollView>
         </StackLayout>

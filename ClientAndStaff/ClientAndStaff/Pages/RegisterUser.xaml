@@ -1,50 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
              x:Class="ClientAndStaff.Pages.RegisterUser">
     <ContentPage.Content>
         <Grid>
             <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Login"></Label>
-                    <Entry WidthRequest="120" Text="{Binding CurrentUser.Login}"></Entry>
+                    <Label Text="Логин" WidthRequest="120"></Label>
+                    <Entry Text="{Binding CurrentUser.Login}" HeightRequest="40" WidthRequest="120" Margin="0,0,20,0"></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Password"></Label>
-                    <Entry WidthRequest="120" IsPassword="True" Text="{Binding CurrentUser.Password}"></Entry>
+                    <Label Text="Пароль" WidthRequest="120"></Label>
+                    <Entry IsPassword="True" Text="{Binding CurrentUser.Password}" WidthRequest="120" HeightRequest="40" Margin="0,0,0,0"></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Password"></Label>
-                    <Entry WidthRequest="120" IsPassword="True"></Entry>
+                    <Label Text="Повторите пароль" WidthRequest="120"></Label>
+                    <Entry IsPassword="True" HeightRequest="40" WidthRequest="120" Margin="0,0,0,0"></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="FirsName"></Label>
-                    <Entry WidthRequest="120" Text="{Binding CurrentUser.FirsName}"></Entry>
+                    <Label Text="Имя" WidthRequest="120"></Label>
+                    <Entry Text="{Binding CurrentUser.FirsName}" HeightRequest="40" WidthRequest="120"  Margin="0,0,0,0"></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="MidleName"></Label>
-                    <Entry WidthRequest="120" Text="{Binding CurrentUser.MidleName}"></Entry>
+                    <Label Text="Фамилия" WidthRequest="120"></Label>
+                    <Entry Text="{Binding CurrentUser.MidleName}" HeightRequest="40" WidthRequest="120" Margin="0,0,0,0"></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="LastName"></Label>
-                    <Entry WidthRequest="120" Text="{Binding CurrentUser.LastName}"></Entry>
+                    <Label Text="Отчество" WidthRequest="120"></Label>
+                    <Entry Text="{Binding CurrentUser.LastName}" HeightRequest="40" WidthRequest="120" Margin="0,0,0,0"></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Adress"></Label>
-                    <Entry WidthRequest="120" Text="{Binding CurrentUser.Adress}"></Entry>
+                    <Label Text="Адрес" WidthRequest="120"></Label>
+                    <Entry Text="{Binding CurrentUser.Adress}" HeightRequest="40" WidthRequest="120" Margin="0,0,0,0"></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Phone"></Label>
-                    <Entry WidthRequest="120" Text="{Binding CurrentUser.Phone}"></Entry>
+                    <Label Text="Телефон" WidthRequest="120"></Label>
+                    <Entry Text="{Binding CurrentUser.Phone}" HeightRequest="40" WidthRequest="120" Margin="0,0,0,0"></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Email"></Label>
-                    <Entry WidthRequest="120" Text="{Binding CurrentUser.Email}"></Entry>
+                    <Label Text="Email" WidthRequest="120"></Label>
+                    <Entry Text="{Binding CurrentUser.Email}" HeightRequest="40" WidthRequest="120" Margin="0,0,0,0"></Entry>
                 </StackLayout>
 
-                <StackLayout>
-                    <Button Text="Sign In" Clicked="Btn_Save"></Button>
-                    <Button Text="Cancel" Clicked="Btn_Back"></Button>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Зарегистрироваться" Clicked="Btn_Save"></Button>
+                    <Button Text="Отмена" Clicked="Btn_Back"></Button>
                 </StackLayout>
 
             </StackLayout>

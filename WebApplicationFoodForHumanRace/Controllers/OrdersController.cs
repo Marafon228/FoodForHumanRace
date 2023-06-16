@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientAndStaff.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -34,6 +35,17 @@ namespace WebApplicationFoodForHumanRace.Controllers
         {
             return db.Order;
         }
+
+        //Get
+        [ActionName("GetLocationOrderFromOrderId")]
+        [ResponseType(typeof(OrderDelivery))]
+        public IHttpActionResult GetLocationOrderFromOrderId(int id)
+        {
+            OrderDelivery orderDelivery = db.OrderDelivery.Where(o => o.IdOrder == id).FirstOrDefault();
+
+            return Ok(new OrderDelivaryReaponse() { LatitudeKl = orderDelivery.LatitudeKl, LongitudeKl = orderDelivery.LongitudeKl, LatitudeStaff = orderDelivery.LatitudeStaff, LongitudeStaff = orderDelivery.LongitudeStaff});
+        }
+
         //Get
         [ActionName("GetOrders")]
         [ResponseType(typeof(List<Order>))]
@@ -76,7 +88,7 @@ namespace WebApplicationFoodForHumanRace.Controllers
                 //return Ok(db.Product.ToList().ConvertAll(p => new ProductResponse(p)));
 
                 var order = db.Order.ToList<Order>().
-                                                      Where(o => o.Staff == user.Id).
+                                                      Where(o => o.Staff == user.Id && o.Status.Name == "Доставка").
                                                       Select(p => new GetOrderResponse { Id = p.Id, Description = p.Description, Name = p.Name, Count = p.Count, Date = p.Date, OverPrice = p.OverPrice, Status = p.Status.Name });
 
                 return Ok(order.ToArray());
@@ -98,7 +110,8 @@ namespace WebApplicationFoodForHumanRace.Controllers
             
 
             var order = db.Order.ToList<Order>().
-                                                  Where(o => o.IdStatus == 1).
+                                                  Where(o => o.Status.Name == "Новый"). 
+                                                  //Where(o => o.IdStatus == 1). //!!! поправить
                                                   Select(p => new GetOrderResponse { Id = p.Id, Description = p.Description, Name = p.Name, Count = p.Count, Date = p.Date, OverPrice = p.OverPrice, Status = p.Status.Name });
 
             return Ok(order.ToArray());
@@ -124,7 +137,9 @@ namespace WebApplicationFoodForHumanRace.Controllers
             
             if (id == order.Id)
             {
-                db.Entry(order).State = EntityState.Modified;
+                var newStatus = db.Order.Where(o => o.Id == id).FirstOrDefault();
+                newStatus.IdStatus = order.IdStatus;
+                db.Entry(newStatus).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }
@@ -134,12 +149,28 @@ namespace WebApplicationFoodForHumanRace.Controllers
         [HttpPut]
         public void EditOrder(int id, [FromBody] Order order)
         {
-
-            
-
             if (id == order.Id)
             {
                 db.Entry(order).State = EntityState.Modified;              
+                db.SaveChanges();
+            }
+        }
+
+        [HttpPut]
+        public void AcceptOrder(int id, [FromBody] dynamic data)
+        {
+            var order = data.Order.ToObject<Order>();
+            var geo = data.Geol.ToObject<Geol>();
+
+            if (id == order.Id)
+            {
+                var delivery = db.OrderDelivery.Where(d => d.IdOrder == id).FirstOrDefault();
+                delivery.LongitudeStaff = geo.Longitude;
+                delivery.LatitudeStaff = geo.Latitude;
+                delivery.IdStaff = order.Staff;
+
+                db.Entry(delivery).State = EntityState.Modified;
+                db.Entry(order).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }
@@ -259,10 +290,9 @@ namespace WebApplicationFoodForHumanRace.Controllers
                 }
             }
             db.SaveChanges();
-
+            db.OrderDelivery.Add(new OrderDelivery() { IdOrder = NewOrder.Id, LatitudeKl = order.Latitude, LongitudeKl = order.Longitude, IsActive = true });
+            db.SaveChanges();
             return Ok();
-
-
         }
 
         // POST: api/Orders

@@ -25,13 +25,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
     /// </summary>
     public partial class AddProduct : Page
     {
-        /*private Product currentProduct;
-
-        public Product CurrentProduct
-        {
-            get { return currentProduct; }
-            set { currentProduct = value; }
-        }*/
+        
 
         private Enterprise globalEnterprise;
 
@@ -59,8 +53,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
 
 
             CurrentProduct = new Product();
-            
-            //CurrentProduct = new Product();
+
             InitializeComponent();
         }
 
@@ -84,10 +77,6 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
         {
             try
             {
-                
-                //CurrentUser.UsersAndEnterprise.FirstOrDefault().Enterprise = GlobalUser.UsersAndEnterprise.FirstOrDefault().Enterprise;
-
-                //CurrentUser.UsersAndEnterprise = GlobalUser.UsersAndEnterprise;
                 ADO.Instance.Product.Add(CurrentProduct);
                 ADO.Instance.SaveChanges();
                 ADO.Instance.TypesOfProducts.Add(new TypesOfProducts() { Product = CurrentProduct, Enterprise = GlobalEnterprise });

@@ -11,6 +11,7 @@ namespace FoodForHumanRaceAdminDesktop.Entity
             : base("name=ADO")
         {
         }
+
         private static ADO _instance;
 
         public static ADO Instance
@@ -21,6 +22,7 @@ namespace FoodForHumanRaceAdminDesktop.Entity
         public virtual DbSet<Enterprise> Enterprise { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderAndProduct> OrderAndProduct { get; set; }
+        public virtual DbSet<OrderDelivery> OrderDelivery { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Status> Status { get; set; }
@@ -56,10 +58,36 @@ namespace FoodForHumanRaceAdminDesktop.Entity
                 .IsUnicode(false);
 
             modelBuilder.Entity<Order>()
+                .Property(e => e.OverPrice)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<Order>()
                 .HasMany(e => e.OrderAndProduct)
                 .WithRequired(e => e.Order)
                 .HasForeignKey(e => e.IdOrder)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Order>()
+                .HasMany(e => e.OrderDelivery)
+                .WithRequired(e => e.Order)
+                .HasForeignKey(e => e.IdOrder)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<OrderDelivery>()
+                .Property(e => e.LatitudeKl)
+                .HasPrecision(11, 8);
+
+            modelBuilder.Entity<OrderDelivery>()
+                .Property(e => e.LongitudeKl)
+                .HasPrecision(11, 8);
+
+            modelBuilder.Entity<OrderDelivery>()
+                .Property(e => e.LatitudeStaff)
+                .HasPrecision(11, 8);
+
+            modelBuilder.Entity<OrderDelivery>()
+                .Property(e => e.LongitudeStaff)
+                .HasPrecision(11, 8);
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.Description)
@@ -103,6 +131,11 @@ namespace FoodForHumanRaceAdminDesktop.Entity
                 .WithRequired(e => e.User)
                 .HasForeignKey(e => e.IdUser)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.OrderDelivery)
+                .WithOptional(e => e.User)
+                .HasForeignKey(e => e.IdStaff);
 
             modelBuilder.Entity<User>()
                 .HasMany(e => e.UsersAndEnterprise)

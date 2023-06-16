@@ -155,36 +155,16 @@ namespace WebApplicationFoodForHumanRace.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-
-            
             User userNew = db.User.Where(u=> u.Login == user.Login && u.Password == user.Password).FirstOrDefault();
-
-            //user = db.User.FirstOrDefault(u => u.Login == u.Login && u.Password == u.Password);
-            //User users = db.User.Where(u=> u.Login == user.Login && u.Password == user.Password).FirstOrDefault();
-            //new User() { Role = db.Role.FirstOrDefault(r => r.Name == "Fisherman"), UserLogin = user.UserLogin, UserPassword = user.UserPassword  };
-
-            //{ Role = db.Role.FirstOrDefault(r => r.Name == "Fisher"), };
-            //db.User.Add(userNew);
-            //db.SaveChanges();
-
-            //var users = new User() {Id = user.Id, Login = user.Login, Password = user.Password, FirsName = user.FirsName , Adress = user.Adress, Email = user.Email, LastName = user.LastName, MidleName = user.MidleName, Phone = user.Phone  };
-
-            //user = ADO.Instance.User.FirstOrDefault();
-
-
             if (userNew == null)
             {
                 return Unauthorized();//403 не авторизован
             }
             else
             {
-                return Ok(new AuthSignInResponse() { Id = userNew.Id, Login = userNew.Login, Password = userNew.Password, FirsName = userNew.FirsName, MidleName = userNew.MidleName, LastName = userNew.LastName, Role = userNew.Role.Name, Adress = userNew.Adress, Email = userNew.Email, Phone = userNew.Phone });
+                return Ok(new AuthSignInResponse() { Id = userNew.Id, Login = userNew.Login, Password = userNew.Password, FirsName = userNew.FirsName, 
+                    MidleName = userNew.MidleName, LastName = userNew.LastName, Role = userNew.Role.Name, Adress = userNew.Adress, Email = userNew.Email, Phone = userNew.Phone });
             }
-
-
-
-
         }
 
 
@@ -197,15 +177,11 @@ namespace WebApplicationFoodForHumanRace.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var userNew = new User { Role = db.Role.FirstOrDefault(r => r.Name == "Клиент"), Login = user.Login, Password = user.Password, FirsName = user.FirsName, MidleName = user.MidleName, LastName = user.LastName, Adress = user.Adress, Email = user.Email, Phone = user.Phone };
+            var userNew = new User { Role = db.Role.FirstOrDefault(r => r.Name == "Клиент"), Login = user.Login, Password = user.Password, 
+                FirsName = user.FirsName, MidleName = user.MidleName, LastName = user.LastName, Adress = user.Adress, Email = user.Email, Phone = user.Phone };
             db.User.Add(userNew);
             db.SaveChanges();
-
-            return Ok(/*new RegisterUserResponse() { Id = userNew.Id, Login = userNew.Login, Password = userNew.Password }*/);
-
-
-
-
+            return Ok();
         }
 
         // POST: api/Users

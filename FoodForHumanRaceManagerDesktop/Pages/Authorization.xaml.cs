@@ -44,21 +44,11 @@ namespace FoodForHumanRaceManagerDesktop.Pages
 
         private void LogIn(object sender, RoutedEventArgs e)
         {
-            /*if(ADO.Instance.User.First().Login == CurrentUser.Login)
-            //if ((CurrentUser.Login == ADO.Instance.User.All(c=> c.Login == CurrentUser.Login).ToString()) && (CurrentUser.Password == ADO.Instance.User.All(c => c.Password == CurrentUser.Password).ToString()))
-            //if (ADO.Instance.User.All(c=> c.Login == CurrentUser.Login && c.Password == CurrentUser.Password))
-            {                           
-                NavigationService.Navigate(new StartPage());
-            }
-            else
-            {
-                MessageBox.Show("Неправильный логин или пароль");
-            }*/
+          
             if (CurrentUser.Login != null)
             {
                 if (CurrentUser.Password != null)
                 {
-                    //var AutoUser = ADO.Instance.User.Select(c=> c.Login == CurrentUser.Login && c.Password == CurrentUser.Password);
                     GlobalUser = ADO.Instance.User.Where(c => c.Login == CurrentUser.Login && c.Password == CurrentUser.Password).FirstOrDefault();
                     if (GlobalUser != null)
                     {
@@ -67,7 +57,6 @@ namespace FoodForHumanRaceManagerDesktop.Pages
                     else
                     {
                         MessageBox.Show("провал");
-
                     }
                 }
                 else

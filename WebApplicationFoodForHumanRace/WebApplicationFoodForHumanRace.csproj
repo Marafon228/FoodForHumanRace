@@ -403,6 +403,7 @@
     <Compile Include="Models\Json\AuthSignIn.cs" />
     <Compile Include="Models\Json\AuthSignInResponse.cs" />
     <Compile Include="Models\Json\EnterpriseIdResponse.cs" />
+    <Compile Include="Models\Json\Geol.cs" />
     <Compile Include="Models\Json\GetAllUserResponse.cs" />
     <Compile Include="Models\Json\GetEnterpriseResponse.cs" />
     <Compile Include="Models\Json\GetOrderAllRowResponse.cs" />
@@ -410,12 +411,14 @@
     <Compile Include="Models\Json\GetOrder.cs" />
     <Compile Include="Models\Json\GetProductResponse.cs" />
     <Compile Include="Models\Json\GetTypesOfProductsResponse.cs" />
+    <Compile Include="Models\Json\OrderDelivaryReaponse.cs" />
     <Compile Include="Models\Json\OrderResponse.cs" />
     <Compile Include="Models\Json\ProductResponse.cs" />
     <Compile Include="Models\Json\RegisterUser.cs" />
     <Compile Include="Models\Json\RegisterUserResponse.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderAndProduct.cs" />
+    <Compile Include="Models\OrderDelivery.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Status.cs" />
@@ -538,9 +541,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55237</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://192.168.0.14:3310</IISUrl>
+          <IISUrl>http://192.168.101.124:3310</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://192.168.0.14:3310</IISAppRootUrl>
+          <IISAppRootUrl>http://192.168.101.124:3310</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

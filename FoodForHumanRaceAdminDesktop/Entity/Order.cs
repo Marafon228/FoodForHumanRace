@@ -1,6 +1,7 @@
 namespace FoodForHumanRaceAdminDesktop.Entity
 {
     using FoodForHumanRaceAdminDesktop.Helpers;
+    using FoodForHumanRaceAdminDesktop.Entity;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -14,6 +15,7 @@ namespace FoodForHumanRaceAdminDesktop.Entity
         public Order()
         {
             OrderAndProduct = new HashSet<OrderAndProduct>();
+            OrderDelivery = new HashSet<OrderDelivery>();
         }
 
         public int Id { get; set; }
@@ -44,5 +46,8 @@ namespace FoodForHumanRaceAdminDesktop.Entity
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderAndProduct> OrderAndProduct { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderDelivery> OrderDelivery { get; set; }
     }
 }

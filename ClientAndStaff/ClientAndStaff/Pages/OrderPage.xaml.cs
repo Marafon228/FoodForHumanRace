@@ -18,11 +18,30 @@ namespace ClientAndStaff.Pages
     {
         public OrderPage()
         {
-            InitializeComponent();
 
-            var client = new WebClient();
-            var response = client.DownloadString(Global.GlobalVar + "api/Orders/GetOrdersFromUserId?id=" + Global.CurrentUser.Id);
-            OrdersList.ItemsSource = JsonConvert.DeserializeObject<List<OrderLk>>(response);
+            InitializeComponent();
+            if (Global.CurrentUser.Role == "Клиент")
+            {
+                ControlTemplate = (ControlTemplate)Application.Current.Resources["NavigationTemplate"];
+            }
+            else
+            {
+                ControlTemplate = (ControlTemplate)Application.Current.Resources["NavigationTemplateStaff"];
+            }
+    
+            if (Global.CurrentUser.Role == "Клиент")
+            {
+                var client = new WebClient();
+                var response = client.DownloadString(Global.GlobalVar + "api/Orders/GetOrdersFromUserId?id=" + Global.CurrentUser.Id);
+                OrdersList.ItemsSource = JsonConvert.DeserializeObject<List<OrderLk>>(response);
+            }
+            else
+            {
+                var client = new WebClient();
+                var response = client.DownloadString(Global.GlobalVar + "api/Orders/GetOrdersFromStaffId?id=" + Global.CurrentUser.Id);
+                OrdersList.ItemsSource = JsonConvert.DeserializeObject<List<OrderLk>>(response);
+            }
+            
         }
 
         private void OnDetailsButton_Clicked(object sender, EventArgs e)

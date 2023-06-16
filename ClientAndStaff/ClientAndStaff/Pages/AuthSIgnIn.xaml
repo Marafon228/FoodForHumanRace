@@ -6,11 +6,11 @@
         <Grid BindingContext="{x:Binding Source=AuthSignInName, Path=.}">
             <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Login"></Label>
+                    <Label Text="Логин"></Label>
                     <Entry Width="120" Text="{Binding CurrentUser.Login}"></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Password"></Label>
+                    <Label Text="Пароль"></Label>
                     <Entry Width="120" Text="{Binding CurrentUser.Password}"></Entry>
                 </StackLayout>
                 <Button Text="Sign In" Clicked="Button_Clicked"></Button>

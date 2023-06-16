@@ -12,21 +12,21 @@
 
     <Grid DataContext="{Binding ElementName=EditProductName, Path=.}">
         <StackPanel Margin="20">
-            <TextBlock FontSize="30" Text="Edit Product"></TextBlock>
+            <TextBlock FontSize="30" Text="Изменить продукт"></TextBlock>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Product name:" FontSize="15"></TextBlock>
-                <TextBox Text="{Binding CurrentProduct.Name}" FontSize="15"></TextBox>
+                <TextBlock Text="Название:" FontSize="15"></TextBlock>
+                <TextBox Text="{Binding CurrentProduct.Name}" FontSize="15" Margin="35,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Product price:" FontSize="15"></TextBlock>
-                <TextBox Text="{Binding CurrentProduct.Price}" FontSize="15" Margin="15,0,0,0"></TextBox>
+                <TextBlock Text="Цена:" FontSize="15"></TextBlock>
+                <TextBox Text="{Binding CurrentProduct.Price}" FontSize="15" Margin="67,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Product quantity:" FontSize="15"></TextBlock>
-                <TextBox Text="{Binding CurrentProduct.Quantity}" FontSize="15" Margin="15,0,0,0"></TextBox>
+                <TextBlock Text="Количество:" FontSize="15"></TextBlock>
+                <TextBox Text="{Binding CurrentProduct.Quantity}" FontSize="15" Margin="22,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Product image:" FontSize="15"></TextBlock>
+                <TextBlock Text="Фото:" FontSize="15"></TextBlock>
                 <Button Content="Загрузить фото" Click="Button_Click">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
@@ -40,14 +40,14 @@
         </StackPanel>
         <StackPanel Margin="10" VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Button Content="SAVE" Margin="10" Width="80" Height="30" Click="Btn_Save">
+                <Button Content="Сохранить" Margin="10" Width="101" Height="30" Click="Btn_Save">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Content="CANCEL" Margin="10" Width="80" Height="30" Click="Btn_Cancel">
+                <Button Content="Отменить" Margin="10" Width="94" Height="30" Click="Btn_Cancel">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5"/>

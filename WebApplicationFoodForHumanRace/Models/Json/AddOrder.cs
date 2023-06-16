@@ -7,6 +7,8 @@ namespace WebApplicationFoodForHumanRace.Models.Json
 {
     public class AddOrder
     {
+        public decimal? Latitude { get; set; }
+        public decimal? Longitude { get; set; }
         public string Description { get; set; }
         public string LoginUser { get; set; }
         public ManuProduct[] ManuProducts { get; set; }

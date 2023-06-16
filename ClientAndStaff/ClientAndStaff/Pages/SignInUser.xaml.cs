@@ -27,31 +27,48 @@ namespace ClientAndStaff.Pages
 
         private async void Btn_SignIn(object sender, EventArgs e)
         {
-
-            var client = new WebClient();
-            client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-            var result = client.UploadString(Global.GlobalVar + "api/Users/SignIn", JsonConvert.SerializeObject(CurrentUser));
-            if (result != null)
+            try
             {
-                var roleUser = JsonConvert.DeserializeObject<User>(result);
-                if (roleUser.Role == "Клиент")
+                var client = new WebClient();
+                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+                var url = Global.GlobalVar + "api/Users/SignIn";
+                var result = client.UploadString(url, JsonConvert.SerializeObject(CurrentUser));
+                if (result != null)
                 {
-                    Global.CurrentUser = roleUser;
-                    await DisplayAlert("Message", "Registration was successful", "OK");
-                    await Navigation.PushAsync(new StartPage(), true);
+                    var roleUser = JsonConvert.DeserializeObject<User>(result);
+                    if (roleUser.Role == "Клиент")
+                    {
+                        Global.CurrentUser = roleUser;
+                        await DisplayAlert("Message", "Registration was successful", "OK");
+                        await Navigation.PushAsync(new StartPage(), true);
+                    }
+                    else if (roleUser.Role == "Сотрудник" || roleUser.Role == "Предприниматель" || roleUser.Role == "Менеджер")
+                    {
+                        Global.CurrentUser = roleUser;
+                        await DisplayAlert("Message", "Registration was successful", "OK");
+                        await Navigation.PushAsync(new StartPageStaffTest(), true);
+                    }
+                    else
+                    {
+                        await DisplayAlert("Message", "Registration invalid", "OK");
+
+                    }
                 }
-                else if (roleUser.Role == "Сотрудник" || roleUser.Role == "Предприниматель" || roleUser.Role == "Менеджер")
+            }
+            catch (WebException ex)
+            {
+                var response = ex.Response as HttpWebResponse;
+                if (response != null && response.StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    Global.CurrentUser = roleUser;
-                    await DisplayAlert("Message", "Registration was successful", "OK");
-                    await Navigation.PushAsync(new StartPageStaff(), true);
+                    await DisplayAlert("Error", "Invalid login or password", "OK");
                 }
                 else
                 {
-                    await DisplayAlert("Message", "Registration invalid", "OK");
-
+                    // Другая обработка ошибок, если необходимо
                 }
             }
+
+            
 
         }
 

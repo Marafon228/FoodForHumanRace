@@ -20,71 +20,71 @@
             <RowDefinition Height="87*"/>
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Add New Enterprise" FontSize="30"></TextBlock>
+        <TextBlock Text="Добавление предприятия" FontSize="30"></TextBlock>
         <StackPanel Grid.Row="1">
-            <TextBlock Text="Enterprise"></TextBlock>
+            <TextBlock Text="Предприятие"></TextBlock>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Name"></TextBlock>
-                <TextBox Margin="30,0,0,0" Text="{Binding CurrentEnterprise.Name}"></TextBox>
+                <TextBlock Text="Наименование"></TextBlock>
+                <TextBox Text="{Binding CurrentEnterprise.Name}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Type"></TextBlock>
+                <TextBlock Text="Тип"></TextBlock>
                 <ComboBox ItemsSource="{Binding TypeEnterprise, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           SelectedValuePath="." DisplayMemberPath="Name"
                           SelectedValue="{Binding CurrentEnterprise.TypeOfEnterprise, Mode=TwoWay}"
                           SelectedItem="{Binding CurrentEnterprise.TypeOfEnterprise, Mode=TwoWay}"
-                          Margin="37,0,0,0"></ComboBox>
+                          Margin="73,0,0,0"></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Address"></TextBlock>
-                <TextBox Text="{Binding CurrentEnterprise.Address}" Margin="20,0,0,0"></TextBox>
+                <TextBlock Text="Адрес"></TextBlock>
+                <TextBox Text="{Binding CurrentEnterprise.Address}" Margin="60,0,0,0"></TextBox>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Latiude"></TextBlock>
-                <TextBox Text="{Binding CurrentEnterprise.Latitude}" Margin="24,0,0,0"></TextBox>
+                <TextBlock Text="Долгота"></TextBlock>
+                <TextBox Text="{Binding CurrentEnterprise.Latitude}" Margin="49,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Longitude"></TextBlock>
-                <TextBox Text="{Binding CurrentEnterprise.Longitude}"></TextBox>
+                <TextBlock Text="Широта"></TextBlock>
+                <TextBox Text="{Binding CurrentEnterprise.Longitude}"  Margin="49,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal"/>
 
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
             
-            <TextBlock Text="Menedger"></TextBlock>
+            <TextBlock Text="Менеджер"></TextBlock>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Login:"></TextBlock>
+                <TextBlock Text="Логин"></TextBlock>
                 <TextBox Text="{Binding CurrentUser.Login, Mode=TwoWay}" Margin="50,0,0,0" ></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Password:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.Password}" Margin="30,0,0,0"></TextBox>
+                <TextBlock Text="Пароль"></TextBlock>
+                <TextBox Text="{Binding CurrentUser.Password}" Margin="42,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="First Name:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.FirsName}" Margin="23,0,0,0"></TextBox>
+                <TextBlock Text="Имя"></TextBlock>
+                <TextBox Text="{Binding CurrentUser.FirsName}" Margin="60,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Middli Name:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.MidleName}"></TextBox>
+                <TextBlock Text="Фамилия"></TextBlock>
+                <TextBox Text="{Binding CurrentUser.MidleName}" Margin="34,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Last Name:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.LastName}" Margin="23,0,0,0"></TextBox>
+                <TextBlock Text="Отчество"></TextBlock>
+                <TextBox Text="{Binding CurrentUser.LastName}" Margin="32,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Address:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.Adress}" Margin="38,0,0,0"></TextBox>
+                <TextBlock Text="Адрес"></TextBlock>
+                <TextBox Text="{Binding CurrentUser.Adress}" Margin="50,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Phone:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.Phone}" Margin="45,0,0,0"></TextBox>
+                <TextBlock Text="Телефон"></TextBlock>
+                <TextBox Text="{Binding CurrentUser.Phone}" Margin="37,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Email:"></TextBlock>
-                <TextBox Text="{Binding CurrentUser.Email}" Margin="50,0,0,0"></TextBox>
+                <TextBlock Text="Email"></TextBlock>
+                <TextBox Text="{Binding CurrentUser.Email}" Margin="56,0,0,0"></TextBox>
             </StackPanel>
             
         </StackPanel>
@@ -95,7 +95,7 @@
                         
                     </LinearGradientBrush>
                 </Border.Background>
-                <Button Content="SAVE" Click="Btn_Save">
+                <Button Content="Сохранить" Click="Btn_Save">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="3"/>
@@ -109,7 +109,7 @@
                     
                 </LinearGradientBrush>
                 </Border.Background>
-                <Button Content="CANCEL" Click="Btn_Cancel">
+                <Button Content="Отменить" Click="Btn_Cancel">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="3"/>

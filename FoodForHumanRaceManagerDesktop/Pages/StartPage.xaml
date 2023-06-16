@@ -19,21 +19,21 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock  Text="Enterprtise" FontSize="25"></TextBlock>
+        
         <StackPanel Grid.Row="1">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="{Binding UserEnterprise.Login}" FontSize="20" Width="100"></TextBlock>
                 <Image></Image>
             </StackPanel>
             <StackPanel Margin="0 10 0 0">
-                <Button Content="Enterprise" Margin="0 10 0 0" Click="Btn_View_Enterprise">
+                <Button Content="Предприятия" Margin="0 10 0 0" Click="Btn_View_Enterprise">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Content="Staff" Margin="0 10 0 0" Click="Btn_View_Staff">
+                <Button Content="Сотрудники" Margin="0 10 0 0" Click="Btn_View_Staff">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -42,14 +42,14 @@
                 </Button>
             </StackPanel>
             <StackPanel Margin="0 100 0 0">
-                <Button Content="Log Out" Click="LogOut">
+                <Button Content="Выйти" Click="LogOut">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Content="Response" Click="Button_Click" Margin="0 10 0 0">
+                <Button Content="Отчёты" Click="Button_Click" Margin="0 10 0 0">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5"/>

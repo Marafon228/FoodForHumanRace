@@ -22,8 +22,6 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
     /// </summary>
     public partial class DetaliesEnterprise : Page
     {
-        //private ADO db = new ADO();
-
         private Enterprise myEnterprise;
 
         public Enterprise MyEnterprise
@@ -31,11 +29,6 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
             get { return myEnterprise; }
             set { myEnterprise = value; }
         }
-
-
-       
-
-
         private ObservableCollection<Product> myProduct;
 
         public ObservableCollection<Product> MyProduct
@@ -60,20 +53,7 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
                 MyEnterprise = new Enterprise();
                 MyEnterprise.UsersAndEnterprise = new List<UsersAndEnterprise>(ADO.Instance.User.ToList().Select(u => new UsersAndEnterprise() { User = u, Enterprise = MyEnterprise }));
             }
-
-            //MyEnterprise = ADO.Instance.Enterprise.FirstOrDefault();
-
-            /*.Select(e=> new Enterprise { Name = e.Name, Address = e.Address, Latitude = e.Latitude})*/
-            /*.ToList();*/
-
-            /*MyProduct = db.Product*//*.Where(p=> MyEnterprise.TypesOfProducts == p.TypesOfProducts)*//*
-                                    .ToList();*/
-
             InitializeComponent();
-            /* var Product = db.Product
-                 *//*.Where(p => MyEnterprise.TypesOfProducts == p.TypesOfProducts)*//*.ToList();
-             ListViewProducts.ItemsSource = Product;*/
-            //ListViewProducts.ItemsSource = MyProduct; 
 
         }
 
@@ -89,40 +69,13 @@ namespace FoodForHumanRaceManagerDesktop.Pages.Models
 
         private void Btn_Delete_Product(object sender, RoutedEventArgs e)
         {            
-            //var Productremove = ListViewProducts.SelectedItems.Cast<Product>().ToList();
             var PrdoductRemoving = (sender as Button).DataContext as Product;
-            //TypesOfProducts TypesProduct = new TypesOfProducts() { Enterprise = MyEnterprise, Product = PrdoductRemoving };
 
 
             if (MessageBox.Show($"Вы точно хотите удалить {PrdoductRemoving.Name}?", "Внимание", MessageBoxButton.YesNo , MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-               // var TypesOfProductremove = ADO.Instance.TypesOfProducts.ToList().Select(tp=> tp.Product == PrdoductRemoving && tp.Enterprise == MyEnterprise)/*Where(pr=> pr.Product == PrdoductRemoving && pr.Enterprise == MyEnterprise).FirstOrDefault()*/;
+            {              
                 try
                 {
-
-                    /*TypesOfProducts CurrentType = new TypesOfProducts() { Enterprise = MyEnterprise, Product = PrdoductRemoving };
-                    //ADO.Instance.TypesOfProducts.Remove(ADO.Instance.TypesOfProducts.Where(tp=> tp.Product == PrdoductRemoving && tp.Enterprise == MyEnterprise).FirstOrDefault());
-                    ADO.Instance.TypesOfProducts.Remove(CurrentType);
-                    ADO.Instance.SaveChanges()   */
-                    /*while (PrdoductRemoving != null)
-                    {
-                        foreach (var itemType in PrdoductRemoving.TypesOfProducts)
-                        {
-                            ADO.Instance.TypesOfProducts.Remove(itemType);
-                        }
-                        foreach (var itemOrder in PrdoductRemoving.OrderAndProduct)
-                        {
-                            ADO.Instance.OrderAndProduct.Remove(itemOrder);
-                        }
-                        ADO.Instance.Product.Remove(PrdoductRemoving);*/
-                    //ADO.Instance.OrderAndProduct.Remove(PrdoductRemoving.OrderAndProduct.FirstOrDefault());
-
-                    /*}*/
-                    /*ADO.Instance.SaveChanges();
-                    ADO.Instance.TypesOfProducts.Remove(PrdoductRemoving.TypesOfProducts.FirstOrDefault());
-                    ADO.Instance.SaveChanges();
-                    
-                    ADO.Instance.Product.Remove(PrdoductRemoving);*/
                     ADO.Instance.TypesOfProducts.Remove(PrdoductRemoving.TypesOfProducts.FirstOrDefault());
                     ADO.Instance.SaveChanges();
                     MessageBox.Show("Продукт удалён");

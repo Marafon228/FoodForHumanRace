@@ -60,7 +60,7 @@ namespace ClientAndStaff
 
         private void OrderStaff_Clicked(object sender, EventArgs e)
         {
-
+            MainPage = new NavigationPage(new OrderPage()); 
         }
 
         private void MapsStaff_Clicked(object sender, EventArgs e)

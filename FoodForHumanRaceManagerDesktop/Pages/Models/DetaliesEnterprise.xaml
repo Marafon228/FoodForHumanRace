@@ -23,8 +23,8 @@
         <StackPanel Grid.Row="1">
             
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Product" FontSize="25"></TextBlock>
-                <Button Content="Add" HorizontalAlignment="Right" Click="Btn_Add_Product" Margin="20 0 0 0">
+                <TextBlock Text="Продукты" FontSize="25"></TextBlock>
+                <Button Content="Добавить" HorizontalAlignment="Right" Click="Btn_Add_Product" Margin="20 0 0 0">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="3"/>
@@ -60,7 +60,7 @@
                                 </Image>
                                 <TextBlock>
                                     <TextBlock.Text>
-                                        <MultiBinding StringFormat="{} {0}  {1} {2}">
+                                        <MultiBinding StringFormat="{} {0}  {1}р {2}">
                                             <Binding Path="Name"></Binding>
                                             <Binding Path="Price"></Binding>
                                             <Binding Path="Description"></Binding>
@@ -68,8 +68,8 @@
                                     </TextBlock.Text>
                                 </TextBlock>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Content="Edit" Click="Btn_Edit_Product"></Button>
-                                    <Button Content="Delete" Click="Btn_Delete_Product"></Button>
+                                    <Button Content="Изменить" Click="Btn_Edit_Product"></Button>
+                                    <Button Content="Удалить" Click="Btn_Delete_Product"></Button>
                                 </StackPanel>
 
                             </StackPanel>

@@ -5,15 +5,15 @@
              >
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <Label Text="Order Name:" FontAttributes="Bold" />
+            <Label Text="Название :" FontAttributes="Bold" />
             <Label Text="{Binding CurrentOrder.Name}" />
-            <Label Text="Order Description:" FontAttributes="Bold" />
+            <Label Text="Описание:" FontAttributes="Bold" />
             <Label Text="{Binding CurrentOrder.Description}" />
-            <Label Text="Order Date:" FontAttributes="Bold" />
+            <Label Text="Дата:" FontAttributes="Bold" />
             <Label Text="{Binding CurrentOrder.Date}" />
-            <Label Text="Order Status:" FontAttributes="Bold" />
+            <Label Text="Статус:" FontAttributes="Bold" />
             <Label Text="{Binding CurrentOrder.Status}" />
-            <Label Text="Products:" FontAttributes="Bold" />
+            <Label Text="Продукты:" FontAttributes="Bold" />
             <ListView x:Name="OrdersList" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -36,7 +36,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Track Order" Command="{Binding TrackOrderCommand}" />
+            <Button x:Name="TrackBtnYandex" Text="Отследить заказ на Яндекс картах" Clicked="TrackBtnYandex_Clicked" IsVisible="false"/>
+            <Button x:Name="TrackBtnGoogle" Text="Отследить заказ на Googlr картах" Clicked="TrackBtnGoogle_Clicked" IsVisible="false"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

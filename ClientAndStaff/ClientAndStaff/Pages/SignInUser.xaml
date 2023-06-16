@@ -7,16 +7,16 @@
         <Grid>
             <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Login"></Label>
+                    <Label Text="Логни"></Label>
                     <Entry WidthRequest="120" Text="{Binding CurrentUser.Login}"></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Password"></Label>
+                    <Label Text="Пароль"></Label>
                     <Entry WidthRequest="120" IsPassword="True" Text="{Binding CurrentUser.Password}"></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Sign In" Clicked="Btn_SignIn"></Button>
-                    <Button Text="Registration" Clicked="Btn_Reg"></Button>
+                    <Button Text="Войти" Clicked="Btn_SignIn"></Button>
+                    <Button Text="Регистрация" Clicked="Btn_Reg"></Button>
                 </StackLayout>
             </StackLayout>
         </Grid>

@@ -16,23 +16,23 @@
 
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label FontSize="20" Text="Date of create: "></Label>
+                                    <Label FontSize="20" Text="Дата создания: "></Label>
                                     <Label FontSize="20" Text="{Binding Date}"></Label>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label FontSize="20" Text="Overprice: "></Label>
+                                    <Label FontSize="20" Text="Финальная цена: "></Label>
                                     <Label FontSize="20" Text="{Binding OverPrice}"></Label>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label FontSize="20"  Text="Count: "></Label>
+                                    <Label FontSize="20"  Text="Количество: "></Label>
                                     <Label FontSize="20"  Text="{Binding Count}"></Label>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label FontSize="20"  Text="Address: "></Label>
+                                    <Label FontSize="20"  Text="Адрес: "></Label>
                                     <Label FontSize="20"  Text="{Binding Description}"></Label>
                                 </StackLayout>
 
-                                <Button Text="Accept" WidthRequest="50" HeightRequest="40" Clicked="Button_Clicked"></Button>
+                                <Button Text="Принять закза" WidthRequest="50" HeightRequest="40" Clicked="Button_Clicked"></Button>
                             </StackLayout>
                         </ViewCell>
 

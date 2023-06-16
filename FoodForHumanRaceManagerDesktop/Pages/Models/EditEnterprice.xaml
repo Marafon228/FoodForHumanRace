@@ -13,42 +13,42 @@
 
     <Grid DataContext="{Binding ElementName=EditEnterpriseName, Path=.}">
         <StackPanel Margin="30">
-            <TextBlock Text="Enterprise"></TextBlock>
+            <TextBlock Text="Предприятие"></TextBlock>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Name"></TextBlock>
-                <TextBox Text="{Binding CurrentEnterprise.Name}" Margin="20,0,0,0"></TextBox>
+                <TextBlock Text="Наименование"></TextBlock>
+                <TextBox Text="{Binding CurrentEnterprise.Name}" Margin="10,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Type"></TextBlock>
+                <TextBlock Text="Тип"></TextBlock>
                 <ComboBox ItemsSource="{Binding TypeEnterprise, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                           SelectedValuePath="." DisplayMemberPath="Name"
                           SelectedValue="{Binding CurrentEnterprise.TypeOfEnterprise, Mode=TwoWay}"
                           SelectedItem="{Binding CurrentEnterprise.TypeOfEnterprise, Mode=TwoWay}"
-                          Margin="27,0,0,0"
+                          Margin="73,0,0,0"
                           ></ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Address"></TextBlock>
-                <TextBox Text="{Binding CurrentEnterprise.Address}"></TextBox>
+                <TextBlock Text="Адрес"></TextBlock>
+                <TextBox Text="{Binding CurrentEnterprise.Address}" Margin="60,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal"/>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Latiude"></TextBlock>
-                <TextBox Text="{Binding CurrentEnterprise.Latitude}" Margin="15,0,0,0"></TextBox>
+                <TextBlock Text="Долгота"></TextBlock>
+                <TextBox Text="{Binding CurrentEnterprise.Latitude}" Margin="49,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Longitude"></TextBlock>
-                <TextBox Text="{Binding CurrentEnterprise.Longitude}" Margin="2,0,0,0"></TextBox>
+                <TextBlock Text="Широта"></TextBlock>
+                <TextBox Text="{Binding CurrentEnterprise.Longitude}" Margin="49,0,0,0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Content="SAVE" Click="Btn_Save">
+                <Button Content="Сохранить" Click="Btn_Save">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="3"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Content="CANCEL" Click="Btn_Back" Margin="15 0 0 0">
+                <Button Content="Отменить" Click="Btn_Back" Margin="15 0 0 0">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="3"/>

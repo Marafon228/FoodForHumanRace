@@ -68,6 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Entity\OrderDelivery.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -96,6 +97,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EditEnterprice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\Prot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,6 +117,9 @@
   <ItemGroup>
     <Compile Include="Pages\AddEnterprise.xaml.cs">
       <DependentUpon>AddEnterprise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditEnterprice.xaml.cs">
+      <DependentUpon>EditEnterprice.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Prot.xaml.cs">
       <DependentUpon>Prot.xaml</DependentUpon>

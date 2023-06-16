@@ -18,16 +18,16 @@
             <StackPanel.Background>
                 <SolidColorBrush Color="#cccccc" Opacity="0.8"/>
             </StackPanel.Background>
-            <TextBlock Text="Authorization" FontSize="30" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Text="Авторизация" FontSize="30" HorizontalAlignment="Center"></TextBlock>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="LOGIN:" FontSize="20" Margin="0 0 56 0"></TextBlock>
+                <TextBlock Text="Логин:" FontSize="20" Margin="0 0 39 0"></TextBlock>
                 <TextBox FontSize="20" Text="{Binding CurrentUser.Login}" Width="100"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="PASSWORD:" FontSize="20" Margin="0 0 10 0"></TextBlock>
+                <TextBlock Text="Пароль:   " FontSize="20" Margin="0 0 10 0"></TextBlock>
                 <TextBox FontSize="20" Text="{Binding CurrentUser.Password}" Width="100"></TextBox>
             </StackPanel>
-            <Button Content="LOGIN" Margin="10" Click="LogIn">
+            <Button Content="Войти" Margin="10" Click="LogIn">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>
